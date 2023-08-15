@@ -1,6 +1,9 @@
-1. FFT on rails (divide and conquer)
-2. Young diagram
-3. link/cut tree
-4. Full Cartesian tree
-5. Code for Dijkstra with potentials
-6. 
+1. Young diagram
+2. link/cut tree
+3. Full Cartesian tree
+4. Code for Dijkstra with potentials
+5. Berlekamp-Massey
+6. FFT on rails (divide and conquer)
+7. FFT /, %, exp? 
+8. Botsan-Mori
+9. 
