@@ -1,0 +1,6 @@
+1. FFT on rails (divide and conquer)
+2. Young diagram
+3. link/cut tree
+4. Full Cartesian tree
+5. Code for Dijkstra with potentials
+6. 
