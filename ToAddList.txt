@@ -7,3 +7,8 @@
 7. FFT /, %, exp? 
 8. Botsan-Mori
 9. Edmonds' Blossom
+10. Segment Tree Beats
+11. Ladder Nim.
+12. Nim multiplication
+13. Burnside's lemma
+14. Generating functions (solve a lot problems)
