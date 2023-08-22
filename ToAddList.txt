@@ -12,3 +12,4 @@
 12. Nim multiplication
 13. Burnside's lemma
 14. Generating functions (solve a lot problems)
+15. Convex Hull Trick (hard version + easy version???)
