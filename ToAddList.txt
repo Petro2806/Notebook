@@ -13,3 +13,5 @@
 13. Burnside's lemma
 14. Generating functions (solve a lot problems)
 15. Convex Hull Trick (hard version + easy version???)
+16. Bash script
+17. Sparse table
