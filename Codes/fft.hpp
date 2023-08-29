@@ -76,7 +76,7 @@ void fft(VI& a, bool invert)
 	}
 }
 
-void mult(VI& a, VI b)
+VI mult(VI a, VI b)
 {
 	int sz = 0;
 	while((1 << sz) < SZ(a) + SZ(b) - 1) sz++;
@@ -90,6 +90,7 @@ void mult(VI& a, VI b)
 		a[i] = mult(a[i], b[i]);
 	
 	fft(a, 1);
+	return a;
 }
 
 
