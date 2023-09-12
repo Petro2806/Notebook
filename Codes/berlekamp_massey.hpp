@@ -1,6 +1,6 @@
-vector<int> berlekampMassey(const vector<int>& a)
+VI berlekampMassey(const VI& a)
 {
-	vector<int> c = {1}, bp = {1};
+	VI c = {1}, bp = {1};
 	int l = 0, b = 1, x = 1;
 	FOR(j, 0, SZ(a))
 	{
@@ -13,7 +13,7 @@ vector<int> berlekampMassey(const vector<int>& a)
 			x++;
 			continue;
 		}
-		vector t = c;
+		VI t = c;
 		int coef = mult(d, binPow(b, mod - 2));
 		if (SZ(bp) + x > SZ(c))
 			c.resize(SZ(bp) + x);
@@ -29,7 +29,7 @@ vector<int> berlekampMassey(const vector<int>& a)
 		b = d;
 		x = 1;
 	}
-	c = vector(c.begin() + 1, c.end());
+	c = VI(c.begin() + 1, c.end());
 	for (int& ci : c)
 		ci = mult(ci, mod - 1);
 	return c;
