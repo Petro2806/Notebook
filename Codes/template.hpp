@@ -3,8 +3,6 @@ using namespace std;
 
 #define FOR(i, a, b) for(int i = (a); i < (b); i++)
 #define RFOR(i, b, a) for(int i = (b) - 1; i >= (a); i--)
-#define FILL(a, val) memset(a, val, sizeof(a))
-
 #define SZ(a) (int)a.size()
 #define ALL(a) a.begin(), e.end()
 #define PB push_back
@@ -21,4 +19,7 @@ int main()
 {
     ios::sync_with_stdio(0); 
     cin.tie(0);
+	cout << fixed << setprecision(15);
+	
+	return 0;
 }
