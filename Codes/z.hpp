@@ -1,22 +1,21 @@
-int Z[MAX];	
-	
-void Zf(const string& s)
+void zFunction(const string& s)
 {
 	int n = SZ(s);
+	VI z(n);
 
 	int l = 0;
 	int r = 0;
 	FOR (i, 1, n)
 	{
-		Z[i] = 0;
+		z[i] = 0;
 		if (i <= r)
-			Z[i] = min(r - i + 1, Z[i - l]);
+			z[i] = min(r - i + 1, z[i - l]);
 
-		while(i + Z[i] < n && s[i + Z[i]] == s[Z[i]])
-			Z[i]++;
-		if(i + Z[i] - 1 > r)
+		while(i + z[i] < n && s[i + z[i]] == s[z[i]])
+			z[i]++;
+		if(i + z[i] - 1 > r)
 		{
-			r = i + Z[i] - 1;
+			r = i + z[i] - 1;
 			l = i;
 		}
 	}
