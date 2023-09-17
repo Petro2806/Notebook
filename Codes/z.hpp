@@ -1,4 +1,4 @@
-void zFunction(const string& s)
+VI zFunction(const string& s)
 {
 	int n = SZ(s);
 	VI z(n);
@@ -19,4 +19,5 @@ void zFunction(const string& s)
 			l = i;
 		}
 	}
+	return z;
 }
