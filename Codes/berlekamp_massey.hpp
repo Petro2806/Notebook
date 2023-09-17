@@ -29,7 +29,7 @@ VI berlekampMassey(const VI& a)
 		b = d;
 		x = 1;
 	}
-	c = VI(c.begin() + 1, c.end());
+	c.erase(c.begin());
 	for (int& ci : c)
 		ci = mult(ci, mod - 1);
 	return c;
