@@ -25,8 +25,8 @@ int binpow(int a, int n)
 	return res;
 }
 
-const int LEN = 1 << 20;
-const int GEN = 646;
+const int LEN = 1 << 23;
+const int GEN = 31;
 int PW[LEN];
 
 void init()
