@@ -19,15 +19,16 @@ struct DSU
 		return p[v] = find(p[v]);
 	}
 	
-	void unite(int u, int v)
+	bool unite(int u, int v)
 	{
 		u = find(u);
 		v = find(v);
 		if (u == v) 
-			return;
+			return false;
 		if (sz[u] > sz[v])
 			swap(u, v);
 		p[u] = v;
 		sz[v] += sz[u];
+		return true;
 	}
 };
