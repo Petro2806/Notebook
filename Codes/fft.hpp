@@ -27,15 +27,9 @@ int binpow(int a, int n)
 
 const int LEN = 1 << 23;
 const int GEN = 31;
-int PW[LEN];
+const int IGEN = binpow(GEN, mod - 2);
 
-void init()
-{
-	PW[0] = 1;
-	FOR(i, 1, LEN)
-		PW[i] = mult(PW[i - 1], GEN);
-}
-void fft(VI& a, bool invert)
+void fft(VI& a, bool inv)
 {
 	int lg = 0;
 	while((1 << lg) < SZ(a)) lg++;
@@ -49,26 +43,23 @@ void fft(VI& a, bool invert)
 	}
 	for(int len = 2; len <= SZ(a); len *= 2)
 	{
-		int diff = LEN / len;
-		if(invert) diff = LEN - diff;
+		int ml = binpow(inv ? IGEN : GEN, LEN / len);
 		for(int i = 0; i < SZ(a); i += len)
 		{
-			int pos = 0;
+			int pw = 1;
 			FOR(j, 0, len / 2)
 			{
 				int v = a[i + j];
-				int u = mult(a[i + j + len / 2], PW[pos]);
+				int u = mult(a[i + j + len / 2], pw);
 				
 				a[i + j] = add(v, u);
 				a[i + j + len / 2] = sub(v, u);
 			
-				pos += diff;
-				if(pos >= LEN)
-					pos -= LEN;
+				pw = mult(pw, ml);
 			}
 		}
 	}
-	if(invert)
+	if(inv)
 	{
 		int m = binpow(SZ(a), mod - 2);
 		FOR(i, 0, SZ(a))
@@ -79,7 +70,8 @@ void fft(VI& a, bool invert)
 VI mult(VI a, VI b)
 {
 	int sz = 0;
-	while((1 << sz) < SZ(a) + SZ(b) - 1) sz++;
+	int sum = SZ(a) + SZ(b) - 1;
+	while((1 << sz) < sum) sz++;
 	a.resize(1 << sz);
 	b.resize(1 << sz);
 	
@@ -90,6 +82,7 @@ VI mult(VI a, VI b)
 		a[i] = mult(a[i], b[i]);
 	
 	fft(a, 1);
+	a.resize(sum);
 	return a;
 }
 

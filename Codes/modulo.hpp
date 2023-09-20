@@ -1,4 +1,4 @@
-void scale(VI& a)
+void removeLeadingZeros(VI& a)
 {
 	while(SZ(a) > 0 && a.back() == 0)
 		a.pop_back();
@@ -28,7 +28,7 @@ pair<VI, VI> modulo(VI a, VI b)
 	FOR(i, 0, SZ(a))
 		res[i] = sub(a[i], res[i]);
 	
-	scale(d);
-	scale(res);
+	removeLeadingZeros(d);
+	removeLeadingZeros(res);
 	return MP(d, res);
 }
