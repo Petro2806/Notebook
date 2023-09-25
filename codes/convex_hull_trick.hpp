@@ -37,7 +37,6 @@ struct ConvexHull: set<Line, less<>>
 		x = prev(it)->xLast + 1;
 		return it->getY(x) < l.getY(x);
 	}
-	
 	void add(LL a, LL b)
 	{
 		Line l(a, b);
@@ -63,7 +62,6 @@ struct ConvexHull: set<Line, less<>>
 		l.xLast = it == end() ? LINF : l.intersect(*it);
 		insert(l);
  	}
-	
 	LL getMaxY(LL x)
 	{
 		return lower_bound(x)->getY(x);
