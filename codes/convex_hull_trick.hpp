@@ -11,7 +11,7 @@ struct Line
 	{
 		return xLast < x;
 	}
-	LL getY(int x) const
+	__int128 getY(__int128 x) const
 	{
 		return a * x + b;
 	}
@@ -37,13 +37,14 @@ struct ConvexHull: set<Line, less<>>
 		x = prev(it)->xLast + 1;
 		return it->getY(x) < l.getY(x);
 	}
+	
 	void add(LL a, LL b)
 	{
 		Line l(a, b);
 		auto it = lower_bound(l);
 		if (it != end())
 		{
-			LL x = it == begin() ? -INF : prev(it)->xLast;
+			LL x = it == begin() ? -LINF : prev(it)->xLast;
 			if ((it == begin() || prev(it)->getY(x) >= l.getY(x)) && it->getY(x + 1) >= l.getY(x + 1))
 				return;
 		}
@@ -57,21 +58,12 @@ struct ConvexHull: set<Line, less<>>
 			Line lIt = *itP;
 			lIt.xLast = itP->intersect(l);
 			erase(itP);
-			if (lIt.xLast > -INF)
-			{
-				if (lIt.xLast >= INF)
-				{
-					while (it != end())
-						it = erase(it);
-					lIt.xLast = INF;
-				}
-				insert(lIt);
-			}
+			insert(lIt);
 		}
-		l.xLast = it == end() ? INF : l.intersect(*it);
-		assert(l.xLast <= INF);
+		l.xLast = it == end() ? LINF : l.intersect(*it);
 		insert(l);
  	}
+	
 	LL getMaxY(LL x)
 	{
 		return lower_bound(x)->getY(x);
