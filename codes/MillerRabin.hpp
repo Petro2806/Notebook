@@ -1,16 +1,20 @@
-mt19937 rng;
+// to speed up change candidates to at least 4 random values rng() % (a - 3) + 2;
 
-bool MillerRabin(LL a, int k = 4)
+VI candidates = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 47};
+bool MillerRabin(LL a)
 {
+	if (a == 1)
+		return false;
 	if (a == 2 || a == 3)
 		return true;
 	LL d = a - 1;
 	int s = __builtin_ctzll(d);
 	d >>= s;
 	
-	FOR (it, 0, k)
+	for (LL b : candidates)
 	{
-		LL b = rng() % (a - 3) + 2;
+		if (b >= a)
+			break;
 		b = binpow(b, d, a);
 		if (b == 1)
 			continue;
