@@ -1,4 +1,5 @@
 // to speed up change candidates to at least 4 random values rng() % (a - 3) + 2;
+// use __int128 in mult
 
 VI candidates = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 47};
 bool MillerRabin(LL a)
