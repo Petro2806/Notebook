@@ -16,6 +16,6 @@ Koni: | build
 	cp build/kactl.pdf Koni.pdf
 
 clean:
-	rm -f header.tmp && cd build && rm -f kactl.aux kactl.log kactl.tmp kactl.toc kactl.pdf kactl.ptc kactl.out kactltmp.tex
+	rm -f header.tmp Koni.pdf && cd build && rm -f kactl.aux kactl.log kactl.tmp kactl.toc kactl.pdf kactl.ptc kactl.out kactltmp.tex
 
 
