@@ -1,11 +1,20 @@
 \chapter{Graphs}
 
-\kactlimport[-l hpp]{centroid.hpp}
-\kactlimport[-l hpp]{HLD.hpp}
-%\kactlimport[-l hpp]{biconnected-components.hpp}
-%\kactlimport[-l hpp]{kun.hpp}
-\kactlimport[-l hpp]{dinic.hpp}
-\kactlimport[-l hpp]{min-cost-flow.hpp}
-\kactlimport[-l hpp]{hungarian.hpp}
-\kactlimport[-l hpp]{edmonds-blossom.hpp}
+\section{Decompositions}
+	\kactlimport[-l hpp]{centroid.hpp}
+	\kactlimport[-l hpp]{HLD.hpp}
+	%\kactlimport[-l hpp]{biconnected-components.hpp}
+
+\section{Flows}
+	%\kactlimport[-l hpp]{kun.hpp}
+	\kactlimport[-l hpp]{dinic.hpp}
+	\kactlimport[-l hpp]{min-cost-flow.hpp}
+		
+	\kactlimport[-l raw]{max-flow-min-capacities.txt}
+	\begin{center}\begin{minipage}{50mm}
+	\includegraphics[width=\textwidth]{content/graphs/max-flow-min-capacities.png}
+	\end{minipage}\end{center}
+
+	\kactlimport[-l hpp]{hungarian.hpp}
+	\kactlimport[-l hpp]{edmonds-blossom.hpp}
 
