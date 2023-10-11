@@ -26,12 +26,12 @@ LL rho(LL n)
 			return g;
 	}
 }
+VI primes = {2, 3, 5, 7, 11, 13, 17, 19, 23};
 
 vector<LL> factorize(LL n)
 {
 	vector<LL> ans;
 	
-	VI primes = {2, 3, 5, 7, 11, 13, 17, 19, 23};
 	for (auto p : primes)
 	{
 		while (n % p == 0)
