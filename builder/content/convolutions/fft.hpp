@@ -6,7 +6,7 @@ int add(int a, int b)
 }
 int sub(int a, int b)
 {
-	return (a - b < 0) ? (a - b + mod) : (a - b);
+	return (a - b >= 0) ? (a - b) : (a - b + mod);
 }
 int mult(int a, int b)
 {
