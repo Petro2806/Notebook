@@ -1,3 +1,6 @@
+/**
+ * Time: 0.6s for $|V| = 10^5, |E| = 2*10^5$
+ */
 struct Graph
 {
 	int L, R;
@@ -79,3 +82,16 @@ struct Graph
 		return res;
 	}
 };
+
+//Minimum number of vertex to cover edges
+//equal to size of mathing
+
+//Maximal independent set
+//is complement of vertex cover
+
+//To restore cover make directed graph
+//matched edges l <- r, not matched l -> r
+//dfs from vl : P[vl] == -1
+//cover: used[r] != -1 && mt[r] != -1
+//		 used[l] == -1 && P[l] != -1
+
