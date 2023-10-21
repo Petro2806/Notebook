@@ -1,0 +1,8 @@
+In general, try to build programs that are resistant to the oddities of
+floating-point numbers. Imagine that some evil demon is slightly modifying
+every result you compute in the way that is most likely to make your program
+fail. And try to write clean code that is clearly correct at first glance. If you
+need long explanations to justify why your program will not fail, then it is
+more likely that your program will in fact fail.
+
+Victor Lecomte, Handbook of geometry for competitive programmers
