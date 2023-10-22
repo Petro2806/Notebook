@@ -1,5 +1,5 @@
 /**
- * Description: $result < 10^18, P < 10^9$.
+ * Description: $result < 10^{18}, P < 10^9$.
  * Time: O(n^2) 
  */
 LL Chinese(VI A, VI P)
