@@ -1,8 +1,8 @@
-Гравці мають купки камінців a0, a1, ..., an.
-За один хід можна взяти з купки ai (1 <= i <= n) 
-не нульову кількість і перекинути її в (i-1)-шу купку.
+Players have stone piles of size a0, a1, ..., an.
+In one move player can take 0 < x <= ai stones from 
+i-th pile and move them to (i-1)-th pile.
 
-В цій грі парні купки не мають ніякого впливу на гру, 
-бо перекидання з непарної купки як викидання в НІМ, 
-а перекидання з парної як збільшення купки в НІМ. 
-Збільшення купки не змінює стан гри в НІМ.  
+In this game you can forget about even piles.
+Take stones from odd is equal to remove in NIM
+and from even equal to add in NIM.
+Adding in NIM useless. 

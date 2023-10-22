@@ -293,7 +293,7 @@ vector<Pt> circleCircle(const Pt& o1, db r1, const Pt& o2, db r2)
 //
 // the same code can be used to find the tangent to a circle
 // passing through a point by setting r2 to 0
-// (in which case the value of inner doesn’t matter)
+// (in which case the value of inner doesn't matter)
 vector<pair<Pt, Pt>> tangents(const Pt& o1, db r1, const Pt& o2, db r2, bool inner)
 {
 	if (inner)

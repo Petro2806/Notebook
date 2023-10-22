@@ -1,4 +1,5 @@
-/*
+/**
+ * Description: a[i].back() is right side element
  * Time: $O(m^2*n)$
  */
 VI Gauss(vector<VI> a)
@@ -6,7 +7,7 @@ VI Gauss(vector<VI> a)
 	int n = SZ(a);
 	if(n == 0)
 		return {};
-	int m = SZ(a[0]) - 1;
+	int m = SZ(a[0]) - 1;//number of variables
 	assert(n >= m);
 	
 	int vars = m;
