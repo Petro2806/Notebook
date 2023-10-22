@@ -1,0 +1,14 @@
+%\section{Binary Optimization}
+\[\sum_i a_i x_i + \sum_i b_i \overline{x_i} + \sum_{i, j} c_{i j} x_i \overline{x_j} \to \min\]
+
+If $a_i \le b_i$,
+add an edge from $S$ to $i$ of capacity $b_i - a_i$
+and add $a_i$ to the answer.
+
+Otherwise,
+add an edge from $i$ to $T$ of capacity $a_i - b_i$
+and add $b_i$ to the answer.
+
+Add an edge from $i$ to $j$ of capacity $c_{i j}$.
+
+Add the $S-T$ minimum cut to the answer.
