@@ -16,7 +16,7 @@ struct Graph
 	Graph(): _n(0) {}
 	Graph(int n): _n(n), g(n), d(n), p(n), w(n) {}
 	
-	void addEdge(int from, int to, int cap, LL cost)
+	void addEdge(int from,int to, int cap, LL cost)
 	{
 		assert(0 <= from && from < _n);
 		assert(0 <= to && to < _n);
@@ -83,7 +83,8 @@ struct Graph
 			for (int v = t; v != s;)
 			{
 				int e = p[v];
-				curFlow = min(curFlow, edges[e].cap - edges[e].flow);
+				curFlow = min(curFlow, 
+				edges[e].cap - edges[e].flow);
 				curCost += edges[e].cost;
 				v = edges[e].from;
 			}

@@ -43,14 +43,17 @@ struct ConvexHull: set<Line, less<>>
 		auto it = lower_bound(l);
 		if (it != end())
 		{
-			LL x = it == begin() ? -LINF : prev(it)->xLast;
-			if ((it == begin() || prev(it)->getY(x) >= l.getY(x)) 
+			LL x = it == begin() ? -LINF : 
+					prev(it)->xLast;
+			if ((it == begin() 
+				|| prev(it)->getY(x) >= l.getY(x)) 
 				&& it->getY(x + 1) >= l.getY(x + 1))
 				return;
 		}
 		while (it != end() && needErase(it, l))
 			it = erase(it);
-		while (it != begin() && needErase(prev(it), l))
+		while (it != begin() 
+			&& needErase(prev(it), l))
 			erase(prev(it));
 		if (it != begin())
 		{
@@ -60,7 +63,8 @@ struct ConvexHull: set<Line, less<>>
 			erase(itP);
 			insert(lIt);
 		}
-		l.xLast = it == end() ? LINF : l.intersect(*it);
+		l.xLast = it == end() ? LINF : 
+				l.intersect(*it);
 		insert(l);
  	}
 	LL getMaxY(LL x)

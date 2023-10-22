@@ -17,7 +17,6 @@ struct Graph
 		g[u].PB(v);
 		g[v].PB(u);
 	}
-	
 	void augmentPath(int v, int w)
 	{
 		int t = mate[v];
@@ -30,11 +29,11 @@ struct Graph
 			augmentPath(label[v], t);
 			return;
 		}
-		int x = label[v] / (n + 1), y = label[v] % (n + 1);
+		int x = label[v] / (n + 1); 
+		int y = label[v] % (n + 1);
 		augmentPath(x, y);
 		augmentPath(y, x);
 	}
-	
 	int findMaxMatching()
 	{
 		FOR(i, 0, n + 1)
@@ -116,7 +115,6 @@ struct Graph
 		}
 		return mt;
 	}
-	
 	int getMate(int v)
 	{
 		assert(0 <= v && v < n);

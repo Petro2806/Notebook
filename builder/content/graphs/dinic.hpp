@@ -38,7 +38,8 @@ struct Graph
 			for (int e : g[v])
 			{
 				int to = edges[e].to;
-				if (edges[e].flow < edges[e].cap && d[to] == -1)
+				if (edges[e].flow < edges[e].cap 
+					&& d[to] == -1)
 				{
 					d[to] = d[v] + 1;
 					q.push(to);

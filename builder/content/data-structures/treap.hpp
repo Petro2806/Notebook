@@ -48,8 +48,11 @@ struct Treap
 	{
 		if (v == -1) 
 			return;
-		A[v].cnt = getCnt(A[v].l) + getCnt(A[v].r) + 1;
-		A[v].mn = min(A[v].x, min(getMn(A[v].l), getMn(A[v].r)));
+		A[v].cnt = getCnt(A[v].l) + 
+		getCnt(A[v].r) + 1;
+		
+		A[v].mn = min(A[v].x, 
+		min(getMn(A[v].l), getMn(A[v].r)));
 	}
 	void reverse(int v)
 	{
