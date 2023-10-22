@@ -1,15 +1,17 @@
-https://atcoder.jp/contests/abc285/editorial/5535
+\url{https://atcoder.jp/contests/abc285/editorial/5535}
 
 On the resulting graph, 
 accumulate maximum flow in the following order:
-* from S' to T'
-* from S' to T
-* from S to T'
-* from S to T.
+\begin{itemize}
+\item from $S'$ to $T'$
+\item from $S'$ to $T$
+\item from $S$ to $T'$
+\item from $S$ to $T$.
+\end{itemize}
 
-An S-T flow that satisfies the minimum capacities 
+An $S-T$ flow that satisfies the minimum capacities 
 exists if and only if, for all outgoing edges 
-from S' and incoming edges to T', 
+from $S'$ and incoming edges to $T'$, 
 the flow and capacity are equal.
 
 \begin{center}\begin{minipage}{50mm}
