@@ -27,7 +27,7 @@ struct Graph
 	}
 	
 	int iter;
-	bool kun(int v)
+	bool kuhn(int v)
 	{
 		if (U[v] == iter) return false;
 		U[v] = iter;
@@ -43,7 +43,7 @@ struct Graph
 		}
 		for(int to : g[v])
 		{
-			if (kun(mt[to]))
+			if (kuhn(mt[to]))
 			{
 				mt[to] = v;
 				P[v] = to;
@@ -52,7 +52,7 @@ struct Graph
 		}
 		return false;
 	}
-	int doKun()
+	int doKuhn()
 	{
 		fill(ALL(mt), -1);
 		fill(ALL(P), -1);
@@ -71,7 +71,7 @@ struct Graph
 			for(int v : order)
 			{
 				if (P[v] == -1)
-					if (kun(v))
+					if (kuhn(v))
 					{
 						ok = true;
 						res++;
