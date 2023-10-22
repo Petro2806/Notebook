@@ -1,6 +1,7 @@
 /**
  * Description: $x \% P_i = A_i, lcm(P) < 10^{18}, P < 10^9$. \\
  * no solution -> return -1
+ * Time: O(nlog)
  */
 LL FastChinese(VI A, VI P)
 {
