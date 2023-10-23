@@ -1,0 +1,59 @@
+\chapter{Formulas}
+
+\section{Trigonometry}
+\begin{align*}
+\sin(v+w)&{}=\sin v\cos w+\cos v\sin w\\
+\cos(v+w)&{}=\cos v\cos w-\sin v\sin w\\
+\tan(v+w)&{}=\dfrac{\tan v+\tan w}{1-\tan v\tan w}\\
+\sin v+\sin w&{}=2\sin\dfrac{v+w}{2}\cos\dfrac{v-w}{2}\\
+\cos v+\cos w&{}=2\cos\dfrac{v+w}{2}\cos\dfrac{v-w}{2}
+\end{align*}
+
+\section{Triangles}
+Area: $A=\sqrt{p(p-a)(p-b)(p-c)}$\\
+$A=\dfrac{abc}{4R} = pr$\\
+Length of median: $m_a=\tfrac{1}{2}\sqrt{2b^2+2c^2-a^2}$\\
+
+\section{Derivatives/Integrals}
+\begin{align*}
+	\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}} &&& \dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}} \\
+	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2} \\
+	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&& \int x\sin ax = \dfrac{\sin ax-ax \cos ax}{a^2} \\
+	\int e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&& \int xe^{ax}dx = \frac{e^{ax}}{a^2}(ax-1)
+\end{align*}
+
+Integration by parts:
+\[\int_a^bf'(x)g(x)dx = [f(x)g(x)]_a^b-\int_a^bf(x)g'(x)dx\]
+
+\section{Series}
+$$f(x) = \sum_{n = 0}^{\inf} \frac{f^{(n)}(a) * (x - a)^n}{n!}$$
+$$e^x = \sum \frac{x^n}{n!}$$\\  
+$$\ln(1-x) = -\sum \frac{x^n}{n},(-1\leq x <1)$$
+
+\section{Number Theory}
+
+
+\subsection{Mobius}
+$$for n \ge 1 g(n) = \sum_{d|n}f(d)$$ 
+$$then f(n) = \sum_{d|n}\mu(d)g(n/d)$$
+
+$$M(n) = \sum_{k=1}^{n}\mu(k), \sum_{n = 1}{x} M([x/n]) = 1$$
+
+\subsection{Catalan}
+$$C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k}$$ 
+$$C_n = \frac{1}{n + 1} C_{2n}^{n}$$
+$$C_n = C_{2n}^{n} - C_{2n}{n - 1}$$
+
+\subsection{Binomials}
+$$\sum_{k = 0}^{n} C_n^k = 2^n$$ 
+$$\sum_{m = 0}^{n} C_m^k = C_{n + 1}^{k + 1}$$
+$$\sum_{k = 0}^{m} C_{n + k}^k = C_{n + m + 1}^m$$
+
+$$\sum_{k = 0}^{n} (C_n^k)^2 = C_{2n}^n$$
+$$\sum_{j = 0}^{k} C_m^j C_{n-m}^{k - j} = C_n^k$$
+$$\sum_{j = 0}^{m} C_m^j C_{n-m}^{k - j} = C_{n + 1}^{k + 1}$$
+
+$$\sum_{k = 0}^{n} C_{n - k}^k = F_{n + 1}$$
+
+
+
