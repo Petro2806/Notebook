@@ -1,4 +1,4 @@
-int d1[MAX], d2[MAX];
+int d1[N], d2[N];
 
 void manacher(const string& s)
 {
