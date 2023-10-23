@@ -18,63 +18,79 @@ struct Pt
 		return {x / d, y / d};
 	}
 };
+// Returns the squared absolute value
 db sq(const Pt& p)
 {
 	return p.x * p.x + p.y * p.y;
 }
+// Returns the absolute value
 db abs(const Pt& p)
 {
 	return sqrt(sq(p));
 }
+// Returns -1 for negative numbers, 0 for zero,
+// and 1 for positive numbers
 int sgn(db x)
 {
 	return (EPS < x) - (x < -EPS);
 }
+// Returns `p` rotated counter-clockwise by `a`
 Pt rot(const Pt& p, db a)
 {
 	db co = cos(a), si = sin(a);
-	return {p.x * co - p.y * si, p.x * si + p.y * co};
+	return {p.x * co - p.y * si,
+		p.x * si + p.y * co};
 }
+// Returns `p` rotated counter-clockwise by 90°
 Pt perp(const Pt& p)
 {
 	return {-p.y, p.x};
 }
+// Returns the dot product of `p` and `q`
 db dot(const Pt& p, const Pt& q)
 {
 	return p.x * q.x + p.y * q.y;
 }
+// Returns the angle between `p` and `q`
 db angle(const Pt& p, const Pt& q)
 {
-	return acos(clamp(dot(p, q) / abs(p) / abs(q), (db)-1.0, (db)1.0));
+	return acos(clamp(dot(p, q) / abs(p) /
+		abs(q), (db)-1.0, (db)1.0));
 }
+// Returns the cross product of `p` and `q`
 db cross(const Pt& p, const Pt& q)
 {
 	return p.x * q.y - p.y * q.x;
 }
-// positive if R is on the left side of PQ,
+// Positive if R is on the left side of PQ,
 // negative on the right side,
 // and zero if R is on the line containing PQ
 db orient(const Pt& p, const Pt& q, const Pt& r)
 {
 	return cross(q - p, r - p) / abs(q - p);
 }
+// Checks if a polygon `v` is convex
 bool isConvex(const vector<Pt>& v)
 {
 	bool hasPos = false, hasNeg = false;
 	int n = SZ(v);
 	FOR(i, 0, n)
 	{
-		int o = sgn(orient(v[i], v[(i + 1) % n], v[(i + 2) % n]));
+		int o = sgn(orient(v[i], v[(i + 1) % n],
+			v[(i + 2) % n]));
 		hasPos |= o > 0;
 		hasNeg |= o < 0;
 	}
 	return !(hasPos && hasNeg);
 }
+// Checks if argument of `p` is in [-pi, 0)
 bool half(const Pt& p)
 {
 	assert(sgn(p.x) != 0 || sgn(p.y) != 0);
-	return sgn(p.y) == -1 || (sgn(p.y) == 0 && sgn(p.x) == -1);
+	return sgn(p.y) == -1 ||
+		(sgn(p.y) == 0 && sgn(p.x) == -1);
 }
+// Polar sort of vectors in `v` around `o`
 void polarSortAround(const Pt& o, vector<Pt>& v)
 {
 	sort(ALL(v), [o](const Pt& p, const Pt& q)
@@ -88,6 +104,7 @@ void polarSortAround(const Pt& o, vector<Pt>& v)
 		return sq(p - o) < sq(q - o);
 	});
 }
+// Returns the distance of the closest points
 db closestPair(vector<Pt> v)
 {
 	sort(ALL(v), [](const Pt& p, const Pt& q)
@@ -99,83 +116,110 @@ db closestPair(vector<Pt> v)
 	db h = 1e18;
 	FOR(i, 0, n)
 	{
-		for (auto it = s.lower_bound(MP(v[i].y - h, v[i].x));
-			it != s.end() && sgn(it->F - (v[i].y + h)) <= 0; it++)
+		for (auto it = s.lower_bound(
+			MP(v[i].y - h, v[i].x)); it != s.end()
+			&& sgn(it->F - (v[i].y + h)) <= 0; it++)
 		{
 			Pt q = {it->S, it->F};
 			h = min(h, abs(v[i] - q));
 		}
-		for (; sgn(v[ptr].x - (v[i].x - h)) <= 0; ptr++)
+		for (; sgn(v[ptr].x - (v[i].x - h)) <= 0;
+			ptr++)
 			s.erase({v[ptr].y, v[ptr].x});
 		s.insert({v[i].y, v[i].x});
 	}
 	return h;
 }
+// Example:
+// cout << a + b << " " << a - b << "\n";
 ostream& operator<<(ostream& os, const Pt& p)
 {
 	return os << "(" << p.x << "," << p.y << ")";
 }
 struct Line
 {
+	// Equation of the line is dot(n, p) + c = 0
 	Pt n;
 	db c;
-	Line(const Pt& p, const Pt& q): n(perp(q - p)), c(-dot(n, p)) {}
+	// The line containing two points `p` and `q`
+	Line(const Pt& p, const Pt& q):
+		n(perp(q - p)), c(-dot(n, p)) {}
+	// The "positive side": dot(n, p) + c > 0
+	// The "negative side": dot(n, p) + c < 0
 	db side(const Pt& p) const
 	{
 		return dot(n, p) + c;
 	}
+	// Returns the distance from `p`
 	db dist(const Pt& p) const
 	{
 		return abs(side(p)) / abs(n);
 	}
+	// Returns the squared distance from `p`
 	db sqDist(const Pt& p) const
 	{
 		return side(p) * side(p) / (db)sq(n);
 	}
+	// Returns the perpendicular line through `p`
 	Line perpThrough(const Pt& p) const
 	{
 		return {p, p + n};
 	}
+	// Compares `p` and `q` by their projection
 	bool cmpProj(const Pt& p, const Pt& q) const
 	{
-		return sgn(cross(p, n) - cross(q, n)) == -1;
+		return sgn(cross(p, n) - cross(q, n)) < 0;
 	}
+	// Returns the orthogonal projection of `p`
 	Pt proj(const Pt& p) const
 	{
 		return p - n * side(p) / sq(n);
 	}
+	// Returns the reflection of `p` by the line
 	Pt refl(const Pt& p) const
 	{
 		return p - n * 2 * side(p) / sq(n);
 	}
 };
+// Checks if `l1` and `l2` are parallel
 bool parallel(const Line& l1, const Line& l2)
 {
 	return sgn(cross(l1.n, l2.n)) == 0;
 }
+// Returns the intersection point
 Pt inter(const Line& l1, const Line& l2)
 {
 	db d = cross(l1.n, l2.n);
 	assert(sgn(d) != 0);
 	return perp(l2.n * l1.c - l1.n * l2.c) / d;
 }
-// checks if a point P lies in the disk of diameter [AB]
-bool inDisk(const Pt& a, const Pt& b, const Pt& p)
+// Checks if `p` is in the disk of diameter [ab]
+bool inDisk(const Pt& a, const Pt& b,
+	const Pt& p)
 {
 	return sgn(dot(a - p, b - p)) <= 0;
 }
-bool onSegment(const Pt& a, const Pt& b, const Pt& p)
+// Checks if `p` lies on segment [ab]
+bool onSegment(const Pt& a, const Pt& b,
+	const Pt& p)
 {
-	return sgn(orient(a, b, p)) == 0 && inDisk(a, b, p);
+	return sgn(orient(a, b, p)) == 0
+		&& inDisk(a, b, p);
 }
-bool properInter(const Pt& a, const Pt& b, const Pt& c, const Pt& d)
+// Checks if the segments [ab] and [cd] intersect
+// properly (their intersection is one point
+// which is not an endpoint of either segment)
+bool properInter(const Pt& a, const Pt& b,
+	const Pt& c, const Pt& d)
 {
 	db oa = orient(c, d, a);
 	db ob = orient(c, d, b);
 	db oc = orient(a, b, c);
 	db od = orient(a, b, d);
-	return sgn(oa) * sgn(ob) == -1 && sgn(oc) * sgn(od) == -1;
+	return sgn(oa) * sgn(ob) == -1
+		&& sgn(oc) * sgn(od) == -1;
 }
+// Returns the distance between [ab] and `p`
 db segPt(const Pt& a, const Pt& b, const Pt& p)
 {
 	Line l(a, b);
@@ -184,17 +228,22 @@ db segPt(const Pt& a, const Pt& b, const Pt& p)
 		return l.dist(p);
 	return min(abs(p - a), abs(p - b));
 }
-db segSeg(const Pt& a, const Pt& b, const Pt& c, const Pt& d)
+// Returns the distance between [ab] and [cd]
+db segSeg(const Pt& a, const Pt& b, const Pt& c,
+	const Pt& d)
 {
 	if (properInter(a, b, c, d))
 		return 0;
 	return min({segPt(a, b, c), segPt(a, b, d),
 			segPt(c, d, a), segPt(c, d, b)});
 }
-db areaTriangle(const Pt& a, const Pt& b, const Pt& c)
+// Returns the area of triangle abc
+db areaTriangle(const Pt& a, const Pt& b,
+	const Pt& c)
 {
 	return abs(cross(b - a, c - a)) / 2.0;
 }
+// Returns the area of polygon `v`
 db areaPolygon(const vector<Pt>& v)
 {
 	db area = 0.0;
@@ -203,16 +252,22 @@ db areaPolygon(const vector<Pt>& v)
 		area += cross(v[i], v[(i + 1) % n]);
 	return abs(area) / 2.0;
 }
+// Returns true if `p` is at least as high as `a`
 bool above(const Pt& a, const Pt& p)
 {
 	return sgn(p.y - a.y) >= 0;
 }
-bool crossesRay(const Pt& a, const Pt& p, const Pt& q)
+// Checks if [pq] crosses the ray from `a`
+bool crossesRay(const Pt& a, const Pt& p,
+	const Pt& q)
 {
-	return sgn((above(a, q) - above(a, p)) * orient(a, p, q)) == 1;
+	return sgn((above(a, q) - above(a, p))
+		* orient(a, p, q)) == 1;
 }
-// if strict, returns false when A is on the boundary
-bool inPolygon(const vector<Pt>& v, const Pt& a, bool strict = true)
+// Checks if point `a` is inside a polygon
+// If `strict`, false when `a` is on the boundary
+bool inPolygon(const vector<Pt>& v, const Pt& a,
+	bool strict = true)
 {
 	int numCrossings = 0;
 	int n = SZ(v);
@@ -220,10 +275,12 @@ bool inPolygon(const vector<Pt>& v, const Pt& a, bool strict = true)
 	{
 		if (onSegment(v[i], v[(i + 1) % n], a))
 			return !strict;
-		numCrossings += crossesRay(a, v[i], v[(i + 1) % n]);
+		numCrossings +=
+			crossesRay(a, v[i], v[(i + 1) % n]);
 	}
 	return numCrossings & 1;
 }
+// Returns the counter-clockwise convex hull
 vector<Pt> convexHull(vector<Pt> v)
 {
 	sort(ALL(v), [](const Pt& p, const Pt& q)
@@ -236,25 +293,34 @@ vector<Pt> convexHull(vector<Pt> v)
 	vector<Pt> lower, upper;
 	for (const Pt& p : v)
 	{
-		while (SZ(lower) > 1 && sgn(orient(lower[SZ(lower) - 2], lower.back(), p)) < 0)
+		while (SZ(lower) > 1
+			&& sgn(orient(lower[SZ(lower) - 2],
+			lower.back(), p)) < 0)
 			lower.pop_back();
-		while (SZ(upper) > 1 && sgn(orient(upper[SZ(upper) - 2], upper.back(), p)) > 0)
+		while (SZ(upper) > 1
+			&& sgn(orient(upper[SZ(upper) - 2],
+			upper.back(), p)) > 0)
 			upper.pop_back();
 		lower.PB(p);
 		upper.PB(p);
 	}
 	reverse(ALL(upper));
-	lower.insert(lower.end(), upper.begin() + 1, prev(upper.end()));
+	lower.insert(lower.end(), upper.begin() + 1,
+		prev(upper.end()));
 	return lower;
 }
+// Returns the circumcenter of triangle abc
 Pt circumCenter(const Pt& a, Pt b, Pt c)
 {
 	b = b - a;
 	c = c - a;
 	assert(sgn(cross(b, c)) != 0);
-	return a + perp(b * sq(c) - c * sq(b)) / cross(b, c) / 2;
+	return a + perp(b * sq(c) - c * sq(b))
+		/ cross(b, c) / 2;
 }
-vector<Pt> circleLine(const Pt& o, db r, const Line& l)
+// Returns circle-line intersection points
+vector<Pt> circleLine(const Pt& o, db r,
+	const Line& l)
 {
 	db h2 = r * r - l.sqDist(o);
 	if (sgn(h2) == -1)
@@ -265,7 +331,9 @@ vector<Pt> circleLine(const Pt& o, db r, const Line& l)
 	Pt h = perp(l.n) * sqrt(h2) / abs(l.n);
 	return {p - h, p + h};
 }
-vector<Pt> circleCircle(const Pt& o1, db r1, const Pt& o2, db r2)
+// Returns circle-circle intersection points
+vector<Pt> circleCircle(const Pt& o1, db r1,
+	const Pt& o2, db r2)
 {
 	Pt d = o2 - o1;
 	db d2 = sq(d);
@@ -284,22 +352,24 @@ vector<Pt> circleCircle(const Pt& o1, db r1, const Pt& o2, db r2)
 	Pt h = perp(d) * sqrt(h2 / d2);
 	return {p - h, p + h};
 }
-// if there are 2 tangents, it returns res with two pairs of points:
-// the pairs of tangency points on each circle (P1, P2)
-//
-// if there is 1 tangent, the circles are tangent to each other
-// at some point P, res just contains P 4 times, and the tangent
-// line can be found as line(o1, p).perpThrough(p)
-//
-// the same code can be used to find the tangent to a circle
-// passing through a point by setting r2 to 0
-// (in which case the value of inner doesn't matter)
-vector<pair<Pt, Pt>> tangents(const Pt& o1, db r1, const Pt& o2, db r2, bool inner)
+// Finds common tangents (outer or inner)
+// If there are 2 tangents, returns the pairs of
+// tangency points on each circle (p1, p2)
+// If there is 1 tangent, the circles are tangent
+// to each other at some point p, res contains p
+// 4 times, and the tangent line can be found as
+// line(o1, p).perpThrough(p)
+// The same code can be used to find the tangent
+// to a circle through a point by setting r2 to 0
+// (in which case `inner` doesn't matter)
+vector<pair<Pt, Pt>> tangents(const Pt& o1,
+	db r1, const Pt& o2, db r2, bool inner)
 {
 	if (inner)
 		r2 = -r2;
 	Pt d = o2 - o1;
-	db dr = r1 - r2, d2 = sq(d), h2 = d2 - dr * dr;
+	db dr = r1 - r2, d2 = sq(d),
+		h2 = d2 - dr * dr;
 	if (sgn(d2) == 0 || sgn(h2) < 0)
 	{
 		assert(sgn(h2) != 0);
@@ -308,7 +378,8 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1, db r1, const Pt& o2, db r2, bool inn
 	vector<pair<Pt, Pt>> res;
 	for (db sign : {-1, 1})
 	{
-		Pt v = (d * dr + perp(d) * sqrt(h2) * sign) / d2;
+		Pt v = (d * dr + perp(d) * sqrt(h2)
+			* sign) / d2;
 		res.PB({o1 + v * r1, o2 + v * r2});
 	}
 	return res;
