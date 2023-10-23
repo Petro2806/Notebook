@@ -1,8 +1,10 @@
+//hash = 43db74
+ 
 #include <bits/stdc++.h>
 using namespace std;
 
 #define FOR(i, a, b) for(int i = (a); i < (b); i++)
-#define RFOR(i, b, a) for(int i = (b) - 1; i >= (a); i--)
+#define RFOR(i, a, b) for(int i = (a) - 1; i >= (b); i--)
 #define SZ(a) (int)a.size()
 #define ALL(a) a.begin(), a.end()
 #define PB push_back

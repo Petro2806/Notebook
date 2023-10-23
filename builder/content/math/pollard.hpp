@@ -3,6 +3,11 @@
 // use __int128 in mult
 // works in O(n^(1/4) * log n)
 
+LL f(LL x, LL c, LL n)
+{
+	return add(mult(x, x, n), c, n);
+}
+
 LL rho(LL n)
 {
 	const int iter = 47 * sqrt(sqrt(n));

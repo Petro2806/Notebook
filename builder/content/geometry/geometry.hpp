@@ -41,7 +41,7 @@ Pt rot(const Pt& p, db a)
 	return {p.x * co - p.y * si,
 		p.x * si + p.y * co};
 }
-// Returns `p` rotated counter-clockwise by 90°
+// Returns `p` rotated counter-clockwise by 90
 Pt perp(const Pt& p)
 {
 	return {-p.y, p.x};
