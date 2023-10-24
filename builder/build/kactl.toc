@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Data Structures}{2}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Graphs}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Decompositions}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Flows}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Flows text}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Specific}{8}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Strings}{10}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Geometry}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Math}{16}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Convolutions}{18}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Various}{22}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Formulas}{22}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Trigonometry}{22}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Triangles}{22}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Derivatives/Integrals}{22}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Series}{22}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Number Theory}{23}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Mobius}{23}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Catalan}{23}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Binomials}{23}{subsection.9.5.3}%
+\contentsline {section}{\numberline {9.6}Runge-Kutta 4th Order Method for Ordinary Differential Equations}{23}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Burnside's lemma}{23}{section.9.7}%
+\contentsfinish 

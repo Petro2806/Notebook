@@ -1,10 +1,15 @@
-VI g[MAX];     
-int sz[MAX];   
-int h[MAX];    
-int p[MAX];    
-int top[MAX];  
-int tin[MAX];
-int tout[MAX];
+/**
+ * Description: run dfsSZ and dfsHLD to build HLD.
+ * Vertex v has index tin[v]. To update on path use process as in get(). 
+ * */
+
+VI g[N];     
+int sz[N];   
+int h[N];    
+int p[N];    
+int top[N];  
+int tin[N];
+int tout[N];
 int t = 0;
 
 void dfsSZ(int v, int par = -1, int hei = 0)
