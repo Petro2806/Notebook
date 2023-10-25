@@ -15,7 +15,7 @@ struct Node
 };
 struct Automaton
 {
-	Node A[MAX * 2];
+	Node A[N * 2];
 	int sz;
 	int head;
 	void init()

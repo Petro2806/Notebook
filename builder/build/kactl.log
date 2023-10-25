@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.11)  24 OCT 2023 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.11)  25 OCT 2023 14:34
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -704,7 +704,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/graphs/min-cost-flow.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex) (./content/graphs/max-flow-min-capacities.tex
-<content/graphs/max-flow-min-capacities.png, id=918, 207.77625pt x 173.14688pt>
+<content/graphs/max-flow-min-capacities.png, id=917, 207.77625pt x 173.14688pt>
 File: content/graphs/max-flow-min-capacities.png Graphic file (type png)
 <use content/graphs/max-flow-min-capacities.png>
 Package pdftex.def Info: content/graphs/max-flow-min-capacities.png  used on input line 18.
@@ -833,10 +833,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/math/pollard.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 7.
-)
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/math/simplex.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -881,7 +878,10 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/convolutions/newton.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex)
+ (./build/kactltmp.tex
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 48.
+)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/convolutions/berlekamp-massey.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -892,7 +892,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/convolutions/botsan-mori.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "berlekamp-massey.hpp|botsan-mori.hpp" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "botsan-mori.hpp|botsan-mori.hpp" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [20])
 runsystem(rm -f build/kactltmp.tex)...executed.
@@ -965,18 +965,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: 0BCF2FF97F63A759D8C1F857286AE54B;760.
  ) 
 Here is how much of TeX's memory you used:
- 18790 strings out of 478287
- 286201 string characters out of 5849288
+ 18781 strings out of 478287
+ 286073 string characters out of 5849288
  1625522 words of memory out of 5000000
- 33751 multiletter control sequences out of 15000+600000
+ 33749 multiletter control sequences out of 15000+600000
  484962 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,77p,563b,2165s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (24 pages, 463402 bytes).
+Output written on build//kactl.pdf (24 pages, 466237 bytes).
 PDF statistics:
- 3642 PDF objects out of 4296 (max. 8388607)
- 3528 compressed objects within 36 object streams
- 2795 named destinations out of 2984 (max. 500000)
+ 3634 PDF objects out of 4296 (max. 8388607)
+ 3520 compressed objects within 36 object streams
+ 2788 named destinations out of 2984 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

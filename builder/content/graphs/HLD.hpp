@@ -1,5 +1,5 @@
 /**
- * Description: run dfsSZ and dfsHLD to build HLD.
+ * Description: run dfsSZ(root, -1, 0) and dfsHLD(root, -1, root) to build HLD.
  * Vertex v has index tin[v]. To update on path use process as in get(). 
  * */
 
@@ -12,7 +12,7 @@ int tin[N];
 int tout[N];
 int t = 0;
 
-void dfsSZ(int v, int par = -1, int hei = 0)
+void dfsSZ(int v, int par, int hei)
 {
 	sz[v] = 1;
 	h[v] = hei;
@@ -27,7 +27,7 @@ void dfsSZ(int v, int par = -1, int hei = 0)
 			swap(g[v][0], to);
 	}
 }
-void dfsHLD(int v, int par = -1, int tp = 0)
+void dfsHLD(int v, int par, int tp)
 {
 	tin[v] = t++;
 	top[v] = tp;

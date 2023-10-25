@@ -1,4 +1,10 @@
-int d1[MAX], d2[MAX];
+/**
+ * Description: d1[i] - half-length of odd length palindrome with center in i.
+ * d2[i] - half-length of even length palindrome if i is right center of it.
+ * 
+ **/
+
+int d1[N], d2[N];
 
 void manacher(const string& s)
 {

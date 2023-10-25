@@ -1,5 +1,6 @@
 Minimum on segment:
-1) Use two Fenwick trees with n = 2^k. 
+1) Use two Fenwick trees with n = 2^k.
+You can use if n > 1: 
 n = 1 << (32 - __builtin_clz(n - 1));
 2) One tree for normal array and one for reversed
 3) When querying for minimum on the segment 
