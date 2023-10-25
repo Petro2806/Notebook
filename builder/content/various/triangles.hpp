@@ -1,3 +1,10 @@
+/**
+ * Description: finds all triangles in a graph. 
+ * Should take vector of edges and EMPTY graph g. 
+ * In line cnt++ we find triangle v, u, w. 
+ * Time: O(m * sqrt(m))
+ **/
+
 int triangles(int n, int m)
 {
 	FOR (i, 0, m)

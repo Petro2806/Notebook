@@ -20,7 +20,7 @@ struct Node
 
 struct AC
 {
-	Node A[MAX];
+	Node A[N];
 	int sz;
 	void init()
 	{
@@ -29,42 +29,42 @@ struct AC
 	}
 	int addStr(const string& s)
 	{
-		int x = 0;
+		int v = 0;
 		FOR (i, 0, SZ(s))
 		{
-			int c = s[i] - 'A'; // change to [0 AL)
-			if (A[x].nxt[c] == -1)
+			int c = s[i] - 'a'; // change to [0 AL)
+			if (A[v].nxt[c] == -1)
 			{
-				A[x].nxt[c] = sz;
+				A[v].nxt[c] = sz;
 				A[sz].init();
 				A[sz].c = c;
-				A[sz].p = x;
+				A[sz].p = v;
 				sz++;
 			}
-			x = A[x].nxt[c];
+			v = A[v].nxt[c];
 		}
-		return x;
+		return v;
 	}
-	int go(int x, int c)
+	int go(int v, int c)
 	{
-		if (A[x].g[c] != -1)
-			return A[x].g[c];
+		if (A[v].g[c] != -1)
+			return A[v].g[c];
 			
-		if (A[x].nxt[c] != -1)
-			A[x].g[c] = A[x].nxt[c];
-		else if (x != 0)
-			A[x].g[c] = go(getLink(x), c);
+		if (A[v].nxt[c] != -1)
+			A[v].g[c] = A[v].nxt[c];
+		else if (v != 0)
+			A[v].g[c] = go(getLink(v), c);
 		else
-			A[x].g[c] = 0;
+			A[v].g[c] = 0;
 			
-		return A[x].g[c];
+		return A[v].g[c];
 	}
-	int getLink(int x)
+	int getLink(int v)
 	{
-		if (A[x].link != -1)
-			return A[x].link;
-		if (x == 0 || A[x].p == 0)
+		if (A[v].link != -1)
+			return A[v].link;
+		if (v == 0 || A[v].p == 0)
 			return 0;
-		return A[x].link=go(getLink(A[x].p), A[x].c);
+		return A[v].link=go(getLink(A[v].p), A[v].c);
 	}
 } A;

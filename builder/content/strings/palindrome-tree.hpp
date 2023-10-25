@@ -1,11 +1,11 @@
 struct Node
 {
-	int to[ALP];
+	int to[AL];
 	int link;
 	int len;
 	void clear()
 	{
-		fill(to, to + ALP, -1);
+		fill(to, to + AL, -1);
 		link = -1;
 		len = -1;
 	}

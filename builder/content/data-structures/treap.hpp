@@ -1,3 +1,8 @@
+/**
+ * Description: uncomment in split for explicit
+ *  key or in merge for implicit priority.
+ */
+
 mt19937 rng;
 
 struct Node
@@ -24,7 +29,7 @@ struct Node
 
 struct Treap
 {
-	Node A[MAX];
+	Node A[N];
 	int sz = 0;
 	
 	int getCnt(int v)

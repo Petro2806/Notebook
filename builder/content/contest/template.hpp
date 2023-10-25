@@ -1,11 +1,11 @@
-//hash = 43db74
+//hash = 7d0184
  
 #include <bits/stdc++.h>
 using namespace std;
 
 #define FOR(i, a, b) for(int i = (a); i < (b); i++)
 #define RFOR(i, a, b) for(int i = (a) - 1; i >= (b); i--)
-#define SZ(a) (int)a.size()
+#define SZ(a) int(a.size())
 #define ALL(a) a.begin(), a.end()
 #define PB push_back
 #define MP make_pair
