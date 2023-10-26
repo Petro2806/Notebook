@@ -15,20 +15,6 @@ Think about precision errors and hash collitions.
 Have you understood the problem correctly?
 Write brute and generator.
 
-If you don't know what to do:
-Are you clearing all data structures between test cases?
-Can your algorithm handle the whole range of input?
-Read the full problem statement again.
-Do you handle all corner cases correctly?
-Any uninitialized variables?
-Any overflows?
-Confusing N and M, i and j, etc.?
-What special cases have you not thought of?
-Are you sure the STL functions you use work as you think?
-Add some assertions, maybe resubmit.
-Go for a small walk, e.g. to the toilet.
-Is your output format correct? (including whitespace)
-Rewrite your solution from the start or let a teammate do it.
 
 Runtime error:
 F9.
@@ -36,16 +22,6 @@ Print your solution!
 Read your code.
 F9 with generator.
 
-If you don't know what to do:
-Invalidated pointers or iterators?
-Are you reading or writing outside the range of any vector?
-Any assertions that might fail?
-Any possible division by 0? (mod 0 for example)
-Have you tested all corner cases locally?
-Any uninitialized variables?
-Any possible infinite recursion?
-Are you using too much memory?
-Debug with resubmits (e.g. remapped signals, see Various).
 
 Time limit exceeded:
 What is the complexity of your algorithm?
@@ -53,7 +29,6 @@ Are you copying a lot of unnecessary data? (References)
 Do you have any possible infinite loops?
 How big is the input and output? (consider scanf)
 Avoid vector, map. (use arrays/unordered_map)
-What do your teammates think about your algorithm?
 
 Memory limit exceeded:
 Calculate memory usage with stack in recurtion.

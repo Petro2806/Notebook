@@ -20,5 +20,31 @@ $$\sum_{j = 0}^{m} C_m^j C_{n-m}^{k - j} = C_{n + 1}^{k + 1}$$
 
 $$\sum_{k = 0}^{n} C_{n - k}^k = F_{n + 1}$$
 
+\subsection{Fibonacci}
+$F_1 = F_2 = 1$, $F_n = F_{n - 1} + F_{n - 2}$\\
+
+$F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n$,
+$F_{n + k} = F_k F_{n + 1} + F_{k - 1} F_n$\\
+$gcd(F_m, F_n) = F_{gcd(n, m)}$.
+$$F_n = \frac{(\frac{1 + \sqrt{5}}{2})^n - (\frac{1 - \sqrt{5}}{2})^n}{\sqrt{5}}$$
+
+\subsection{Stirling}
+
+$S(n, k)$ --- number of ways to divide $n$ element into $k$ non-empty groups.\\
+
+$S(n, n) = 1$, $n \ge 0$\\
+$S(n, 0) = 0$, $n > 0$\\
+
+$S(n, k) = S(n - 1, k - 1) + S(n - 1, k) * k$.
 
 
+$B_n = \sum S(n, k)$ from $n = 0$:
+
+1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975, 678570, 4213597, 27644437, 190899322, 138295854,...
+
+
+
+
+
+
+\

@@ -1,0 +1,28 @@
+\subsection{Recover}
+\subsubsection{Min cut}
+To restore min cut use search from S on edges with flow $\ne$ capacitie. 
+Original edges from used vertices to unused is minimal cut.
+
+
+\subsubsection{Min cover}
+Only in bipartite graphs.
+Minimum number of vertex to cover edges equal to size of mathing.
+
+To restore min cover make directed graph:
+\begin{itemize}
+\item mathced edges direct from R to L
+\item unmathced edges direct from L to R
+\end{itemize}
+
+From unmathced vertices from left do search.
+In cover take from vertices in mathcing:
+\begin{itemize}
+\item unvisited vertices in L 
+\item visited vertices in R
+\end{itemize}
+
+\subsubsection{Max independent set}
+Only in bipartite graphs.
+
+Maximal independent set is complement of vertex cover
+
