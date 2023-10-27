@@ -1,6 +1,13 @@
-/**
- * Description: dfsSZ calculates size of subtrees not going to usedc[v] vertices
- * */
+int dfsSZ(int v, int par = -1)
+{
+	sz[v] = 1;
+	for (auto to : g[v])
+	{
+		if (to != par && !used[to])
+			sz[v] += dfsSZ(to, v);
+	}
+	return sz[v];
+}
 
 void build(int cent)
 {

@@ -11,6 +11,7 @@ struct Node
 		fill(g, g + AL, -1);
 		link = -1;
 		len = -1;
+		cnt = 1;
 	}
 };
 struct Automaton
@@ -50,6 +51,7 @@ struct Automaton
 		}
 		int q = sz++;
 		A[q] = A[p];
+		A[q].cnt = 0;
 		A[q].len = A[cur].len + 1;
 		A[p].link = A[head].link = q;
 		while (cur != -1 && A[cur].g[ch] == p)
