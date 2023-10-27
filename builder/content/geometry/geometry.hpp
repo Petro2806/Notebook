@@ -422,14 +422,17 @@ pair<Pt, db> welzl(vector<Pt> v)
 		}
 	}
 }
-// Returns the half-plane intersection
+// Returns the counter-clockwise ordered vertices
+// of the half-plane intersection. Returns empty
+// if the intersection is empty. Adds a bounding
+// box to ensure a finite area
 vector<Pt> hplaneInter(vector<Line> lines)
 {
-	const db INF = 1e9;
-	lines.PB({{-INF, INF}, {-INF, -INF}});
-	lines.PB({{-INF, -INF}, {INF, -INF}});
-	lines.PB({{INF, -INF}, {INF, INF}});
-	lines.PB({{INF, INF}, {-INF, INF}});
+	const db C = 1e9;
+	lines.PB({{-C, C}, {-C, -C}});
+	lines.PB({{-C, -C}, {C, -C}});
+	lines.PB({{C, -C}, {C, C}});
+	lines.PB({{C, C}, {-C, C}});
 	sort(ALL(lines), []
 		(const Line& l1, const Line& l2)
 	{
@@ -472,6 +475,10 @@ vector<Pt> hplaneInter(vector<Line> lines)
 	}
 	vector<Pt> res;
 	for (auto [l, p] : d)
-		res.PB(p);
+	{
+		if (res.empty()
+			|| sgn(sq(p - res.back())) > 0)
+			res.PB(p);
+	}
 	return res;
 }
