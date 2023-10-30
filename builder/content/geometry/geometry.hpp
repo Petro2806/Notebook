@@ -328,13 +328,58 @@ vector<Pt> convexHull(vector<Pt> v)
 		prev(upper.end()));
 	return lower;
 }
+// Returns the indices of tangent points
+PII tangetsToConvexPolygon(const vector<Pt>& v,
+	const Pt& p)
+{
+	int n = SZ(v), i = 0;
+	while (sgn(orient(p, v[i], v[(i + 1) % n]))
+		* sgn(orient(p, v[i],
+		v[(i + n - 1) % n])) > 0)
+		i++;
+	int s1 = 1, s2 = -1;
+	if (sgn(orient(p, v[i], v[(i + 1) % n]))
+		== s1 || sgn(orient(p, v[i],
+		v[(i + n - 1) % n])) == s2)
+		swap(s1, s2);
+	PII res;
+	int l = i, r = i + n - 1;
+	while (r - l > 1)
+	{
+		int m = (l + r) / 2;
+		if (sgn(orient(p, v[i], v[m % n])) != s1
+			&& sgn(orient(p, v[m % n],
+			v[(m + 1) % n])) != s1)
+			l = m;
+		else
+			r = m;
+	}
+	res.F = r % n;
+	l = i;
+	r = i + n - 1;
+	while (r - l > 1)
+	{
+		int m = (l + r) / 2;
+		if (sgn(orient(p, v[i], v[m % n])) == s2
+			|| sgn(orient(p, v[m % n],
+			v[(m + 1) % n])) != s2)
+			l = m;
+		else
+			r = m;
+	}
+	res.S = r % n;
+	return res;
+}
 // Returns the Minkowski sum of two convex
 // polygons
-vector<Pt> minkowskiSum(const vector<Pt>& v1, const vector<Pt>& v2)
+vector<Pt> minkowskiSum(const vector<Pt>& v1,
+	const vector<Pt>& v2)
 {
 	auto comp = [](const Pt& p, const Pt& q)
 	{
-		return sgn(p.x - q.x) < 0;
+		return sgn(p.x - q.x) < 0
+			|| (sgn(p.x - q.x) == 0
+			&& sgn(p.y - q.y) < 0);
 	};
 	int i1 = min_element(ALL(v1), comp)
 		- v1.begin();
@@ -509,6 +554,7 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 pair<Pt, db> welzl(vector<Pt> v)
 {
 	int n = SZ(v), k = 0, idxes[2];
+	mt19937 rng;
 	shuffle(ALL(v), rng);
 	Pt c = v[0];
 	db r = 0;
