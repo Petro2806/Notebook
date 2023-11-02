@@ -10,3 +10,12 @@ void convOr(VI& a, int k, bool inverse)
 					a[j + (1 << i)] += a[j];				
 			}
 }
+VI multOr(VI a, VI b, int k)
+{
+	convOr(a, k, 0);
+	convOr(b, k, 0);
+	FOR(i, 0, 1 << k)
+		a[i] = mult(a[i], b[i]);
+	convOr(a, k, 1);
+	return a;
+}

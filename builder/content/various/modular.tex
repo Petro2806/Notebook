@@ -1,0 +1,30 @@
+\subsection{$a^b \% m$}
+If $b >= phi(m)$ then $b$ can be changed to $b \% phi(m) + phi(m)$.
+
+\subsection{Generators}
+Generator exist for $n = 1, 2, 4, p^k, 2p^k$ for odd primes $p$ and positive integer $k$. 
+
+$g$ is generator for modulo $n$ if any comprime with $n$ can be represented as $g^i, 0 \le i < phi(n)$.
+
+To find generator:
+\begin{itemize}
+\item find $phi(n)$ and $p_1, ..., p_m$ --- prime factors of $phi(n)$
+\item g is generator only if $g^{\frac{phi(n)}{p_j}} \ne 1$ for each $j$
+\item check $g = 2, 3, 4, ..., p - 1$
+\end{itemize}
+
+
+
+\subsection{Wilson}
+$p$ is prime if and only if $(p - 1)! = -1 (mod p)$.
+
+\subsection{Quadratic residue}
+$q$ is called quadratic residue modulo $n$ if there exist integer $x$ that $x^2 = q (mod n)$.
+
+If $n$ is odd prime than $\frac{p + 1}{2}$ residues (including 0).
+
+Legendre symbol (equal 0 if $a$ divisible by $p$, 1 if residue and -1 if not):
+$$(\frac{a}{p}) = a^{\frac{p - 1}{2}} (mod p)$$
+
+Jacobi symbol (for composite $n$):
+$$(\frac{a}{n}) = \prod{(\frac{a}{p_i})^{\alpha_i}}$$

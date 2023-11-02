@@ -10,3 +10,12 @@ void convAnd(VI& a, int k, bool inverse)
 					a[j] += a[j + (1 << i)];				
 			}
 }
+VI multAnd(VI a, VI b, int k)
+{
+	convAnd(a, k, 0);
+	convAnd(b, k, 0);
+	FOR(i, 0, 1 << k)
+		a[i] = mult(a[i], b[i]);
+	convAnd(a, k, 1);
+	return a;
+}
