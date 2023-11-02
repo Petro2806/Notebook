@@ -10,3 +10,15 @@ void convXor(VI& a, int k)
 				a[j + (1 << i)] = u - v;
 			}
 }
+VI multXor(VI a, VI b, int k)
+{
+	convXor(a, k);
+	convXor(b, k);
+	FOR(i, 0, 1 << k)
+		a[i] = mult(a[i], b[i]);
+	convXor(a, k);
+	int d = inv(1 << k);
+	FOR(i, 0, 1 << k)
+		a[i] = mult(a[i], d);
+	return a;
+}	

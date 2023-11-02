@@ -1,7 +1,7 @@
 /**
  * Description: finds all triangles in a graph. 
- * Should take vector of edges and EMPTY graph g. 
- * In line cnt++ we find triangle v, u, w. 
+ * Should take vector of edges and \textbf{EMPTY} graph g. 
+ * cnt++ respond to triangle v, u, w. 
  * Time: O(m * sqrt(m))
  **/
 
