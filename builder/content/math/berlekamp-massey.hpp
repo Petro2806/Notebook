@@ -1,4 +1,9 @@
-VI berlekampMassey(const VI& a)
+/**
+ * Description: Finds a sequence of integers $c_1, \dots, c_d$​
+ * of the minimum length $d \ge 0$ such that
+ * $a_i = \sum_{j=1}^d c_j a_{i - j}$.
+ */
+ VI berlekampMassey(const VI& a)
 {
 	VI c = {1}, bp = {1};
 	int l = 0, b = 1, x = 1;

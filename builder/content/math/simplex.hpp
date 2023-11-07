@@ -1,18 +1,10 @@
 /**
  * Description: $c^T x \to \max$, $Ax \le b$, $x \ge 0$.
  */
+typedef vector<db> VD;
 
 struct Simplex
 {
-private:
-	int m, n;
-	VI nonBasic, basic;
-	vector<vector<db>> a;
-	vector<db> b;
-	vector<db> c;
-	db v;
-	
-public:
 	void pivot(int l, int e)
 	{
 		assert(0 <= l && l < m);
@@ -43,7 +35,7 @@ public:
 	}
 	void findOptimal()
 	{
-		vector<db> delta(m);
+		VD delta(m);
 		while (true)
 		{
 			int e = -1;
@@ -63,7 +55,7 @@ public:
 			pivot(l, e);
 		}
 	}
-	void initializeSimplex(const vector<vector<db>>& _a, const vector<db>& _b, const vector<db>& _c)
+	void initializeSimplex(const vector<VD>& _a, const VD& _b, const VD& _c)
 	{
 		m = SZ(_b);
 		n = SZ(_c);
@@ -126,7 +118,7 @@ public:
 				basic[i]--;
 		}
 	}
-	pair<vector<db>, db> simplex(const vector<vector<db>>& _a, const vector<db>& _b, const vector<db>& _c)
+	pair<VD, db> simplex(const vector<VD>& _a, const VD& _b, const VD& _c)
 	{
 		initializeSimplex(_a, _b, _c);
 		assert(SZ(a) == m);
@@ -137,10 +129,17 @@ public:
 		assert(SZ(nonBasic) == n);
 		assert(SZ(basic) == m);
 		findOptimal();
-		vector<db> x(n);
+		VD x(n);
 		FOR(i, 0, m)
 			if (basic[i] < n)
 				x[basic[i]] = b[i];
 		return {x, v};
 	}
+private:
+	int m, n;
+	VI nonBasic, basic;
+	vector<VD> a;
+	VD b;
+	VD c;
+	db v;
 };

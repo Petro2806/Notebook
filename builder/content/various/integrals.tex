@@ -1,18 +1,14 @@
-\subsection{Derivatives/Integrals}
+\newcommand{\ud}{\mathrm{d}}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\ctg}{ctg}
+\DeclareMathOperator{\arctg}{arctg}
+
+\section{List of integrals}
 \begin{align*}
-	\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}} &&& \dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}} \\
-	\dfrac{d}{dx}\tan x = 1+\tan^2 x &&& \dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2} \\
-	\int\tan ax = -\dfrac{\ln|\cos ax|}{a} &&& \int x\sin ax = \dfrac{\sin ax-ax \cos ax}{a^2} \\
-	\int e^{-x^2} = \frac{\sqrt \pi}{2} \text{erf}(x) &&& \int xe^{ax}dx = \frac{e^{ax}}{a^2}(ax-1)
+	\int \frac{\ud x}{a^2 + x^2} = \frac{1}{a} \arctg \frac{x}{a} + C \\
+    \int \frac{\ud x}{a^2 - x^2} = \frac{1}{2a} \ln \left\lvert \frac{x + a}{x - a} \right\rvert + C \\
+    \int \frac{\ud x}{\sqrt{a^2 - x^2}} = \arcsin \frac{x}{a} + C \\
+    \int \frac{\ud x}{\sqrt{x^2 + a}} = \ln \left\lvert x + \sqrt{x^2 + a} \right\rvert + C \\
+    \int \frac{\ud x}{\cos^2 x} = \tg x + C \\
+    \int \frac{\ud x}{\sin^2 x} = -\ctg x + C
 \end{align*}
-
-Integration by parts:
-\[\int_a^bf'(x)g(x)dx = [f(x)g(x)]_a^b-\int_a^bf(x)g'(x)dx\]
-
-\subsection{Series}
-$$f(x) = \sum_{n = 0}^{\inf} \frac{f^{(n)}(a) * (x - a)^n}{n!}$$
-$$e^x = \sum \frac{x^n}{n!}$$\\  
-$$\ln(1-x) = -\sum \frac{x^n}{n},(-1\leq x <1)$$
-
-\subsection{Simpson}
-$$\int_a^b f(x)dx = \frac{b - a}{6}(f(a) + 4f(\frac{a + b}{2}) + f(b))$$

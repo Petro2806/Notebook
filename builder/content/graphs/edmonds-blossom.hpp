@@ -1,13 +1,22 @@
-struct Graph
+/**
+ * Description: Finds the maximum matching in a graph
+ * Time complexity: $O(n^2 m)$
+ */
+ struct Graph
 {
 	int n;
 	vector<VI> g;
 	VI label, first, mate;
 	
-	Graph() {}
-	Graph(int _n): n(_n), g(_n + 1), label(_n + 1), 
-			first(_n + 1), mate(_n + 1) {}
-	
+	void init(int _n)
+	{
+		n = _n;
+		g.clear();
+		g.resize(n + 1);
+		label.resize(n + 1);
+		first.resize(n + 1);
+		mate.resize(n + 1, 0);
+	}
 	void addEdge(int u, int v)
 	{
 		assert(0 <= u && u < n);
@@ -21,9 +30,9 @@ struct Graph
 	{
 		int t = mate[v];
 		mate[v] = w;
-		if(mate[t] != v)
+		if (mate[t] != v)
 			return;
-		if(label[v] <= n)
+		if (label[v] <= n)
 		{
 			mate[t] = label[v];
 			augmentPath(label[v], t);
@@ -42,71 +51,72 @@ struct Graph
 		DSU dsu;
 		FOR(u, 1, n + 1)
 		{
-			if(mate[u] == 0)
+			if (mate[u] != 0)
+				continue;
+			fill(ALL(label), -1);
+			iota(ALL(first), 0);
+			dsu.init(n + 1);
+			label[u] = 0;
+			dsu.unite(u, 0);
+			queue<int> q;
+			q.push(u);
+			while (!q.empty())
 			{
-				fill(ALL(label), -1);
-				iota(ALL(first), 0);
-				dsu.init(n + 1);
-				label[u] = 0;
-				dsu.unite(u, 0);
-				queue<int> q;
-				q.push(u);
-				while(!q.empty())
+				int x = q.front();
+				q.pop();
+				for (int y: g[x])
 				{
-					int x = q.front();
-					q.pop();
-					for(int y: g[x])
+					if (mate[y] == 0 && y != u)
 					{
-						if(mate[y] == 0 && y != u)
+						mate[y] = x;
+						augmentPath(x, y);
+						while (!q.empty())
+							q.pop();
+						mt++;
+						break;
+					}
+					if (label[y] < 0)
+					{
+						int v = mate[y];
+						if (label[v] < 0)
 						{
-							mate[y] = x;
-							augmentPath(x, y);
-							while(!q.empty())
-								q.pop();
-							mt++;
-							break;
+							label[v] = x;
+							dsu.unite(v, y);
+							q.push(v);
 						}
-						if(label[y] < 0)
+					}
+					else
+					{
+						int r = first[dsu.find(x)],
+							s = first[dsu.find(y)];
+						if (r == s)
+							continue;
+						int edgeLabel = (n + 1) * x + y;
+						label[r] = label[s] = -edgeLabel;
+						int join;
+						while (true)
 						{
-							int v = mate[y];
-							if(label[v] < 0)
+							if (s != 0)
+								swap(r, s);
+							r = first[dsu.find(label[mate[r]])];
+							if (label[r] == -edgeLabel)
 							{
-								label[v] = x;
-								dsu.unite(v, y);
-								q.push(v);
+								join = r;
+								break;
 							}
+							label[r] = -edgeLabel;
 						}
-						else
+						for (int z: {x, y})
 						{
-							int r = first[dsu.find(x)], s = first[dsu.find(y)];
-							if(r != s)
+							for (int v = first[dsu.find(z)];
+								v != join;
+								v = first[dsu.find(
+									label[mate[v]])])
 							{
-								int edgeLabel = (n + 1) * x + y;
-								label[r] = label[s] = -edgeLabel;
-								int join;
-								while(true)
-								{
-									if(s != 0)
-										swap(r, s);
-									r = first[dsu.find(label[mate[r]])];
-									if(label[r] == -edgeLabel)
-									{
-										join = r;
-										break;
-									}
-									label[r] = -edgeLabel;
-								}
-								for(int z: {x, y})
-								{
-									for(int v = first[dsu.find(z)]; v != join; 
-										v = first[dsu.find(label[mate[v]])])
-									{
-										label[v] = edgeLabel;
-										if (dsu.unite(v, join))
-											first[dsu.find(join)] = join;
-										q.push(v);
-									}
-								}
+								label[v] = edgeLabel;
+								if (dsu.unite(v, join))
+									first[dsu.find(join)] = join;
+								q.push(v);
 							}
 						}
 					}
