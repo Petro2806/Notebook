@@ -1,5 +1,6 @@
 /**
- * Description: Hierholzer's algorithm finds an Eulerian cycle in a directed graph.
+ * Description: Hierholzer's algorithm.
+ * Finds an Eulerian cycle in a directed graph.
  * $g[u]$ is the vector of pairs $(v, \text{edgeIndex})$.
  * Returns empty if there is no Eulerian cycle.
  * Otherwise, returns the vector of edge indices.
