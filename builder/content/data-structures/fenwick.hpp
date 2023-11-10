@@ -9,13 +9,13 @@ struct Fenwick
 		v.assign(n, 0);
 	}
 	
-	void add(int i, int x)
+	void upd(int i, int x)
 	{
-		for (; i < n; i = (i + 1) | i)
+		for (; i < n; i |= (i + 1))
 			v[i] += x;
 	}
 	
-	LL sum(int i)
+	LL query(int i)
 	{
 		LL ans = 0;
 		for (; i >= 0; i = (i & (i + 1)) - 1)
@@ -23,7 +23,8 @@ struct Fenwick
 		return ans;
 	}
 	
-	int lower_bound(LL x)
+	// returns n if sum(a) < x
+	int lowerBound(LL x)
 	{
 		LL sum = 0;
 		int i = -1;

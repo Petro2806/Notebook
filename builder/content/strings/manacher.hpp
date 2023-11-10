@@ -1,6 +1,6 @@
 /**
- * Description: d1[i] - half-length of odd length palindrome with center in i.
- * d2[i] - half-length of even length palindrome if i is right center of it.
+ * Description: $d1_i$ -- half-length of odd length palindrome with center in i.
+ * $d2_i$ -- half-length of even length palindrome if i is right center of it.
  * 
  **/
 
