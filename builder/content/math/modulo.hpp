@@ -9,7 +9,7 @@ pair<VI, VI> modulo(VI a, VI b)
 	removeLeadingZeros(a);
 	removeLeadingZeros(b);
 	//be careful with this case
-	assert(a.back() != 0 && b.back() != 0);
+	assert(SZ(a) != 0 && SZ(b) != 0);
 	
 	int n = SZ(a), m = SZ(b);
 	if(m > n)
