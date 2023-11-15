@@ -1,19 +1,15 @@
 \subsection{Recover}
 \subsubsection{Min cut}
-To restore min cut use search from S on edges with flow $\ne$ capacitie. 
+To restore min cut use search from S on edges with flow $\ne$ capacitie.
 Original edges from used vertices to unused is minimal cut.
-
-
 \subsubsection{Min vertex cover}
 Only in bipartite graphs.
 Minimum number of vertex to cover \textbf{edges} equal to size of mathing.
-
 To restore min vertex cover make directed graph:
 \begin{itemize}
 \item mathced edges direct from R to L
 \item unmathced edges direct from L to R
 \end{itemize}
-
 From unmathced vertices from left do traversal.
 Cover have vertices from matching:
 \begin{itemize}

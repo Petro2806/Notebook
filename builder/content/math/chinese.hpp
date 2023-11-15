@@ -1,7 +1,7 @@
 /**
- * Usage: Calculate result \% modulo ($modulo \ne p_i$).
+ * Description: Calculate result \% modulo ($modulo \ne p_i$).\\
+ * Not tested on good tests
  * Time: O(n^2) 
- * Description: Not tested on good tests
  */
 LL chinese(VI m, VI p)
 {
