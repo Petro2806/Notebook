@@ -1,6 +1,10 @@
-int gcd(int a, int b, int& x, int& y)
+/**
+ * Description: $ax + by = d, gcd(a, b) = \|d\| \rightarrow (d, x, y)$.\\
+ * Code minimize $\|x\| + \|y\|$. And minimize $\|x - y\|$ for $a > 0$, $b > 0$.
+ */
+tuple<int, int, int> gcdExt(int a, int b)
 {
-	x = 1, y = 0;
+	int x1 = 1, y1 = 0;
 	int x2 = 0, y2 = 1;
 	while (b)
 	{
@@ -12,5 +16,5 @@ int gcd(int a, int b, int& x, int& y)
 		swap(x, x2);
 		swap(y, y2);
 	}
-	return a;
+	return {a, x1, y1};
 }

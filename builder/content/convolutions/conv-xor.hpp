@@ -1,3 +1,6 @@
+/**
+ * Description: $c_{i \oplus j} += a_i * b_j$.
+ */
 void convXor(VI& a, int k)
 {
 	FOR(i, 0, k)

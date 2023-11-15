@@ -1,8 +1,8 @@
 /**
- * Description: $result < 10^{18}, p < 10^9$.
+ * Usage: Calculate result \% modulo ($modulo \ne p_i$).
  * Time: O(n^2) 
  */
-LL Chinese(VI m, VI p)
+LL chinese(VI m, VI p)
 {
 	int n = SZ(m);
 	FOR(i, 1, n)

@@ -1,3 +1,7 @@
+/**
+ * Description: Calculate $\log(a) \% x^k$ and $\exp(a) \% x^k$.
+ */
+
 VI deriv(const VI& a, int k)
 {
 	VI res(k);

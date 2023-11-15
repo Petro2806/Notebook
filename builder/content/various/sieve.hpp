@@ -1,7 +1,6 @@
-void mobius()
+void sieve()
 {
 	fill(pr, pr + N, 1);
-	fill(mu, mu + N, 1);
 	pr[1] = false;
 	FOR (i, 2, N)
 	{
