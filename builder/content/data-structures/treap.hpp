@@ -29,78 +29,85 @@ struct Node
 
 struct Treap
 {
-	Node A[N];
+	int n;
+	vector<Node> a;
+	void init(int _n)
+	{
+		n = _n;
+		a.resize(n);
+	}
 	int sz = 0;
 	
 	int getCnt(int v)
 	{
 		if (v == -1) 
 			return 0;
-		return A[v].cnt;
+		return a[v].cnt;
 	}
 	int getMn(int v)
 	{
 		if (v == -1)	
 			return INF;
-		return A[v].mn;
+		return a[v].mn;
 	}
 	int newNode(int val)
 	{
-		A[sz].init(val);
+		assert(sz < n);
+		a[sz].init(val);
 		return sz++;
 	}
 	void upd(int v)
 	{
 		if (v == -1) 
 			return;
-		A[v].cnt = getCnt(A[v].l) + 
-		getCnt(A[v].r) + 1;
+		a[v].cnt = getCnt(a[v].l) + 
+		getCnt(a[v].r) + 1;
 		
-		A[v].mn = min(A[v].x, 
-		min(getMn(A[v].l), getMn(A[v].r)));
+		a[v].mn = min(a[v].x, 
+		min(getMn(a[v].l), getMn(a[v].r)));
 	}
 	void reverse(int v)
 	{
 		if (v == -1) 
 			return;
-		A[v].rev ^= 1;
+		a[v].rev ^= 1;
 	}
 	void push(int v)
 	{
-		if (v == -1 || A[v].rev == 0) 
+		if (v == -1 || a[v].rev == 0) 
 			return;
-		reverse(A[v].l);
-		reverse(A[v].r);
-		swap(A[v].l, A[v].r);
-		A[v].rev = 0;
+		reverse(a[v].l);
+		reverse(a[v].r);
+		swap(a[v].l, a[v].r);
+		a[v].rev = 0;
 	}
 	PII split(int v, int cnt)
 	{
 		if (v == -1) 
 			return {-1, -1};
 		push(v);
-		int left = getCnt(A[v].l);
+		int left = getCnt(a[v].l);
 		PII res;
-		// if (val <= A[v].x)
+		// if (val <= a[v].x)
 		if (cnt <= left)
 		{
-			if (A[v].l != -1) 
-				A[A[v].l].par = -1;
-			res = split(A[v].l, cnt);
-			A[v].l = res.second;
+			if (a[v].l != -1) 
+				a[a[v].l].par = -1;
+			res = split(a[v].l, cnt);
+			a[v].l = res.second;
 			if (res.second != -1) 
-				A[res.second].par = v;
+				a[res.second].par = v;
 			res.second = v;
 		}
 		else
 		{
-			if (A[v].r != -1) 
-				A[A[v].r].par = -1;
+			if (a[v].r != -1) 
+				a[a[v].r].par = -1;
 			// split(v, val)
-			res = split(A[v].r, cnt - left - 1);
-			A[v].r = res.first;
+			res = split(a[v].r, cnt - left - 1);
+			a[v].r = res.first;
 			if (res.first != -1) 
-				A[res.first].par = v;
+				a[res.first].par = v;
 			res.first = v;
 		}
 		upd(v);
@@ -112,26 +119,26 @@ struct Treap
 		if (u == -1) return v;
 		int res;
 		// if (rng() % (getCnt(v) + getCnt(u)) < getCnt(v))
-		if (A[v].y > A[u].y)
+		if (a[v].y > a[u].y)
 		{
 			push(v);
-			if (A[v].r != -1)
-				A[A[v].r].par = -1;
-			res = merge(A[v].r, u);
-			A[v].r = res;
+			if (a[v].r != -1)
+				a[a[v].r].par = -1;
+			res = merge(a[v].r, u);
+			a[v].r = res;
 			if (res != -1) 
-				A[res].par = v;
+				a[res].par = v;
 			res = v;
 		}
 		else
 		{
 			push(u);
-			if (A[u].l != -1) 
-				A[A[u].l].par = -1;
-			res = merge(v, A[u].l);
-			A[u].l = res;
+			if (a[u].l != -1) 
+				a[a[u].l].par = -1;
+			res = merge(v, a[u].l);
+			a[u].l = res;
 			if (res != -1) 
-				A[res].par = u;
+				a[res].par = u;
 			res = u;
 		}
 		upd(res);
@@ -141,9 +148,9 @@ struct Treap
 	{
 		if (v == -1) 
 			return 0;
-		int x = getIdx(A[v].par, v);
-		if (from == -1 || A[v].r == from)
-			x += getCnt(A[v].l) + 1;
+		int x = getIdx(a[v].par, v);
+		if (from == -1 || a[v].r == from)
+			x += getCnt(a[v].l) + 1;
 		push(v);
 		return x;
 	}

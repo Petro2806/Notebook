@@ -6,32 +6,32 @@
  **/
 
 VI candidates = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 47};
-bool MillerRabin(LL a)
+bool millerRabin(LL n)
 {
-	if (a == 1)
+	if (n == 1)
 		return false;
-	if (a == 2 || a == 3)
+	if (n == 2 || n == 3)
 		return true;
-	LL d = a - 1;
+	LL d = n - 1;
 	int s = __builtin_ctzll(d);
 	d >>= s;
 	
 	for (LL b : candidates)
 	{
-		if (b >= a)
+		if (b >= n)
 			break;
-		b = binpow(b, d, a);
+		b = binpow(b, d, n);
 		if (b == 1)
 			continue;
 		bool ok = false;
 		FOR (i, 0, s)
 		{
-			if (b + 1 == a)
+			if (b + 1 == n)
 			{
 				ok = true;
 				break;
 			}
-			b = mult(b, b, a);
+			b = mult(b, b, n);
 		}
 		if (!ok) 
 			return false;
