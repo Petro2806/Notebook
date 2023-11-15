@@ -3,10 +3,10 @@ struct Graph
 	vector<PII> edges;
 	vector<VI> g;
 
-	VI tin, low;
+	//Components for edges 
 	VI col;
-	VI par;
-	VI used;
+	VI used, par;
+	VI tin, low;
 	int t = 1, c = 1;
 	vector<int> st;
 	
@@ -19,6 +19,9 @@ struct Graph
 		
 		edges.assign(m, {0, 0});
 		g.assign(n, {});
+		
+		col.assign(m, 0);
+		
 		tin.assign(n, 0);
 		used.assign(n, 0);
 		par.assign(n, -1);

@@ -2,7 +2,7 @@
  * Description: uses Miller-Rabin test. 
  * rho finds divisor of $n$. 
  * use \_\_int128 in mult. 
- * works in O($n^{1/4}$ \cdot log n).
+ * Time: $O(n^{1/4} \cdot \log n)$.
  **/
  
 LL f(LL x, LL c, LL n)
