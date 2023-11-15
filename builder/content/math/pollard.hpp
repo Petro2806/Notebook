@@ -1,8 +1,8 @@
 /** 
  * Description: uses Miller-Rabin test. 
- * rho finds divisor of n. 
+ * rho finds divisor of $n$. 
  * use \_\_int128 in mult. 
- * works in O($n^{1/4}$ * log n).
+ * works in O($n^{1/4}$ \cdot log n).
  **/
  
 LL f(LL x, LL c, LL n)
@@ -12,7 +12,7 @@ LL f(LL x, LL c, LL n)
 
 LL rho(LL n)
 {
-	const int iter = 47 * sqrt(sqrt(n));
+	const int iter = 47 * pow(n, 0.25);
 	while (true)
 	{
 		LL x0 = rng() % n;
@@ -56,7 +56,7 @@ vector<LL> factorize(LL n)
 		q.pop();
 		if (x == 1)
 			continue;
-		if (MillerRabin(x))
+		if (millerRabin(x))
 			ans.PB(x);
 		else
 		{
