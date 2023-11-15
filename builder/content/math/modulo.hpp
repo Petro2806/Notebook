@@ -1,12 +1,18 @@
+/**
+ * Description: Modulo returns $[\frac{a}{b}]$ and $a\%b$
+ */
 void removeLeadingZeros(VI& a)
 {
 	while(SZ(a) > 0 && a.back() == 0)
 		a.pop_back();
 }
-
 pair<VI, VI> modulo(VI a, VI b)
 {
-	//assert(a.back() != 0 && b.back() != 0);
+	removeLeadingZeros(a);
+	removeLeadingZeros(b);
+	//be careful with this case
+	assert(SZ(a) != 0 && SZ(b) != 0);
+	
 	int n = SZ(a), m = SZ(b);
 	if(m > n)
 		return MP(VI{}, a);

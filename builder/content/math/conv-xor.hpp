@@ -1,3 +1,6 @@
+/**
+ * Description: $c_{i \oplus j} += a_i * b_j$.
+ */
 void convXor(VI& a, int k)
 {
 	FOR(i, 0, k)
@@ -6,8 +9,8 @@ void convXor(VI& a, int k)
 			{
 				int u = a[j];
 				int v = a[j + (1 << i)];
-				a[j] = u + v;
-				a[j + (1 << i)] = u - v;
+				a[j] = add(u, v);
+				a[j + (1 << i)] = sub(u, v);
 			}
 }
 VI multXor(VI a, VI b, int k)

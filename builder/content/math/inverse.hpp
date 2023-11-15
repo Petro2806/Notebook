@@ -1,3 +1,6 @@
+/**
+ * Description: Calculate $a^{-1} \% x^k$.
+ */
 VI inverse(const VI& a, int k)
 {
 	assert(SZ(a) == k && a[0] != 0);

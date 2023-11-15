@@ -1,8 +1,9 @@
 /**
- * Description: $result < 10^{18}, p < 10^9$.
+ * Description: Calculate result \% mod.\\
+ * Not tested on good tests
  * Time: O(n^2) 
  */
-LL Chinese(VI m, VI p)
+int chinese(VI m, VI p)
 {
 	int n = SZ(m);
 	FOR(i, 1, n)
@@ -30,11 +31,11 @@ LL Chinese(VI m, VI p)
 		m[i] = b;
 		p[i] = c;
 	}
-	LL res = m[n - 1];
+	int res = m[n - 1] % mod;
 	RFOR(i, n - 1, 0)
 	{
-		res *= p[i];
-		res += m[i];
+		res = mult(res, p[i]);
+		res = add(res, m[i]);
 	}
 	return res;
 }

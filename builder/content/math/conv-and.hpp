@@ -1,3 +1,6 @@
+/**
+ * Description: $c_{i \land j} += a_i * b_j$.
+ */
 void convAnd(VI& a, int k, bool inverse)
 {
 	FOR(i, 0, k)
@@ -5,17 +8,17 @@ void convAnd(VI& a, int k, bool inverse)
 			if((j & (1 << i)) == 0)
 			{
 				if(inverse)
-					a[j] -= a[j + (1 << i)];
+					updSub(a[j], a[j + (1 << i)]);
 				else
-					a[j] += a[j + (1 << i)];				
+					updAdd(a[j], a[j + (1 << i)]);				
 			}
 }
 VI multAnd(VI a, VI b, int k)
 {
-	convAnd(a, k, 0);
-	convAnd(b, k, 0);
+	convAnd(a, k, false);
+	convAnd(b, k, false);
 	FOR(i, 0, 1 << k)
 		a[i] = mult(a[i], b[i]);
-	convAnd(a, k, 1);
+	convAnd(a, k, true);
 	return a;
 }

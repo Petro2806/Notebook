@@ -1,9 +1,10 @@
 /**
- * Description: $x \% p_i = m_i, lcm(p) < 10^{18}, p < 10^9$. \\
- * no solution -> return -1
- * Time: O(nlog)
+ * Description: $x \% p_i = m_i, \text{lcm}(p) \le 10^{18}, p \le 10^9$
+ * $\rightarrow x$ or -1. \\
+ * Not tested on good tests
+ * Time: O(n\log(\text{lcm}(p_i)))
  */
-LL FastChinese(VI m, VI p)
+LL fastChinese(VI m, VI p)
 {
 	assert(SZ(m) == SZ(p));
 	LL aa = p[0];
