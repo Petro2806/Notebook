@@ -1,12 +1,39 @@
 \chapter{Math}
 
-\kactlimport[-l hpp]{gcd.hpp}
+\section{Number-theoretic algorithms}
+	\kactlimport[-l hpp]{gcd.hpp}
+	\kactlimport[-l hpp]{fast-chinese.hpp}
+	\kactlimport[-l hpp]{chinese.hpp}
+	\kactlimport[-l hpp]{miller-rabin.hpp}
+	\kactlimport[-l hpp]{pollard.hpp}
+	
+\section{Matrices}
+	\kactlimport[-l hpp]{gaussian.hpp}
 
-\kactlimport[-l hpp]{fast-chinese.hpp}
-\kactlimport[-l hpp]{chinese.hpp}
+\section{Linear programming}
+	\kactlimport[-l hpp]{simplex.hpp}
 
-\kactlimport[-l hpp]{gauss.hpp}
+\section{Assignment problem}
+	\kactlimport[-l hpp]{hungarian.hpp}
 
-\kactlimport[-l hpp]{miller-rabin.hpp}
-\kactlimport[-l hpp]{pollard.hpp}
-\kactlimport[-l hpp]{simplex.hpp}
+\section{Polynomials and FFT}
+	\kactlimport[-l hpp]{fft.hpp}
+	\kactlimport[-l hpp]{inverse.hpp}
+	\kactlimport[-l hpp]{exp-log.hpp}
+	\kactlimport[-l hpp]{modulo.hpp}
+	\kactlimport[-l hpp]{multipoint-eval.hpp}
+	\import{interpolation.tex}
+
+\section{Linear recurrence}
+	\kactlimport[-l hpp]{berlekamp-massey.hpp}
+	\kactlimport[-l hpp]{bostan-mori.hpp}
+
+\section{Convolutions}
+	\kactlimport[-l hpp]{conv-xor.hpp}
+	\kactlimport[-l hpp]{conv-and.hpp}
+	\kactlimport[-l hpp]{conv-or.hpp}
+
+\section{Numerical methods}
+	\kactlimport[-l hpp]{golden-section-search.hpp}
+	\import{simpsons-rule.tex}
+	\import{runge-kutta.tex}

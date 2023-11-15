@@ -2,15 +2,15 @@ const int mod = 998244353;
 
 int add(int a, int b)
 {
-	return (a + b < mod) ? (a + b) : (a + b - mod);
+	return a + b < mod ? a + b : a + b - mod;
 }
 int sub(int a, int b)
 {
-	return (a - b >= 0) ? (a - b) : (a - b + mod);
+	return a - b >= 0 ? a - b : a - b + mod;
 }
 int mult(int a, int b)
 {
-	return a * (LL) b % mod;
+	return (LL)a * b % mod;
 }
 int binpow(int a, int n)
 {

@@ -1,8 +1,0 @@
-\section{FFT with D and C}
-
-To calculate $g_{i + j} = \prod f_i * g_j$.\\
-
-Use Divide and Conquer: when solve on $[l, r)$ for $l \le i + j < r$ do $g_{i + j} += \prod_{l \le j < r} f_i * g_j$.\\
-
-Solve on $[l, m)$ after that update values in $[m, r)$ with values of g from $[l, m)$ and then solve on $[m, r)$. 
-

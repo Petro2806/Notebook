@@ -58,10 +58,10 @@ struct ConvexHull: set<Line, less<>>
 		if (it != begin())
 		{
 			auto itP = prev(it);
-			Line lIt = *itP;
-			lIt.xLast = itP->intersect(l);
+			Line itL = *itP;
+			itL.xLast = itP->intersect(l);
 			erase(itP);
-			insert(lIt);
+			insert(itL);
 		}
 		l.xLast = it == end() ? LINF : 
 				l.intersect(*it);
