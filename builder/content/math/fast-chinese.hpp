@@ -1,6 +1,7 @@
 /**
  * Description: $x \% p_i = m_i, \text{lcm}(p) \le 10^{18}, p \le 10^9$
- * $\rightarrow x$ or -1.
+ * $\rightarrow x$ or -1. \\
+ * Not tested on good tests
  * Time: O(n\log(\text{lcm}(p_i)))
  */
 LL fastChinese(VI m, VI p)
