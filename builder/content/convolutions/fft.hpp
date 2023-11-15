@@ -34,6 +34,13 @@ const int LEN = 1 << 23;
 const int GEN = 31;
 const int IGEN = binpow(GEN, mod - 2);
 
+//void init()
+//{
+//	db phi = (db)2 * acos(-1.) / LEN;
+//	FOR(i, 0, LEN)
+//		pw[i] = com(cos(phi * i), sin(phi * i));	
+//}
+
 void fft(VI& a, bool inv)
 {
 	int lg = __builtin_ctz(SZ(a));

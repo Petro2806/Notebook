@@ -8,9 +8,9 @@ void convOr(VI& a, int k, bool inverse)
 			if((j & (1 << i)) == 0)
 			{
 				if(inverse)
-					a[j + (1 << i)] -= a[j];
+					updSub(a[j + (1 << i)], a[j]);
 				else
-					a[j + (1 << i)] += a[j];				
+					updAdd(a[j + (1 << i)], a[j]);				
 			}
 }
 VI multOr(VI a, VI b, int k)

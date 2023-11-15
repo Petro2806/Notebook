@@ -8,9 +8,9 @@ void convAnd(VI& a, int k, bool inverse)
 			if((j & (1 << i)) == 0)
 			{
 				if(inverse)
-					a[j] -= a[j + (1 << i)];
+					updSub(a[j], a[j + (1 << i)]);
 				else
-					a[j] += a[j + (1 << i)];				
+					updAdd(a[j], a[j + (1 << i)]);				
 			}
 }
 VI multAnd(VI a, VI b, int k)

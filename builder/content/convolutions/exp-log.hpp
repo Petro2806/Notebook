@@ -1,7 +1,6 @@
 /**
  * Description: Calculate $\log(a) \% x^k$ and $\exp(a) \% x^k$.
  */
-
 VI deriv(const VI& a, int k)
 {
 	VI res(k);
@@ -47,11 +46,10 @@ VI exp(VI a, int k)
 			else
 				lnQ[i] = sub(0, lnQ[i]);
 		}
-		updAdd(lnQ[0], 1);		
+		lnQ[0] = add(lnQ[0], 1);		
 		
 		Qk = mult(Qk, lnQ);
 	}
 	Qk.resize(k);
 	return Qk;
 }
-
