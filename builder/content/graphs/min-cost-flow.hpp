@@ -7,19 +7,27 @@ struct Graph
 		LL cost;
 	};
 	
-	int _n;
+	int n;
 	vector<Edge> edges;
 	vector<VI> g;
 	vector<LL> d;
 	VI p, w;
 	
-	Graph(): _n(0) {}
-	Graph(int n): _n(n), g(n), d(n), p(n), w(n) {}
-	
-	void addEdge(int from,int to, int cap, LL cost)
+	void init(int _n)
 	{
-		assert(0 <= from && from < _n);
-		assert(0 <= to && to < _n);
+		n = _n;
+		edges.clear();
+		g.clear();
+		g.resize(n);
+		d.resize(n);
+		p.resize(n);
+		w.resize(n);
+	}
+	void addEdge(int from, int to,
+		int cap, LL cost)
+	{
+		assert(0 <= from && from < n);
+		assert(0 <= to && to < n);
 		assert(0 <= cap);
 		assert(0 <= cost);
 		g[from].PB(SZ(edges));
@@ -27,11 +35,10 @@ struct Graph
 		g[to].PB(SZ(edges));
 		edges.PB({to, from, 0, 0, -cost});
 	}
-	
 	pair<int, LL> flow(int s, int t)
 	{
-		assert(0 <= s && s < _n);
-		assert(0 <= t && t < _n);
+		assert(0 <= s && s < n);
+		assert(0 <= t && t < n);
 		assert(s != t);
 		int flow = 0;
 		LL cost = 0;

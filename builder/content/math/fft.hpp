@@ -15,7 +15,7 @@ int sub(int a, int b)
 }
 int mult(int a, int b)
 {
-	return (LL) a * b % mod;
+	return (LL)a * b % mod;
 }
 int binpow(int a, int n)
 {

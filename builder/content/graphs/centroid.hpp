@@ -3,7 +3,7 @@ int dfsSZ(int v, int par = -1)
 	sz[v] = 1;
 	for (auto to : g[v])
 	{
-		if (to != par && !used[to])
+		if (to != par && !usedC[to])
 			sz[v] += dfsSZ(to, v);
 	}
 	return sz[v];
@@ -19,7 +19,7 @@ void build(int cent)
 		int v = -1;
 		for (auto to : g[cent])
 		{
-			if (to == pr || usedc[to]) 
+			if (to == pr || usedC[to]) 
 				continue;
 			if (sz[to] * 2 > szAll)
 			{
@@ -32,13 +32,13 @@ void build(int cent)
 		pr = cent;
 		cent = v;
 	}
-	usedc[cent] = true;
+	usedC[cent] = true;
 	
 	// here calculate f(cent)
 		
 	for (auto to : g[cent])
 	{
-		if (!usedc[to])
+		if (!usedC[to])
 		{
 			build(to);
 		}

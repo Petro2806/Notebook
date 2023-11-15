@@ -18,10 +18,11 @@ void countSort(VI& p, const VI& c)
 
 VI suffixArray(const string& t)
 {
+	// add symbol smaller than all s[i]
 	string s = t + "$";
 	int n = SZ(s);
 	VI p(n), c(n);
-	FOR (i, 0, n) p[i] = i;
+	iota(ALL(p), 0);
 	sort(ALL(p), [&](int i, int j)
 	{
 		return s[i] < s[j];

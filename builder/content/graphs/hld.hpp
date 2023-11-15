@@ -1,6 +1,6 @@
 /**
  * Description: run dfsSZ(root, -1, 0) and dfsHLD(root, -1, root) to build HLD.
- * Vertex v has index tin[v]. To update on path use process as in get(). 
+ * Vertex $v$ has index tin[v]. To update on path use process as in get(). 
  * */
 
 VI g[N];     
@@ -43,29 +43,29 @@ void dfsHLD(int v, int par, int tp)
 	}
 	tout[v] = t - 1;
 }
-LL get(int x, int y)
+LL get(int u, int v)
 {
 	LL res = 0;
 	while(true)
 	{
-		int tx = top[x];
-		int ty = top[y];
-		if (tx == ty)
+		int tu = top[u];
+		int tv = top[v];
+		if (tu == tv)
 		{
-			int t1 = tin[x];
-			int t2 = tin[y];
+			int t1 = tin[u];
+			int t2 = tin[v];
 			if (t1 > t2)
 				swap(t1, t2);
 			res += query(t1, t2);
 			break;
 		}
-		if (h[tx] < h[ty])
+		if (h[tu] < h[tv])
 		{
-			swap(tx, ty);
-			swap(x, y);
+			swap(tu, tv);
+			swap(u, v);
 		}
-		res += query(tin[tx], tin[x]);
-		x = p[tx];
+		res += query(tin[tu], tin[u]);
+		u = p[tu];
 	}
 	return res;
 }
