@@ -1,7 +1,7 @@
 /**
- * Description: Function build calculate the products of $x - x_i$. \\
- * Function solve calculate value of q(x) in $x_0, \cdot, x_{n - 1}$.\\
- * 1. Call build(0, 0, n). 2. Call solve(0, 0, n, q).
+ * Description: Function \textit{build} calculates the products of $x - x_i$. \\
+ * Function \textit{solve} calculates the values of $q(x)$ in $x_0, \dots, x_{n - 1}$.\\
+ * 1. Call $build(0, 0, n)$. 2. Call $solve(0, 0, n, q)$.
  */
 int x[LEN];
 VI p[2 * LEN];

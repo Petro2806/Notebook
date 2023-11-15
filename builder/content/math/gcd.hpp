@@ -1,6 +1,6 @@
 /**
  * Description: $ax + by = d, gcd(a, b) = \|d\| \rightarrow (d, x, y)$.\\
- * Code minimize $\|x\| + \|y\|$. And minimize $\|x - y\|$ for $a > 0$, $b > 0$.
+ * Minimizes $\|x\| + \|y\|$. And minimizes $\|x - y\|$ for $a > 0$, $b > 0$.
  */
 tuple<int, int, int> gcdExt(int a, int b)
 {

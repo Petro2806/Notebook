@@ -1,9 +1,11 @@
+/**
+ * Description: Modulo returns $[\frac{a}{b}]$ and $a\%b$
+ */
 void removeLeadingZeros(VI& a)
 {
 	while(SZ(a) > 0 && a.back() == 0)
 		a.pop_back();
 }
-//Return [a/b] and a%b
 pair<VI, VI> modulo(VI a, VI b)
 {
 	removeLeadingZeros(a);

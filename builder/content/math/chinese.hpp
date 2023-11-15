@@ -1,5 +1,5 @@
 /**
- * Description: Calculate result \% modulo ($modulo \ne p_i$).\\
+ * Description: Calculate result \% mod ($modulo \ne p_i$).\\
  * Not tested on good tests
  * Time: O(n^2) 
  */
@@ -31,11 +31,11 @@ LL chinese(VI m, VI p)
 		m[i] = b;
 		p[i] = c;
 	}
-	LL res = m[n - 1];
+	LL res = m[n - 1] % mod;
 	RFOR(i, n - 1, 0)
 	{
-		res *= p[i];
-		res += m[i];
+		res = mult(res, p[i]);
+		res = add(res, m[i]);
 	}
 	return res;
 }
