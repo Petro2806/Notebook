@@ -1,9 +1,9 @@
 /**
- * Description: Calculate result \% mod ($modulo \ne p_i$).\\
+ * Description: Calculate result \% mod.\\
  * Not tested on good tests
  * Time: O(n^2) 
  */
-LL chinese(VI m, VI p)
+int chinese(VI m, VI p)
 {
 	int n = SZ(m);
 	FOR(i, 1, n)
@@ -31,7 +31,7 @@ LL chinese(VI m, VI p)
 		m[i] = b;
 		p[i] = c;
 	}
-	LL res = m[n - 1] % mod;
+	int res = m[n - 1] % mod;
 	RFOR(i, n - 1, 0)
 	{
 		res = mult(res, p[i]);
