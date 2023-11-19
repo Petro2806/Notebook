@@ -10,7 +10,7 @@ struct Graph
 	vector<int> st;
 
 	vector<VI> components;
-	//Id of the component for edge 
+	// col[i] - component of the i-th edge
 	VI col;
 	
 	int n, m;
