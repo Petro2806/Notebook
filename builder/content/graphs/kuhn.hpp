@@ -4,8 +4,8 @@
 struct Graph
 {
 	int szL, szR;
-	//edges from left to right in 0 indexing
-	vector<VI> g;   
+	// edges from the left to the right, 0-indexed
+	vector<VI> g;
 	VI mateForR, mateForL, usedL;
 	
 	void init(int l, int r)
