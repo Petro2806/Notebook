@@ -29,7 +29,7 @@ struct SparseTable
 			}
 		}
 	}
-	//[l, r)
+	// [l, r)
 	int query(int l, int r)
 	{
 		int i = lg[r - l];
