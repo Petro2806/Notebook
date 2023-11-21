@@ -1,4 +1,4 @@
-//hash = 7d0184
+// hash = 85ed39
  
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,7 +21,6 @@ int main()
 {
 	ios::sync_with_stdio(0); 
 	cin.tie(0);
-	cout << fixed << setprecision(15);
 	
 	return 0;
 }

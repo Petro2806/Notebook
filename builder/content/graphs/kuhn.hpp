@@ -3,25 +3,25 @@
  */
 struct Graph
 {
-	int L, R;
-	//edges from left to right in 0 indexing
-	vector<VI> g;   
-	VI mt, P, U;
+	int szL, szR;
+	// edges from the left to the right, 0-indexed
+	vector<VI> g;
+	VI mateForR, mateForL, usedL;
 	
 	void init(int l, int r)
 	{
-		L = l, R = r;
+		szL = l, szR = r;
 		g.resize(L);
-		P.resize(L);
-		U.resize(L);
+		mateForL.resize(L);
+		usedL.resize(L);
 		
-		mt.resize(R);
+		mateForR.resize(R);
 	}
 	
 	void addEdge(int from, int to)
 	{
-		assert(0 <= from && from < L);
-		assert(0 <= to && to < R);
+		assert(0 <= from && from < szL);
+		assert(0 <= to && to < szR);
 		
 		g[from].PB(to);
 	}
@@ -29,24 +29,24 @@ struct Graph
 	int iter;
 	bool kuhn(int v)
 	{
-		if (U[v] == iter) return false;
-		U[v] = iter;
-		random_shuffle(ALL(g[v]));
+		if (usedL[v] == iter) return false;
+		usedL[v] = iter;
+		shuffle(ALL(g[v]), rng);
 		for(int to : g[v])
 		{
-			if (mt[to] == -1)
+			if (mateForR[to] == -1)
 			{
-				mt[to] = v;
-				P[v] = to;
+				mateForR[to] = v;
+				mateForL[v] = to;
 				return true;
 			}
 		}
 		for(int to : g[v])
 		{
-			if (kuhn(mt[to]))
+			if (kuhn(mateForR[to]))
 			{
-				mt[to] = v;
-				P[v] = to;
+				mateForR[to] = v;
+				mateForL[v] = to;
 				return true;
 			}
 		}
@@ -54,23 +54,25 @@ struct Graph
 	}
 	int doKuhn()
 	{
-		fill(ALL(mt), -1);
-		fill(ALL(P), -1);
-		fill(ALL(U), -1);
+		fill(ALL(mateForR), -1);
+		fill(ALL(mateForL), -1);
+		fill(ALL(usedL), -1);
 		
 		int res = 0;
 		iter = 0;
-		VI order(L);
-		iota(ALL(order), 0);
-		random_shuffle(ALL(order));
 		
 		while(true)
 		{
 			iter++;
+			
+			VI order(L);
+			iota(ALL(order), 0);
+			shuffle(ALL(order), rng);
+
 			bool ok = false;
 			for(int v : order)
 			{
-				if (P[v] == -1)
+				if (mateForL[v] == -1)
 					if (kuhn(v))
 					{
 						ok = true;

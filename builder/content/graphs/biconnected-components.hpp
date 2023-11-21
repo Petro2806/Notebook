@@ -3,12 +3,15 @@ struct Graph
 	vector<PII> edges;
 	vector<VI> g;
 
+	
+	VI used, par;
 	VI tin, low;
-	VI col;
-	VI par;
-	VI used;
-	int t = 1, c = 1;
+	int t = 0, c = 0;
 	vector<int> st;
+
+	vector<VI> components;
+	// col[i] - component of the i-th edge
+	VI col;
 	
 	int n, m;
 	
@@ -19,15 +22,19 @@ struct Graph
 		
 		edges.assign(m, {0, 0});
 		g.assign(n, {});
-		tin.assign(n, 0);
-		used.assign(n, 0);
+		
+		used.assign(n, false);
 		par.assign(n, -1);
-		used.assign(n, 0);
 
-		t = c = 1;
+		tin.assign(n, 0);
+		low.assign(n, 0);
+
+		t = c = 0;		
+
+		components.clear();
+		col.assign(m, -1);
 	}	
 	
-
 	void addEdge(int a, int b, int i)
 	{
 		assert(0 <= a && a < n);
@@ -63,12 +70,17 @@ struct Graph
 				if ((par[v] == -1 && cnt > 1) || 
 				(par[v] != -1 && low[to] >= tin[v]))
 				{
+					components.PB({});
 					while (st.back() != e)
 					{
+						components[c].PB(st.back());
 						col[st.back()] = c;
+						
 						st.pop_back();
 					}
+					components[c].PB(st.back());
 					col[st.back()] = c++;
+						
 					st.pop_back();
 				}
 			}
@@ -80,4 +92,22 @@ struct Graph
 			}
 		}	
 	}
-};
+	void build()
+	{
+		FOR (i, 0, n)
+		{
+			if (used[i]) continue;
+			dfs(i, -1);
+			if (st.empty()) continue;
+			components.PB({});
+			while (!st.empty())
+			{
+				col[st.back()] = c;
+				components[c].PB(st.back());
+				
+				st.pop_back();
+			}
+			c++;
+		}
+	}
+}G;
