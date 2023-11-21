@@ -1,8 +1,7 @@
 /**
  * Description: finds all triangles in a graph. 
- * Should take vector of edges and \textbf{EMPTY} graph g. 
- * cnt++ respond to triangle v, u, w. 
- * Time: O(m * sqrt(m))
+ * $cnt$++ respond to the triangle $v$, $u$, $w$. 	
+ * Time: $O(m \cdot \sqrt{m})$
  **/
 
 
