@@ -1,4 +1,4 @@
-//hash = 85ed39
+// hash = 85ed39
  
 #include <bits/stdc++.h>
 using namespace std;
