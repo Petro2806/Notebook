@@ -1,7 +1,7 @@
 /**
  * Description: Finds an Eulerian cycle in a directed graph.
  * $g[u]$ is the vector of pairs $(v, \text{edgeIndex})$.
- * Returns empty if there is no Eulerian cycle.
+ * Returns $\{-1\}$ if there is no Eulerian cycle.
  * Otherwise, returns the vector of edge indices.
  */
 VI hierholzer()
@@ -12,7 +12,7 @@ VI hierholzer()
 			degIn[v]++;
 	FOR(u, 0, n)
 		if (degIn[u] != SZ(g[u]))
-			return {};
+			return {-1};
 	deque<PII> d;
 	int v = 0, k = 0;
 	while (SZ(d) < m)
@@ -25,7 +25,7 @@ VI hierholzer()
 			k++;
 		}
 		if (k == m)
-			return {};
+			return {-1};
 		d.PB(g[v].back());
 		g[v].pop_back();
 		v = d.back().F;
