@@ -1,6 +1,5 @@
 /**
- * Description: Hierholzer's algorithm.
- * Finds an Eulerian cycle in a directed graph.
+ * Description: Finds an Eulerian cycle in a directed graph.
  * $g[u]$ is the vector of pairs $(v, \text{edgeIndex})$.
  * Returns empty if there is no Eulerian cycle.
  * Otherwise, returns the vector of edge indices.
@@ -8,15 +7,14 @@
 VI hierholzer()
 {
 	VI degIn(n);
-	FOR(i, 0, n)
-		for (auto [j, id] : g[i])
-			degIn[j]++;
-	FOR(i, 0, n)
-		if (degIn[i] != SZ(g[i]))
+	FOR(u, 0, n)
+		for (auto [v, id] : g[u])
+			degIn[v]++;
+	FOR(u, 0, n)
+		if (degIn[u] != SZ(g[u]))
 			return {};
 	deque<PII> d;
-	int v = 0;
-	int k = 0;
+	int v = 0, k = 0;
 	while (SZ(d) < m)
 	{
 		while (k < m && g[v].empty())
