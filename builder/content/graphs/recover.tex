@@ -1,24 +1,32 @@
 \subsection{Recover}
-\subsubsection{Min cut}
-To restore min cut use search from S on edges with flow $\ne$ capacitie.
-Original edges from used vertices to unused is minimal cut.
-\subsubsection{Min vertex cover}
-Only in bipartite graphs.
-Minimum number of vertex to cover \textbf{edges} equal to size of mathing.
-To restore min vertex cover make directed graph:
+\textbf{Min cut}
+To find the min-cut use search from vertex S on not saturated edges. 
+Original edges from used vertices to unused is in min-cut.
+
+\textbf{Min vertex cover}
+A min vertex cover can be found only in bipartite graphs. 
+The minimum number of the vertex to cover all \textbf{edges} is equal to the size of matching. 
+To restore min vertex cover, make a directed graph.
 \begin{itemize}
-\item mathced edges direct from R to L
-\item unmathced edges direct from L to R
+\setlength\itemsep{0em}
+\item matched edges direct from R to L
+\item unmatched edges direct from L to R
 \end{itemize}
-From unmathced vertices from left do traversal.
+
+From unmathced vertices in left part start traversal.
 Cover have vertices from matching:
 \begin{itemize}
+\setlength\itemsep{0em}
 \item unvisited vertices in L 
 \item visited vertices in R
 \end{itemize}
 
-\subsubsection{Max independent set}
-Only in bipartite graphs.
+\textbf{Max independent set}
+A max independent set can be found only in bipartite graphs. 
+It is the complement of the min vertex cover.
 
-Maximal independent set is complement of min vertex cover
-
+\textbf{Min edge cover}
+A min edge cover can be found only in bipartite graphs. 
+Possible only in graphs without isolated vertices. 
+Using one edges in the matching we cover two vertices, 
+and any other vertices we cover using one edge for each. 
