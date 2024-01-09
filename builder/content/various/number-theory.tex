@@ -1,13 +1,12 @@
 \subsection{Mobius}
-$$for n \ge 1 g(n) = \sum_{d|n}f(d)$$ 
-$$then f(n) = \sum_{d|n}\mu(d)g(n/d)$$
+\[g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g(\frac{n}{d})\]
 
-$$M(n) = \sum_{k=1}^{n}\mu(k), \sum_{n = 1}{x} M([x/n]) = 1$$
+\[M(n) = \sum_{k=1}^{n}\mu(k) \iff \sum_{n = 1}{x} M([\frac{x}{n}]) = 1\]
 
 \subsection{Catalan}
 $$C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k}$$ 
 $$C_n = \frac{1}{n + 1} C_{2n}^{n}$$
-$$C_n = C_{2n}^{n} - C_{2n}{n - 1}$$
+$$C_n = C_{2n}^{n} - C_{2n}^{n - 1}$$
 
 \subsection{Binomials}
 $$\sum_{k = 0}^{n} C_n^k = 2^n$$ 
