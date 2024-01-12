@@ -27,6 +27,11 @@ It is the complement of the min vertex cover.
 
 \textbf{Min edge cover}
 A min edge cover can be found only in bipartite graphs. 
-Possible only in graphs without isolated vertices. 
+Minimum edges to cover all vertices are possible to find only in graphs without isolated vertices. 
 Using one edges in the matching we cover two vertices, 
 and any other vertices we cover using one edge for each. 
+
+\textbf{DAG pathes}
+In DAG you can find a minimum number of non-intersecting paths that cover all vertices. 
+Duplicate vertices and make a bipartite graph with edges $u_L \rightarrow v_R$. 
+Edges in the matching are edges in paths.
