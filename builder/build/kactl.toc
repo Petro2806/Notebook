@@ -1,0 +1,61 @@
+\contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Rules}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Troubleshoot}{1}{section.1.2}%
+\contentsline {subsubsection}{Pre-submit}{1}{section*.1}%
+\contentsline {subsubsection}{Wrong answer}{1}{section*.2}%
+\contentsline {subsubsection}{Runtime error}{1}{section*.3}%
+\contentsline {subsubsection}{Time limit exceeded}{1}{section*.4}%
+\contentsline {subsubsection}{Memory limit exceeded}{1}{section*.5}%
+\contentsline {subsection}{\numberline {1.2.1}Pragmas}{1}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}Data Structures}{2}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Graphs}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Decompositions}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Maximum matching}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Flows}{7}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Recover}{9}{subsection.3.3.1}%
+\contentsline {subsubsection}{Flow with lower bound}{9}{section*.6}%
+\contentsline {subsubsection}{Binary optimization}{9}{section*.7}%
+\contentsline {section}{\numberline {3.4}Dominator tree}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Triangles}{10}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Strings}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Geometry}{14}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Math}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Number-theoretic algorithms}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Matrices}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Linear programming}{20}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Assignment problem}{21}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Polynomials and FFT}{22}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Newton's method}{24}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Interpolation}{24}{subsection.6.5.2}%
+\contentsline {subsubsection}{Lagrange polynomial}{24}{section*.8}%
+\contentsline {subsubsection}{Newton polynomial}{24}{section*.9}%
+\contentsline {section}{\numberline {6.6}Linear recurrence}{24}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Convolutions}{24}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Numerical methods}{25}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Simpson's rule}{25}{subsection.6.8.1}%
+\contentsline {section}{\numberline {6.9}Runge-Kutta 4th Order Method for Ordinary Differential Equations}{25}{section.6.9}%
+\contentsline {chapter}{\numberline {7}Various}{26}{chapter.7}%
+\contentsline {section}{\numberline {7.1}NP complete}{26}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Formulas}{26}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Modular formulas}{26}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Calculation of $a^b \allowbreak \mkern 12mu{\mathgroup \symoperators mod}\,\,m$}{26}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Generators}{26}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Wilson}{26}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Quadratic residue}{26}{subsection.8.1.4}%
+\contentsline {section}{\numberline {8.2}Number Theory}{26}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Mobius}{26}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Catalan}{26}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Binomials}{26}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Fibonacci}{26}{subsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.2.5}Stirling}{26}{subsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.2.6}Burnside's lemma}{26}{subsection.8.2.6}%
+\contentsline {section}{\numberline {8.3}Math}{27}{section.8.3}%
+\contentsline {section}{\numberline {8.4}List of integrals}{27}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Taylor series}{27}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Geometry}{27}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Ptolemy's theorem}{27}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Ceva's theorem}{27}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Simson line}{27}{section.8.9}%
+\contentsline {section}{\numberline {8.10}Euler line}{27}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Platonic solids}{27}{section.8.11}%
+\contentsfinish 

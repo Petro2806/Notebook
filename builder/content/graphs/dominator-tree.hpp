@@ -1,22 +1,17 @@
 /**
- * Description: works for cyclic graphs. Add direct edges to g and reversed edges to gr.
- * dom - immidiate dominator. sdom - semidominator. dom[root] = -1. dom[v] = -1 if v is unreachable.
- * Time: O(n)
+ * Description: works for cyclic graphs. $par$ - parent in dfs. $p$ - parent in dsu. $val$ - vertex with min sdom in dsu.
+ * $dom$ - immidiate dominator. $sdom$ - semidominator, min vertex with alternate path.
+ * $bkt$ - vertices with this sdom. 
+ * $dom[root] = -1$. $dom[v] = -1$ if $v$ is unreachable.
+ * Time: $O(n)$
  **/
+
 
 struct Graph
 {
 	int n;
-	vector<VI> g;
-	vector<VI> gr;
-	VI par; // parent in dfs
-	VI used; // bool
-	VI p; // parent in dsu
-	VI val; // vertex with min sdom in dsu
-	VI sdom; // min vertex with alternate path
-	VI dom;  // immediate dominator
-	vector<VI> bkt; // vertices with this sdom
-	VI tin;
+	vector<VI> g, gr, bkt;
+	VI par, used, p, val, sdom, dom, tin;
 	int T;
 	VI ord;
 	
@@ -25,13 +20,13 @@ struct Graph
 		n = _n;
 		g.resize(n);
 		gr.resize(n);
+		bkt.resize(n);
 		par.resize(n);
 		used.resize(n);
 		p.resize(n);
 		val.resize(n);
 		sdom.resize(n);
 		dom.resize(n);
-		bkt.resize(n);
 		tin.resize(n);
 	}
 	
@@ -56,7 +51,8 @@ struct Graph
 	int get(int v)
 	{
 		find(v);
-		return val[v]; // return vertex with min sdom
+		// return vertex with min sdom
+		return val[v]; 
 	}
 	
 	
@@ -94,9 +90,11 @@ struct Graph
 			int v = ord[i];
 			for (auto from : gr[v])
 			{
+				// don't consider unreachable vertices
 				if (!used[from])
-					continue; // don't consider unreachable vertices
-				if (tin[sdom[v]] > tin[sdom[get(from)]]) // find min sdom 
+					continue; 
+				// find min sdom 
+				if (tin[sdom[v]] > tin[sdom[get(from)]]) 
 				{   
 					sdom[v] = sdom[get(from)];
 				}
@@ -106,13 +104,15 @@ struct Graph
 			for (auto y : bkt[v])
 			{
 				int u = get(y);
+				// if sdoms equals then this is dom
+				// else we will find it later
 				if (sdom[y] == sdom[u])
-					dom[y] = sdom[y]; // if sdoms equals then this is dom
-				else dom[y] = u; // else we will find it later
+					dom[y] = sdom[y]; 
+				else dom[y] = u; 
 			}
-	
+			// add vertex to dsu
 			if (par[v] != -1) 
-				p[v] = par[v]; // add vertex to dsu
+				p[v] = par[v]; 
 		}
 	
 		for (auto v : ord)
