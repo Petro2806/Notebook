@@ -1,14 +1,18 @@
+
 struct Graph
 {
 	vector<PII> edges;
 	vector<VI> g;
 
-	
 	VI used, par;
-	VI tin, low;
+	VI tin, low, inComp;
 	int t = 0, c = 0;
 	vector<int> st;
 
+	// components of vertices
+	// a vertex can be in several components
+	vector<VI> verticesCol;
+	// components of edges
 	vector<VI> components;
 	// col[i] - component of the i-th edge
 	VI col;
@@ -28,6 +32,7 @@ struct Graph
 
 		tin.assign(n, 0);
 		low.assign(n, 0);
+		inComp.assign(n, 0);
 
 		t = c = 0;		
 
@@ -44,6 +49,19 @@ struct Graph
 		edges[i] = MP(a, b);
 		g[a].PB(i);
 		g[b].PB(i);
+	}
+	
+	void addComp()
+	{
+		unordered_set<int> s;
+		for (auto e : components[c])
+		{
+			s.insert(edges[e].F);
+			s.insert(edges[e].S);
+			inComp[edges[e].F] = true;
+			inComp[edges[e].S] = true;
+		}
+		verticesCol.PB(VI(ALL(s)));
 	}
 
 	void dfs(int v, int p = -1)
@@ -79,6 +97,7 @@ struct Graph
 						st.pop_back();
 					}
 					components[c].PB(st.back());
+					addComp();
 					col[st.back()] = c++;
 						
 					st.pop_back();
@@ -93,7 +112,7 @@ struct Graph
 		}	
 	}
 	void build()
-	{
+	{			
 		FOR (i, 0, n)
 		{
 			if (used[i]) continue;
@@ -102,12 +121,16 @@ struct Graph
 			components.PB({});
 			while (!st.empty())
 			{
-				col[st.back()] = c;
-				components[c].PB(st.back());
-				
+				int e = st.back();
+				col[e] = c;
+				components[c].PB(e);
 				st.pop_back();
 			}
+			addComp();
 			c++;
 		}
+		FOR (i, 0, n)
+			if (!inComp[i])
+				verticesCol.PB(VI(1, i));
 	}
-}G;
+};
