@@ -1,30 +1,31 @@
-\subsection{$a^b \% m$}
-If $b >= phi(m)$ then $b$ can be changed to $b \% phi(m) + phi(m)$.
+\subsection{Calculation of $a^b \mod m$}
+if $b \ge \phi(m)$ then value $a^b \mod m$ equals to the value $a^{\left[b \mod \phi(m)\right] + \phi(m)} \mod m$.
+
 
 \subsection{Generators}
-Generator exist for $n = 1, 2, 4, p^k, 2p^k$ for odd primes $p$ and positive integer $k$. 
+Generator exist only for $n = 1, 2, 4, p^k, 2p^k$ for odd primes $p$ and positive integer $k$. 
 
-$g$ is generator for modulo $n$ if any comprime with $n$ can be represented as $g^i, 0 \le i < phi(n)$.
+$g$ is generator for modulo $n$ if any comprime with $n$ can be represented as $\left[ g^i \mod n \right], 0 \le i < \phi(n)$.
 
 To find generator:
 \begin{itemize}
-\item find $phi(n)$ and $p_1, ..., p_m$ --- prime factors of $phi(n)$
-\item g is generator only if $g^{\frac{phi(n)}{p_j}} \ne 1$ for each $j$
+\item find $\phi(n)$ and $p_1, ..., p_m$ --- prime factors of $\phi(n)$
+\item g is generator only if $g^{\frac{\phi(n)}{p_j}} \mod n \ne 1$ for each $j$
 \item check $g = 2, 3, 4, ..., p - 1$
 \end{itemize}
 
 
-
 \subsection{Wilson}
-$p$ is prime if and only if $(p - 1)! = -1 (mod p)$.
+$p$ is prime if and only if $(p - 1)! = (p - 1) \mod p$.
 
 \subsection{Quadratic residue}
-$q$ is called quadratic residue modulo $n$ if there exist integer $x$ that $x^2 = q (mod n)$.
+$q$ is quadratic residue modulo $p$ if there exist integer $x$ that $x^2 = q \mod p$.
+If $p$ is odd prime then there exists $\frac{p + 1}{2}$ residues (including 0).
 
-If $n$ is odd prime than $\frac{p + 1}{2}$ residues (including 0).
 
-Legendre symbol (equal 0 if $a$ divisible by $p$, 1 if residue and -1 if not):
-$$(\frac{a}{p}) = a^{\frac{p - 1}{2}} (mod p)$$
+Legendre symbol is equal to 0 if $q$ is divisible by $p$, equal to 1 if $q$ is quadratic residue, and -1 otherwise:
+$$\Big(\frac{q}{p}\Big) = q^{\frac{p - 1}{2}} (mod p)$$
 
-Jacobi symbol (for composite $n$):
-$$(\frac{a}{n}) = \prod{(\frac{a}{p_i})^{\alpha_i}}$$
+
+Jacobi symbol (Legendre symbol for all $p$):
+$$\Big(\frac{q}{p}\Big) = \prod{\Big(\frac{q}{p_i}\Big)^{\alpha_i}}$$
