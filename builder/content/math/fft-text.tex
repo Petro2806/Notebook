@@ -1,0 +1,24 @@
+\subsection{Specific FFT}
+
+\textbf{FFT with doubles}
+Move comments from code here.
+
+\textbf{FFT in 2D}
+The complexity is $O(nm(\log n + \log m))$.
+The main problem to resize the matrix. You must add vectors of some size.
+
+\textbf{D-and-C FFT}
+Using D-and-C to calculate DP table. (For example $DP[i] = sum(DP[j] \cdot DP[i - j])$) 
+
+By the time we compute the values for the segment $[l,r)$, the following conditions are already met:
+\begin{itemize}
+\item The values for $[0,l)$ on the DP table is already determined.
+\item The sum of contributions from $[0,l)$ through $[l,r)$ is already applied to the DP table in $[l,r)$.
+\end{itemize}
+
+When calculate the values for the segment $[l, r)$ do:
+\begin{itemize}
+\item Calculate the values for the segment $[l,m)$ recursively.
+\item Calculate the contributions from $[l,m)$ to $[m,r)$.
+\item Calculate the values for the segment $[m,r)$ recursively.
+\end{itemize}
