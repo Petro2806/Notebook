@@ -1,6 +1,7 @@
 /**
  * Time: 0.6s for $|V| = 10^5, |E| = 2*10^5$
  */
+
 struct Graph
 {
 	int szL, szR;
@@ -11,11 +12,11 @@ struct Graph
 	void init(int l, int r)
 	{
 		szL = l, szR = r;
-		g.resize(L);
-		mateForL.resize(L);
-		usedL.resize(L);
+		g.resize(szL);
+		mateForL.resize(szL);
+		usedL.resize(szL);
 		
-		mateForR.resize(R);
+		mateForR.resize(szR);
 	}
 	
 	void addEdge(int from, int to)
@@ -65,7 +66,7 @@ struct Graph
 		{
 			iter++;
 			
-			VI order(L);
+			VI order(szL);
 			iota(ALL(order), 0);
 			shuffle(ALL(order), rng);
 
@@ -73,14 +74,17 @@ struct Graph
 			for(int v : order)
 			{
 				if (mateForL[v] == -1)
+				{
 					if (kuhn(v))
 					{
 						ok = true;
 						res++;
 					}
+				}
 			}
 			if (!ok) break;
 		}
 		return res;
 	}
 };
+
