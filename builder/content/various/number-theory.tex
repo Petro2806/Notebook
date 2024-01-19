@@ -4,28 +4,32 @@
 \[M(n) = \sum_{k=1}^{n}\mu(k) \iff \sum_{n = 1}{x} M([\frac{x}{n}]) = 1\]
 
 \subsection{Catalan}
-$$C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k}$$ 
-$$C_n = \frac{1}{n + 1} C_{2n}^{n}$$
-$$C_n = C_{2n}^{n} - C_{2n}^{n - 1}$$
+\[C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k} = \frac{1}{n + 1} C_{2n}^{n} = C_{2n}^{n} - C_{2n}^{n - 1}\]
 
 \subsection{Binomials}
-$$\sum_{k = 0}^{n} C_n^k = 2^n$$ 
-$$\sum_{m = 0}^{n} C_m^k = C_{n + 1}^{k + 1}$$
-$$\sum_{k = 0}^{m} C_{n + k}^k = C_{n + m + 1}^m$$
-
-$$\sum_{k = 0}^{n} (C_n^k)^2 = C_{2n}^n$$
-$$\sum_{j = 0}^{k} C_m^j C_{n-m}^{k - j} = C_n^k$$
-$$\sum_{j = 0}^{m} C_m^j C_{n-m}^{k - j} = C_{n + 1}^{k + 1}$$
-
-$$\sum_{k = 0}^{n} C_{n - k}^k = F_{n + 1}$$
+\fbox{\begin{minipage}{0.31\textwidth}
+\begin{align*}
+&	\sum_{k = 0}^{n} C_n^k = 2^n 
+&	\sum_{k = 0}^{m} C_{n + k}^k = C_{n + m + 1}^m \\
+&	\sum_{m = 0}^{n} C_m^k = C_{n + 1}^{k + 1} 
+&	\sum_{k = 0}^{n} (C_n^k)^2 = C_{2n}^n \\
+&	\sum_{j = 0}^{k} C_m^j C_{n-m}^{k - j} = C_n^k 
+&	\sum_{j = 0}^{m} C_m^j C_{n-m}^{k - j} = C_{n + 1}^{k + 1} \\
+&	\sum_{k = 0}^{n} C_{n - k}^k = F_{n + 1}
+\end{align*}
+\end{minipage}}
 
 \subsection{Fibonacci}
-$F_1 = F_2 = 1$, $F_n = F_{n - 1} + F_{n - 2}$\\
-
-$F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n$,
-$F_{n + k} = F_k F_{n + 1} + F_{k - 1} F_n$\\
-$gcd(F_m, F_n) = F_{gcd(n, m)}$.
-$$F_n = \frac{(\frac{1 + \sqrt{5}}{2})^n - (\frac{1 - \sqrt{5}}{2})^n}{\sqrt{5}}$$
+\fbox{\begin{minipage}{0.31\textwidth}
+\begin{align*}
+& F_1 = F_2 = 1 
+& F_{n + k} = F_k F_{n + 1} + F_{k - 1} F_n \\
+& F_n = F_{n - 1} + F_{n - 2} 
+& F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n \\
+& gcd(F_m, F_n) = F_{gcd(n, m)} \\
+& F_n = \frac{(\tfrac{1 + \sqrt{5}}{2})^n - (\tfrac{1 - \sqrt{5}}{2})^n}{\sqrt{5}}
+\end{align*}
+\end{minipage}}
 
 \subsection{Stirling}
 
