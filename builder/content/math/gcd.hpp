@@ -9,12 +9,12 @@ tuple<int, int, int> gcdExt(int a, int b)
 	while (b)
 	{
 		int k = a / b;
-		x -= k * x2;
-		y -= k * y2;
+		x1 -= k * x2;
+		y1 -= k * y2;
 		a %= b;
 		swap(a, b);
-		swap(x, x2);
-		swap(y, y2);
+		swap(x1, x2);
+		swap(y1, y2);
 	}
 	return {a, x1, y1};
 }

@@ -8,12 +8,9 @@ mt19937 rng;
 struct Node
 {
 	int l, r;	
-	int x;	
-	int y;	
-	int cnt;	
-	int par;	
-	int rev;	
-	int mn;		
+	int x, y;
+	int cnt, par;
+	int rev, mn;
 	
 	void init(int value)
 	{
@@ -34,6 +31,7 @@ struct Treap
 	void init(int _n)
 	{
 		n = _n;
+		a.clear();
 		a.resize(n);
 	}
 	int sz = 0;
@@ -60,6 +58,7 @@ struct Treap
 	{
 		if (v == -1) 
 			return;
+		// important!
 		a[v].cnt = getCnt(a[v].l) + 
 		getCnt(a[v].r) + 1;
 		
@@ -88,27 +87,29 @@ struct Treap
 		push(v);
 		int left = getCnt(a[v].l);
 		PII res;
+		// elements a[v].x == val will be in right part
 		// if (val <= a[v].x)
 		if (cnt <= left)
 		{
 			if (a[v].l != -1) 
 				a[a[v].l].par = -1;
+			// split(a[v].l, val);
 			res = split(a[v].l, cnt);
-			a[v].l = res.second;
-			if (res.second != -1) 
-				a[res.second].par = v;
-			res.second = v;
+			a[v].l = res.S;
+			if (res.S != -1) 
+				a[res.S].par = v;
+			res.S = v;
 		}
 		else
 		{
 			if (a[v].r != -1) 
 				a[a[v].r].par = -1;
-			// split(v, val)
+			// split(a[v].r, val)
 			res = split(a[v].r, cnt - left - 1);
-			a[v].r = res.first;
-			if (res.first != -1) 
-				a[res.first].par = v;
-			res.first = v;
+			a[v].r = res.F;
+			if (res.F != -1) 
+				a[res.F].par = v;
+			res.F = v;
 		}
 		upd(v);
 		return res;
@@ -118,7 +119,7 @@ struct Treap
 		if (v == -1) return u;
 		if (u == -1) return v;
 		int res;
-		// if (rng() % (getCnt(v) + getCnt(u)) < getCnt(v))
+		// if ((int)(rng() % (getCnt(v) + getCnt(u))) < getCnt(v))
 		if (a[v].y > a[u].y)
 		{
 			push(v);

@@ -1,3 +1,8 @@
+/**
+ * To count number of occurances of string
+ * calculate sum of cnt on link subtree
+ */
+
 const int AL = 26;
 
 struct Node

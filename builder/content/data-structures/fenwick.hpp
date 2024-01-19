@@ -6,6 +6,7 @@ struct Fenwick
 	void init(int _n)
 	{
 		n = _n;
+		v.clear();
 		v.assign(n, 0);
 	}
 	
