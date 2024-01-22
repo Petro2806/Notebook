@@ -1,5 +1,5 @@
 /**
- * Description: $c_{i \lor j} += a_i * b_j$.
+ * Description: $c_{i \lor j} += a_i \cdot b_j$.
  */
 void convOr(VI& a, int k, bool inverse)
 {
