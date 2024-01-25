@@ -2,13 +2,13 @@
  * Description: $ax + by = d, gcd(a, b) = \|d\| \rightarrow (d, x, y)$.\\
  * Minimizes $\|x\| + \|y\|$. And minimizes $\|x - y\|$ for $a > 0$, $b > 0$.
  */
-tuple<int, int, int> gcdExt(int a, int b)
+tuple<LL, LL, LL> gcdExt(LL a, LL b)
 {
-	int x1 = 1, y1 = 0;
-	int x2 = 0, y2 = 1;
+	LL x1 = 1, y1 = 0;
+	LL x2 = 0, y2 = 1;
 	while (b)
 	{
-		int k = a / b;
+		LL k = a / b;
 		x1 -= k * x2;
 		y1 -= k * y2;
 		a %= b;

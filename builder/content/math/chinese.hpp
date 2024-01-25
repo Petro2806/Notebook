@@ -1,9 +1,8 @@
 /**
- * Description: Calculate result \% mod.\\
- * Not tested on good tests
+ * Description: Code finds a specific structure of the answer.
  * Time: O(n^2) 
  */
-int chinese(VI m, VI p)
+LL chinese(VI m, VI p)
 {
 	int n = SZ(m);
 	FOR(i, 1, n)
@@ -18,8 +17,7 @@ int chinese(VI m, VI p)
 		b = (m[i] - b + p[i]) % p[i];
 		
 		int c = p[i];
-		int x, y;
-		int d = gcd(a, c, x, y);
+		auto [d, x, y] = gcdExt(a, c);
 		
 		if(b % d != 0)
 			return -1;
@@ -27,15 +25,13 @@ int chinese(VI m, VI p)
 		b /= d;
 		c /= d;
 		
-		b = b * x % c;
+		b = (b * x % c + c) % c;
 		m[i] = b;
 		p[i] = c;
 	}
-	int res = m[n - 1] % mod;
+	//specific structure where gcd(pi, pj) = 1
+	LL res = m[n - 1];
 	RFOR(i, n - 1, 0)
-	{
-		res = mult(res, p[i]);
-		res = add(res, m[i]);
-	}
+		res = res * p[i] + m[i];
 	return res;
 }
