@@ -1,6 +1,6 @@
 /**
- * Description: $ax + by = d, gcd(a, b) = \|d\| \rightarrow (d, x, y)$.\\
- * Minimizes $\|x\| + \|y\|$. And minimizes $\|x - y\|$ for $a > 0$, $b > 0$.
+ * Description: $ax + by = d$, $gcd(a, b) = |d| \rightarrow (d, x, y)$.\\
+ * Minimizes $|x| + |y|$. And minimizes $|x - y|$ for $a > 0$, $b > 0$.
  */
 tuple<LL, LL, LL> gcdExt(LL a, LL b)
 {

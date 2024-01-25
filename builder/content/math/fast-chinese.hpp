@@ -1,5 +1,5 @@
 /**
- * Description: $x \% p_i = m_i, \text{lcm}(p) \le 10^{18}, 0 \le x < \text{lcm}(p)$
+ * Description: $x \% p_i = m_i, \text{lcm}(p_i) \le 10^{18}, 0 \le x < \text{lcm}(p_i)$
  * $\rightarrow x$ or -1.
  * Time: O(n\log(\text{lcm}(p_i)))
  */

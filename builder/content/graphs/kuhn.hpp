@@ -1,6 +1,6 @@
 /**
  * Description: mateFor is \texttt{-1} or mate. addEdge([0, $L$), [0, $R$)).
- * Time: 0.6s for $|L|, |R| \le 10^5, |E| \le 2 \cdot 10^5$
+ * Time: 0.6s for $L, R \le 10^5, |E| \le 2 \cdot 10^5$
  */
 
 struct Graph
