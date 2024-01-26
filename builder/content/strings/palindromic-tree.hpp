@@ -1,35 +1,35 @@
+const int AL = 26;
+
 struct Node
 {
 	int to[AL];
 	int link;
 	int len;
-	void clear()
+	Node(int _link, int _len)
 	{
 		fill(to, to + AL, -1);
-		link = -1;
-		len = -1;
+		link = _link;
+		len = _len;
 	}
 };
 struct PalTree
 {
 	string s;
 	vector<Node> a;
-	int sz;
 	int last;
 	
 	void init(string t)
 	{
-		a.resize(2 * SZ(t));
-		a[0].clear();
-		a[1].clear();
-		a[1].len = 0;
-		a[1].link = 0;
-		sz = 2;
+		a.clear();
+		a.reserve(2 * SZ(t));
+		a.PB(Node(-1, -1));
+		a.PB(Node(0, 0));
 		last = 1;
 		s = t;
 	}
 	void add(int idx)
 	{
+		// change t o [ 0 AL)
 		int ch = s[idx] - 'a';
 		
 		int cur = last;
@@ -40,12 +40,9 @@ struct PalTree
 				break;
 			cur = a[cur].link;
 		}
-		assert(cur != -1);
 		if (a[cur].to[ch] == -1)
 		{
-			a[cur].to[ch] = sz;
-			a[sz].clear();
-			a[sz].len = a[cur].len + 2;
+			a[cur].to[ch] = SZ(a);
 			int link = a[cur].link;
 			while (link != -1)
 			{
@@ -58,9 +55,9 @@ struct PalTree
 				link = 1;
 			else
 				link = a[link].to[ch];
-			a[sz].link = link;
-			sz++;
+			a.PB(Node(link, a[cur].len + 2));
 		}
 		last = a[cur].to[ch];
 	}
 };
+

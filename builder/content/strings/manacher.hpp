@@ -1,14 +1,13 @@
 /**
  * Description: $d1_i$ -- half-length of odd length palindrome with center in i.
  * $d2_i$ -- half-length of even length palindrome if i is right center of it.
- * 
+ * half-length = (length + 1) / 2
  **/
 
-int d1[N], d2[N];
-
-void manacher(const string& s)
+pair<VI, VI> manacher(const string& s)
 {
     int n = SZ(s);
+	VI d1(n), d2(n);
     int l = -1;
     int r = -1;
     FOR (i, 0, n)
@@ -42,4 +41,6 @@ void manacher(const string& s)
             l = i - d2[i];
         }
     }
+    return {d1, d2};
 }
+
