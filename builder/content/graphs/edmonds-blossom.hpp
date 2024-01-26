@@ -1,6 +1,6 @@
 /**
  * Description: Finds the maximum matching in a graph
- * Time complexity: $O(n^2 m)$
+ * Time: O(n^2 m)
  */
  struct Graph
 {

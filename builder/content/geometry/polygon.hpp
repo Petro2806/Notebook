@@ -15,10 +15,14 @@ db areaPolygon(const vector<Pt>& v)
 }
 // Checks if point `a` is inside the convex
 // polygon `v`. Returns true if on the boundary.
-// `v` must not contain duplicated vertices
+// `v` must not contain duplicated vertices.
+// Time: O(log n)
 bool inConvexPolygon(const vector<Pt>& v,
 	const Pt& a)
 {
+	assert(SZ(v) >= 2);
+	if (SZ(v) == 2)
+		return onSegment(v[0], v[1], a);
 	if (sgn(orient(v.back(), v[0], a)) < 0
 		|| sgn(orient(v[0], v[1], a)) < 0)
 		return false;
@@ -93,6 +97,8 @@ PII tangetsToConvexPolygon(const vector<Pt>& v,
 	const Pt& p)
 {
 	int n = SZ(v), i = 0;
+	if (n == 2)
+		return {0, 1};
 	while (sgn(orient(p, v[i], v[(i + 1) % n]))
 		* sgn(orient(p, v[i],
 		v[(i + n - 1) % n])) > 0)

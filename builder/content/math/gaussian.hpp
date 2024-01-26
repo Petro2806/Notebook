@@ -1,16 +1,26 @@
 /**
- * Description: if there is no solution, returns an empty vector.
- * Otherwise, returns any solution.
+ * Description: solves the system $A x = b$.
+ * If there is no solution, returns a pair of two empty vectors.
+ * Otherwise, returns the pair $(x, \text{basis})$ with $x$ being any solution
+ * and $\text{basis}$ being the basis for the \textit{nullspace} -- the set of solutions of $A x = 0$.
+ * Time: O(n m \min (n, m))
  */
-VI solveLinearSystem(vector<VI> a, VI b)
+pair<VI, vector<VI>> solveLinear(vector<VI> a, VI b)
 {
-	int n = SZ(b), m = SZ(a[0]);
+	int n = SZ(a), m = SZ(a[0]);
+	assert(SZ(b) == n);
 	FOR(i, 0, n)
+	{
+		assert(SZ(a[i]) == m);
 		a[i].PB(b[i]);
+	}
 	int p = 0;
 	VI pivots;
 	FOR(j, 0, m)
 	{
+		// when working with floating-point numbers
+		// a[p][j] should be the largest element in the
+		// column by absolute value
 		if (a[p][j] == 0)
 		{
 			int l = -1;
@@ -45,5 +55,21 @@ VI solveLinearSystem(vector<VI> a, VI b)
 			updSub(x[j], mult(a[i][k], x[k]));
 		x[j] = mult(x[j], binpow(a[i][j], mod - 2));
 	}
-	return x;
+	vector<VI> basis;
+	FOR(q, 0, m)
+	{
+		if (find(ALL(pivots), q) != pivots.end())
+			continue;
+		VI d(m);
+		d[q] = 1;
+		RFOR(i, p, 0)
+		{
+			int j = pivots[i];
+			FOR(k, j + 1, m)
+				updSub(d[j], mult(a[i][k], d[k]));
+			d[j] = mult(d[j], binpow(a[i][j], mod - 2));
+		}
+		basis.PB(d);
+	}
+	return {x, basis};
 }

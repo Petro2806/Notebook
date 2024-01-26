@@ -1,3 +1,6 @@
+/**
+ * Time: O(n^2 m)
+ */
 LL hungarian(const vector<vector<LL>>& a)
 {
 	int n = SZ(a), m = SZ(a[0]);

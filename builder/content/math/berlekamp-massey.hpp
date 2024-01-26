@@ -19,7 +19,7 @@ VI berlekampMassey(const VI& a)
 			continue;
 		}
 		VI t = c;
-		int coef = mult(d, binPow(b, mod - 2));
+		int coef = mult(d, binpow(b, mod - 2));
 		if (SZ(bp) + x > SZ(c))
 			c.resize(SZ(bp) + x);
 		FOR(i, 0, SZ(bp))
