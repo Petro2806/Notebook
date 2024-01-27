@@ -1,11 +1,11 @@
 /**
  * Description: solves the system $A x = b$.
- * If there is no solution, returns a pair of two empty vectors.
- * Otherwise, returns the pair $(x, \text{basis})$ with $x$ being any solution
- * and $\text{basis}$ being the basis for the \textit{nullspace} -- the set of solutions of $A x = 0$.
+ * If there is no solution, returns $(\{\}, -1)$.
+ * If the solution is unique, returns $(x, 1)$.
+ * Otherwise, returns $(x, 2)$ with $x$ being any solution.
  * Time: O(n m \min (n, m))
  */
-pair<VI, vector<VI>> solveLinear(vector<VI> a, VI b)
+pair<VI, int> solveLinear(vector<VI> a, VI b)
 {
 	int n = SZ(a), m = SZ(a[0]);
 	assert(SZ(b) == n);
@@ -18,9 +18,7 @@ pair<VI, vector<VI>> solveLinear(vector<VI> a, VI b)
 	VI pivots;
 	FOR(j, 0, m)
 	{
-		// when working with floating-point numbers
-		// a[p][j] should be the largest element in the
-		// column by absolute value
+		// with doubles, abs(a[p][j]) -> max
 		if (a[p][j] == 0)
 		{
 			int l = -1;
@@ -45,7 +43,7 @@ pair<VI, vector<VI>> solveLinear(vector<VI> a, VI b)
 	}
 	FOR(i, p, n)
 		if (a[i].back() != 0)
-			return {};
+			return {{}, -1};
 	VI x(m);
 	RFOR(i, p, 0)
 	{
@@ -55,21 +53,5 @@ pair<VI, vector<VI>> solveLinear(vector<VI> a, VI b)
 			updSub(x[j], mult(a[i][k], x[k]));
 		x[j] = mult(x[j], binpow(a[i][j], mod - 2));
 	}
-	vector<VI> basis;
-	FOR(q, 0, m)
-	{
-		if (find(ALL(pivots), q) != pivots.end())
-			continue;
-		VI d(m);
-		d[q] = 1;
-		RFOR(i, p, 0)
-		{
-			int j = pivots[i];
-			FOR(k, j + 1, m)
-				updSub(d[j], mult(a[i][k], d[k]));
-			d[j] = mult(d[j], binpow(a[i][j], mod - 2));
-		}
-		basis.PB(d);
-	}
-	return {x, basis};
+	return {x, SZ(pivots) == m ? 1 : 2};
 }

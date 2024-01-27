@@ -51,7 +51,7 @@ db dot(const Pt& p, const Pt& q)
 {
 	return p.x * q.x + p.y * q.y;
 }
-// Returns the angle between `p` and `q` in [0, π]
+// Returns the angle between `p` and `q` in [0, pi]
 db angle(const Pt& p, const Pt& q)
 {
 	return acos(clamp(dot(p, q) / abs(p) /
@@ -83,7 +83,7 @@ bool isConvex(const vector<Pt>& v)
 	}
 	return !(hasPos && hasNeg);
 }
-// Checks if argument of `p` is in [-π, 0)
+// Checks if argument of `p` is in [-pi, 0)
 bool half(const Pt& p)
 {
 	assert(sgn(p.x) != 0 || sgn(p.y) != 0);
