@@ -1,6 +1,7 @@
 /**
  * Description: uncomment in split for explicit
- *  key or in merge for implicit priority.
+ * key or in merge for implicit priority.
+ * Minimum and reverse queries.
  */
 
 mt19937 rng;
@@ -12,7 +13,7 @@ struct Node
 	int cnt, par;
 	int rev, mn;
 	
-	void init(int value)
+	Node(int value)
 	{
 		l = r = -1;
 		x = value;
@@ -26,15 +27,12 @@ struct Node
 
 struct Treap
 {
-	int n;
 	vector<Node> a;
-	void init(int _n)
+	void init(int n)
 	{
-		n = _n;
 		a.clear();
-		a.resize(n);
+		a.reserve(n);
 	}
-	int sz = 0;
 	
 	int getCnt(int v)
 	{
@@ -50,9 +48,8 @@ struct Treap
 	}
 	int newNode(int val)
 	{
-		assert(sz < n);
-		a[sz].init(val);
-		return sz++;
+		a.PB(Node(val));
+		return SZ(a) - 1;
 	}
 	void upd(int v)
 	{
@@ -93,7 +90,7 @@ struct Treap
 		{
 			if (a[v].l != -1) 
 				a[a[v].l].par = -1;
-			// split(a[v].l, val);
+			// res = split(a[v].l, val);
 			res = split(a[v].l, cnt);
 			a[v].l = res.S;
 			if (res.S != -1) 
@@ -104,7 +101,7 @@ struct Treap
 		{
 			if (a[v].r != -1) 
 				a[a[v].r].par = -1;
-			// split(a[v].r, val)
+			// res = split(a[v].r, val);
 			res = split(a[v].r, cnt - left - 1);
 			a[v].r = res.F;
 			if (res.F != -1) 

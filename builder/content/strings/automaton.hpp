@@ -11,7 +11,7 @@ struct Node
 	int link;
 	int len;
 	int cnt;
-	void init()
+	Node()
 	{
 		fill(g, g + AL, -1);
 		link = -1;
@@ -23,21 +23,19 @@ struct Node
 struct Automaton
 {
 	vector<Node> a;
-	int sz;
 	int head;
 	void init(int n)
 	{
-		a.resize(2 * n);
-		a[0].init();
-		sz = 1;
+		a.reserve(2 * n);
+		a.PB(Node());
 		head = 0;
 	}
 	void add(char c)
 	{
 		// change to [0 AL)
 		int ch = c - 'a';
-		int nhead = sz++;
-		a[nhead].init();
+		int nhead = SZ(a);
+		a.PB(Node());
 		a[nhead].len = a[head].len + 1;
 		int cur = head;
 		head = nhead;
@@ -57,7 +55,8 @@ struct Automaton
 			a[head].link = p;
 			return;
 		}
-		int q = sz++;
+		int q = SZ(a);
+		a.PB(Node());
 		a[q] = a[p];
 		a[q].cnt = 0;
 		a[q].len = a[cur].len + 1;

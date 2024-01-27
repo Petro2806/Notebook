@@ -7,11 +7,11 @@ struct Node
 	int g[AL];
 	int nxt[AL];
 	int link;
-	
-	void init()
+
+	Node(int _c, int _p)
 	{
-		c = -1;
-		p = -1;
+		c = _c;
+		p = _p;
 		fill(g, g + AL, -1);
 		fill(nxt, nxt + AL, -1);
 		link = -1;
@@ -21,12 +21,10 @@ struct Node
 struct AC
 {
 	vector<Node> a;
-	int sz;
 	void init(int n)
 	{
-		a.resize(n);
-		a[0].init();
-		sz = 1;
+		a.reserve(n);
+		a.PB(Node(-1, -1));
 	}
 	int addStr(const string& s)
 	{
@@ -37,11 +35,8 @@ struct AC
 			int c = s[i] - 'a'; 
 			if (a[v].nxt[c] == -1)
 			{
-				a[v].nxt[c] = sz;
-				a[sz].init();
-				a[sz].c = c;
-				a[sz].p = v;
-				sz++;
+				a[v].nxt[c] = SZ(a);
+				a.PB(Node(c, v));
 			}
 			v = a[v].nxt[c];
 		}
