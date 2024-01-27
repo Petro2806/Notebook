@@ -51,7 +51,7 @@ db dot(const Pt& p, const Pt& q)
 {
 	return p.x * q.x + p.y * q.y;
 }
-// Returns the angle between `p` and `q`
+// Returns the angle between `p` and `q` in [0, pi]
 db angle(const Pt& p, const Pt& q)
 {
 	return acos(clamp(dot(p, q) / abs(p) /
@@ -69,20 +69,6 @@ db orient(const Pt& p, const Pt& q, const Pt& r)
 {
 	return cross(q - p, r - p) / abs(q - p);
 }
-// Checks if a polygon `v` is convex
-bool isConvex(const vector<Pt>& v)
-{
-	bool hasPos = false, hasNeg = false;
-	int n = SZ(v);
-	FOR(i, 0, n)
-	{
-		int o = sgn(orient(v[i], v[(i + 1) % n],
-			v[(i + 2) % n]));
-		hasPos |= o > 0;
-		hasNeg |= o < 0;
-	}
-	return !(hasPos && hasNeg);
-}
 // Checks if argument of `p` is in [-pi, 0)
 bool half(const Pt& p)
 {
@@ -93,15 +79,17 @@ bool half(const Pt& p)
 // Polar sort of vectors in `v` around `o`
 void polarSortAround(const Pt& o, vector<Pt>& v)
 {
-	sort(ALL(v), [o](const Pt& p, const Pt& q)
+	sort(ALL(v), [o](Pt p, Pt q)
 	{
-		bool hp = half(p - o), hq = half(q - o);
+		p = p - o;
+		q = q - o;
+		bool hp = half(p), hq = half(q);
 		if (hp != hq)
 			return hp < hq;
 		int s = sgn(cross(p, q));
 		if (s != 0)
 			return s == 1;
-		return sq(p - o) < sq(q - o);
+		return sq(p) < sq(q);
 	});
 }
 // Example:

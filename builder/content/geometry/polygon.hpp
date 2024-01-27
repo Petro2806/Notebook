@@ -1,3 +1,17 @@
+// Checks if a polygon `v` is convex
+bool isConvex(const vector<Pt>& v)
+{
+	bool hasPos = false, hasNeg = false;
+	int n = SZ(v);
+	FOR(i, 0, n)
+	{
+		int s = sgn(orient(v[i], v[(i + 1) % n],
+			v[(i + 2) % n]));
+		hasPos |= s > 0;
+		hasNeg |= s < 0;
+	}
+	return !(hasPos && hasNeg);
+}
 // Returns the area of triangle abc
 db areaTriangle(const Pt& a, const Pt& b,
 	const Pt& c)
@@ -15,10 +29,14 @@ db areaPolygon(const vector<Pt>& v)
 }
 // Checks if point `a` is inside the convex
 // polygon `v`. Returns true if on the boundary.
-// `v` must not contain duplicated vertices
+// `v` must not contain duplicated vertices.
+// Time: O(log n)
 bool inConvexPolygon(const vector<Pt>& v,
 	const Pt& a)
 {
+	assert(SZ(v) >= 2);
+	if (SZ(v) == 2)
+		return onSegment(v[0], v[1], a);
 	if (sgn(orient(v.back(), v[0], a)) < 0
 		|| sgn(orient(v[0], v[1], a)) < 0)
 		return false;
@@ -93,6 +111,8 @@ PII tangetsToConvexPolygon(const vector<Pt>& v,
 	const Pt& p)
 {
 	int n = SZ(v), i = 0;
+	if (n == 2)
+		return {0, 1};
 	while (sgn(orient(p, v[i], v[(i + 1) % n]))
 		* sgn(orient(p, v[i],
 		v[(i + n - 1) % n])) > 0)
