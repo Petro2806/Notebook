@@ -1,3 +1,17 @@
+// Checks if a polygon `v` is convex
+bool isConvex(const vector<Pt>& v)
+{
+	bool hasPos = false, hasNeg = false;
+	int n = SZ(v);
+	FOR(i, 0, n)
+	{
+		int s = sgn(orient(v[i], v[(i + 1) % n],
+			v[(i + 2) % n]));
+		hasPos |= s > 0;
+		hasNeg |= s < 0;
+	}
+	return !(hasPos && hasNeg);
+}
 // Returns the area of triangle abc
 db areaTriangle(const Pt& a, const Pt& b,
 	const Pt& c)

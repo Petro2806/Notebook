@@ -69,20 +69,6 @@ db orient(const Pt& p, const Pt& q, const Pt& r)
 {
 	return cross(q - p, r - p) / abs(q - p);
 }
-// Checks if a polygon `v` is convex
-bool isConvex(const vector<Pt>& v)
-{
-	bool hasPos = false, hasNeg = false;
-	int n = SZ(v);
-	FOR(i, 0, n)
-	{
-		int s = sgn(orient(v[i], v[(i + 1) % n],
-			v[(i + 2) % n]));
-		hasPos |= s > 0;
-		hasNeg |= s < 0;
-	}
-	return !(hasPos && hasNeg);
-}
 // Checks if argument of `p` is in [-pi, 0)
 bool half(const Pt& p)
 {
