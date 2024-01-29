@@ -1,10 +1,20 @@
 \subsection{Mobius}
-\[g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g(\frac{n}{d})\]
-
-\[M(n) = \sum_{k=1}^{n}\mu(k) \iff \sum_{n = 1}{x} M([\frac{x}{n}]) = 1\]
+\fbox{\begin{minipage}{0.31\textwidth}
+\begin{align*}
+& g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g(\frac{n}{d})\\
+& M(n) = \sum_{k=1}^{n}\mu(k) \iff \sum_{n = 1}{x} M([\frac{x}{n}]) = 1\\
+& \sum_{d|n} \phi(d) = n \hspace{12mm} \sum_{d|n} \mu(d) = [n == 1]
+\end{align*}
+\end{minipage}}
 
 \subsection{Catalan}
-\[C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k} = \frac{1}{n + 1} C_{2n}^{n} = C_{2n}^{n} - C_{2n}^{n - 1}\]
+\fbox{\begin{minipage}{0.31\textwidth}
+\begin{align*}
+& C_n = \sum_{k = 0}^{n - 1} C_kC_{n - 1 - k} = \frac{1}{n + 1} C_{2n}^{n} = C_{2n}^{n} - C_{2n}^{n - 1}\\
+& 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786
+\end{align*}
+\end{minipage}}
+
 
 \subsection{Binomials}
 \fbox{\begin{minipage}{0.31\textwidth}
