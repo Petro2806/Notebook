@@ -142,14 +142,15 @@ struct Treap
 		upd(res);
 		return res;
 	}
+	// returns index of element [0, n)
 	int getIdx(int v, int from = -1)
 	{
 		if (v == -1) 
 			return 0;
 		int x = getIdx(a[v].par, v);
-		if (from == -1 || a[v].r == from)
-			x += getCnt(a[v].l) + 1;
 		push(v);
+		if (from == -1 || a[v].r == from)
+			x += getCnt(a[v].l) + (from != -1);
 		return x;
 	}
 };
