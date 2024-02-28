@@ -1,7 +1,7 @@
 /**
  * Description: $n = am + b, \frac{n}{m} = a, n \% m = b$.
  * use \_\_gcd instead of gcd.\\
- * Facts: Primes of the form $4n + 3$ are Gaussian primes.
+ * \textbf{Facts}: Primes of the form $4n + 3$ are Gaussian primes.
  * Uniqueness of prime factorization.
  */
 LL closest(LL u, LL d)
