@@ -2,7 +2,7 @@
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
 & g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g(\frac{n}{d})\\
-& M(n) = \sum_{k=1}^{n}\mu(k) \iff \sum_{n = 1}{x} M([\frac{x}{n}]) = 1\\
+& \sum_{n = 1}{x} M(\lfloor\frac{x}{n}\rfloor) = 1 \; where \; M(n) = \sum_{k=1}^{n}\mu(k)\\
 & \sum_{d|n} \phi(d) = n \hspace{12mm} \sum_{d|n} \mu(d) = [n == 1]
 \end{align*}
 \end{minipage}}
