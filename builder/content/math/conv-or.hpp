@@ -1,5 +1,5 @@
 /**
- * Description: $c_{i \lor j} += a_i * b_j$.
+ * Description: $c_k = \sum_{i \text{ OR } j = k} a_i b_j$.
  */
 void convOr(VI& a, int k, bool inverse)
 {

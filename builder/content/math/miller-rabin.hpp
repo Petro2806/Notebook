@@ -1,7 +1,6 @@
 /**
- * Description: to speed up change candidates to at least 4 random values rng() % (a - 3) + 2;
- * 
- * use \_\_int128 in mult
+ * Time: O(SZ(candidates) \cdot \log n)
+ * Description: To speed up change candidates to at least 4 random values rng() \% (n - 3) + 2. \textbf{Use \_\_int128 in mult}.
  * 
  **/
 

@@ -28,6 +28,7 @@ vector<Pt> circleCircle(const Pt& o1, db r1,
 	db d2 = sq(d);
 	if (sgn(d2) == 0)
 	{
+		// assuming the circles don't coincide
 		assert(sgn(r2 - r1) != 0);
 		return {};
 	}
@@ -74,6 +75,7 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 	return res;
 }
 // Returns the smallest enclosing circle of `v`
+// Expected time: O(n)
 pair<Pt, db> welzl(vector<Pt> v)
 {
 	int n = SZ(v), k = 0, idxes[2];

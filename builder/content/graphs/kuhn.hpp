@@ -1,5 +1,6 @@
 /**
- * Time: 0.6s for $|V| = 10^5, |E| = 2*10^5$
+ * Description: mateFor is \texttt{-1} or mate. addEdge([0, $L$), [0, $R$)).
+ * Time: 0.6s for $L, R \le 10^5, |E| \le 2 \cdot 10^5$
  */
 
 struct Graph
@@ -9,9 +10,9 @@ struct Graph
 	vector<VI> g;
 	VI mateForR, mateForL, usedL;
 	
-	void init(int l, int r)
+	void init(int L, int R)
 	{
-		szL = l, szR = r;
+		szL = L, szR = R;
 		g.resize(szL);
 		mateForL.resize(szL);
 		usedL.resize(szL);
@@ -66,12 +67,8 @@ struct Graph
 		{
 			iter++;
 			
-			VI order(szL);
-			iota(ALL(order), 0);
-			shuffle(ALL(order), rng);
-
 			bool ok = false;
-			for(int v : order)
+			FOR(v, 0, szL)
 			{
 				if (mateForL[v] == -1)
 				{

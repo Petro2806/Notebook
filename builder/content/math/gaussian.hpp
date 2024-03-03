@@ -1,16 +1,24 @@
 /**
- * Description: if there is no solution, returns an empty vector.
- * Otherwise, returns any solution.
+ * Description: solves the system $A x = b$.
+ * If there is no solution, returns $(\{\}, -1)$.
+ * If the solution is unique, returns $(x, 1)$.
+ * Otherwise, returns $(x, 2)$ with $x$ being any solution.
+ * Time: O(n m \min (n, m))
  */
-VI solveLinearSystem(vector<VI> a, VI b)
+pair<VI, int> solveLinear(vector<VI> a, VI b)
 {
-	int n = SZ(b), m = SZ(a[0]);
+	int n = SZ(a), m = SZ(a[0]);
+	assert(SZ(b) == n);
 	FOR(i, 0, n)
+	{
+		assert(SZ(a[i]) == m);
 		a[i].PB(b[i]);
+	}
 	int p = 0;
 	VI pivots;
 	FOR(j, 0, m)
 	{
+		// with doubles, abs(a[p][j]) -> max
 		if (a[p][j] == 0)
 		{
 			int l = -1;
@@ -35,7 +43,7 @@ VI solveLinearSystem(vector<VI> a, VI b)
 	}
 	FOR(i, p, n)
 		if (a[i].back() != 0)
-			return {};
+			return {{}, -1};
 	VI x(m);
 	RFOR(i, p, 0)
 	{
@@ -45,5 +53,5 @@ VI solveLinearSystem(vector<VI> a, VI b)
 			updSub(x[j], mult(a[i][k], x[k]));
 		x[j] = mult(x[j], binpow(a[i][j], mod - 2));
 	}
-	return x;
+	return {x, SZ(pivots) == m ? 1 : 2};
 }

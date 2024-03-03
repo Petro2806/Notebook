@@ -1,5 +1,5 @@
 /**
- * Description: $c_{i \oplus j} += a_i * b_j$.
+ * Description: $c_k = \sum_{i \oplus j = k} a_i b_j$.
  */
 void convXor(VI& a, int k)
 {

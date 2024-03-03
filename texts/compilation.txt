@@ -1,2 +1,0 @@
-g++ -O2 -std=c++17 -Wno-unused-result -Wshadow -Wall -o %e %e.cpp
-g++ -std=c++17 -Wshadow -Wall -o %e %e.cpp -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -g

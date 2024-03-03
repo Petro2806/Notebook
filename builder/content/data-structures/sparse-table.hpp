@@ -1,3 +1,7 @@
+/**
+ * Description: Sparse table for minimum on the range [l, r).
+ */
+
 struct SparseTable
 {
 	VI t[LOG];

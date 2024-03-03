@@ -1,4 +1,7 @@
-// Returns the distance of the closest points
+/**
+ * Description: returns the distance between the closest points
+ * Time: O(n \log n)
+ */
 db closestPair(vector<Pt> v)
 {
 	sort(ALL(v), [](const Pt& p, const Pt& q)
