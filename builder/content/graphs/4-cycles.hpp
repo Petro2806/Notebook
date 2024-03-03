@@ -1,7 +1,7 @@
 /**
  * Description: sort d and add break to speed up.
  * With breaks works 0.5s for m = $5 \cdot 10^5$.
- * Time: $\sum_{uv \in E} min(d_u, d_v) < O(m \cdot \sqrt{m})$
+ * Time: $\sum_{uv \in E} min(d_u, d_v) = O(m \cdot \sqrt{m})$
  */
 
 LL rect(int n)
