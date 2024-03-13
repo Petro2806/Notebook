@@ -26,8 +26,10 @@
 & F_{n + k} = F_k F_{n + 1} + F_{k - 1} F_n \\
 & F_n = F_{n - 1} + F_{n - 2} 
 & F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n \\
-& gcd(F_m, F_n) = F_{gcd(n, m)} \\
+& gcd(F_m, F_n) = F_{gcd(n, m)} 
+& F_{47} \approx 2.9e9\\
 & F_n = \frac{(\tfrac{1 + \sqrt{5}}{2})^n - (\tfrac{1 - \sqrt{5}}{2})^n}{\sqrt{5}}
+& F_{88} \approx 1.1e18
 \end{align*}
 \end{minipage}}
 
@@ -71,3 +73,34 @@ $ \frac{(n - 2)!}{\prod(d_i - 1)} $
 For a forest graph with connected components of sizes $sz_0, \dots, sz_{k - 1}$, 
 the number of ways to add edges to make a spanning tree is equal to:
 $ n^{k - 2} \cdot \prod sz_i$
+
+\textbf{Hook length formula}
+A Young tableau is a filling of the $n$ cells of the Young diagram with a permutation, 
+such that each row and each column form increasing sequences. 
+The \textbf{hook} $h_{\lambda}(i, j)$ is number of cells $(a, b)$ in diagram such that
+$a = i$ and $b \ge j$ or $a \ge i$ and $b = j$.
+
+
+\fbox{
+\noindent
+\begin{minipage}{0.07\textwidth}
+Number of tableaux:\\
+$$\frac{n!}{\prod h_{\lambda}(i, j)}$$   
+\end{minipage}
+}
+\hfill
+\fbox{
+\begin{minipage}{0.06\textwidth}
+Tableaux:
+\includegraphics[width=\textwidth]{content/math/young-tableaux.png}
+\end{minipage}
+}
+\hfill
+\fbox{
+\begin{minipage}{0.06\textwidth}
+Hooks:
+\includegraphics[width=\textwidth]{content/math/hook-length-tableau.jpg}
+\end{minipage}
+}
+
+
