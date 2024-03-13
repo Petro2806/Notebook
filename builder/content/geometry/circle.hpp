@@ -1,4 +1,3 @@
-// Returns the circumcenter of triangle abc
 Pt circumCenter(const Pt& a, Pt b, Pt c)
 {
 	b = b - a;
@@ -7,7 +6,6 @@ Pt circumCenter(const Pt& a, Pt b, Pt c)
 	return a + perp(b * sq(c) - c * sq(b))
 		/ cross(b, c) / 2;
 }
-// Returns circle-line intersection points
 vector<Pt> circleLine(const Pt& o, db r,
 	const Line& l)
 {
@@ -20,7 +18,6 @@ vector<Pt> circleLine(const Pt& o, db r,
 	Pt h = perp(l.n) * sqrt(h2) / abs(l.n);
 	return {p - h, p + h};
 }
-// Returns circle-circle intersection points
 vector<Pt> circleCircle(const Pt& o1, db r1,
 	const Pt& o2, db r2)
 {
@@ -73,44 +70,4 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 		res.PB({o1 + v * r1, o2 + v * r2});
 	}
 	return res;
-}
-// Returns the smallest enclosing circle of `v`
-// Expected time: O(n)
-pair<Pt, db> welzl(vector<Pt> v)
-{
-	int n = SZ(v), k = 0, idxes[2];
-	mt19937 rng;
-	shuffle(ALL(v), rng);
-	Pt c = v[0];
-	db r = 0;
-	while (true)
-	{
-		FOR(i, k, n)
-		{
-			if (sgn(abs(v[i] - c) - r) > 0)
-			{
-				swap(v[i], v[k]);
-				if (k == 0)
-					c = v[0];
-				else if (k == 1)
-					c = (v[0] + v[1]) / 2;
-				else
-					c = circumCenter(
-						v[0], v[1],	v[2]);
-				r = abs(v[0] - c);
-				if (k < i)
-				{
-					if (k < 2)
-						idxes[k++] = i;
-					shuffle(v.begin() + k,
-						v.begin() + i + 1, rng);
-					break;
-				}
-			}
-			while (k > 0 && idxes[k - 1] == i)
-				k--;
-			if (i == n - 1)
-				return {c, r};
-		}
-	}
 }

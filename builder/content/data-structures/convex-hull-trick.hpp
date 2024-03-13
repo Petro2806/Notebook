@@ -1,5 +1,5 @@
 /**
- * Usage: $\text{add}(a, b)$ adds a straight line $y = a x + b$.
+ * Description: $\text{add}(a, b)$ adds a straight line $y = a x + b$.
  * \text{getMaxY}(p) finds the maximum $y$ at $x = p$.
  **/
  

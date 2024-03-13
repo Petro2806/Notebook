@@ -86,13 +86,11 @@ struct Graph
 			if (p[t] == -1)
 				break;
 			int curFlow = INF;
-			LL curCost = 0;
 			for (int v = t; v != s;)
 			{
 				int e = p[v];
 				curFlow = min(curFlow, 
 				edges[e].cap - edges[e].flow);
-				curCost += edges[e].cost;
 				v = edges[e].from;
 			}
 			for (int v = t; v != s;)
@@ -103,7 +101,7 @@ struct Graph
 				v = edges[e].from;
 			}
 			flow += curFlow;
-			cost += curCost * curFlow;
+			cost += d[t] * curFlow;
 		}
 		return {flow, cost};
 	}
