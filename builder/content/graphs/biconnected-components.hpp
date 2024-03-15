@@ -12,7 +12,7 @@ struct Graph
 	VI used, par;
 	VI tin, low, inComp;
 	int t = 0, c = 0;
-	vector<int> st;
+	VI st;
 
 	// components of vertices
 	// a vertex can be in several components
@@ -24,6 +24,7 @@ struct Graph
 	
 	int n, m;
 	
+	// don't reuse
 	void init(int _n, int _m)
 	{
 		n = _n;
