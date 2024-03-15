@@ -1,4 +1,9 @@
-struct Line
+/**
+ * Description: $\text{add}(a, b)$ adds a straight line $y = a x + b$.
+ * \text{getMaxY}(p) finds the maximum $y$ at $x = p$.
+ **/
+ 
+ struct Line
 {
 	LL a, b, xLast;
 	Line() {}
@@ -67,8 +72,8 @@ struct ConvexHull: set<Line, less<>>
 				l.intersect(*it);
 		insert(l);
  	}
-	LL getMaxY(LL x)
+	LL getMaxY(LL p)
 	{
-		return lower_bound(x)->getY(x);
+		return lower_bound(p)->getY(p);
 	}
 };

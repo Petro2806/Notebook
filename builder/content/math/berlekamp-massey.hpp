@@ -1,6 +1,6 @@
 /**
- * Description: Finds a sequence of integers $c_1, \dots, c_d$
- * of the minimum length $d \ge 0$ such that
+ * Description: Finds a sequence of $d$ integers $c_1, \dots, c_d$
+ * of the minimum length $d$ such that
  * $a_i = \sum_{j=1}^d c_j a_{i - j}$.
  */
 VI berlekampMassey(const VI& a)
@@ -19,7 +19,7 @@ VI berlekampMassey(const VI& a)
 			continue;
 		}
 		VI t = c;
-		int coef = mult(d, binPow(b, mod - 2));
+		int coef = mult(d, binpow(b, mod - 2));
 		if (SZ(bp) + x > SZ(c))
 			c.resize(SZ(bp) + x);
 		FOR(i, 0, SZ(bp))

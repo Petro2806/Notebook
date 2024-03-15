@@ -1,3 +1,8 @@
+/**
+ * Description: Colors the edges so that the vertices,
+ * connected with the same color are still connected if you delete any vertex.
+ * Time: $O(m)$
+ **/
 
 struct Graph
 {
@@ -7,7 +12,7 @@ struct Graph
 	VI used, par;
 	VI tin, low, inComp;
 	int t = 0, c = 0;
-	vector<int> st;
+	VI st;
 
 	// components of vertices
 	// a vertex can be in several components
@@ -19,6 +24,7 @@ struct Graph
 	
 	int n, m;
 	
+	// don't reuse
 	void init(int _n, int _m)
 	{
 		n = _n;
@@ -54,6 +60,7 @@ struct Graph
 	void addComp()
 	{
 		unordered_set<int> s;
+		s.reserve(7 * SZ(components[c]));
 		for (auto e : components[c])
 		{
 			s.insert(edges[e].F);

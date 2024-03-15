@@ -1,4 +1,5 @@
-// Returns the circumcenter of triangle abc
+// Returns the circumcenter of triangle abc.
+// The circumcircle of a triangle is a circle that passes through all three vertices.
 Pt circumCenter(const Pt& a, Pt b, Pt c)
 {
 	b = b - a;
@@ -28,6 +29,7 @@ vector<Pt> circleCircle(const Pt& o1, db r1,
 	db d2 = sq(d);
 	if (sgn(d2) == 0)
 	{
+		// assuming the circles don't coincide
 		assert(sgn(r2 - r1) != 0);
 		return {};
 	}
@@ -72,43 +74,4 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 		res.PB({o1 + v * r1, o2 + v * r2});
 	}
 	return res;
-}
-// Returns the smallest enclosing circle of `v`
-pair<Pt, db> welzl(vector<Pt> v)
-{
-	int n = SZ(v), k = 0, idxes[2];
-	mt19937 rng;
-	shuffle(ALL(v), rng);
-	Pt c = v[0];
-	db r = 0;
-	while (true)
-	{
-		FOR(i, k, n)
-		{
-			if (sgn(abs(v[i] - c) - r) > 0)
-			{
-				swap(v[i], v[k]);
-				if (k == 0)
-					c = v[0];
-				else if (k == 1)
-					c = (v[0] + v[1]) / 2;
-				else
-					c = circumCenter(
-						v[0], v[1],	v[2]);
-				r = abs(v[0] - c);
-				if (k < i)
-				{
-					if (k < 2)
-						idxes[k++] = i;
-					shuffle(v.begin() + k,
-						v.begin() + i + 1, rng);
-					break;
-				}
-			}
-			while (k > 0 && idxes[k - 1] == i)
-				k--;
-			if (i == n - 1)
-				return {c, r};
-		}
-	}
 }

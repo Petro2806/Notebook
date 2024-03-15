@@ -1,4 +1,8 @@
-int dfsSZ(int v, int par = -1)
+VI g[N];
+int sz[N];
+bool usedC[N];
+
+int dfsSZ(int v, int par)
 {
 	sz[v] = 1;
 	for (auto to : g[v])
@@ -9,15 +13,15 @@ int dfsSZ(int v, int par = -1)
 	return sz[v];
 }
 
-void build(int cent)
+void build(int u)
 {
-	dfsSZ(cent, -1);
-	int szAll = sz[cent];
-	int pr = cent;
+	dfsSZ(u, -1);
+	int szAll = sz[u];
+	int pr = u;
 	while (true)
 	{
 		int v = -1;
-		for (auto to : g[cent])
+		for (auto to : g[u])
 		{
 			if (to == pr || usedC[to]) 
 				continue;
@@ -29,9 +33,10 @@ void build(int cent)
 		}
 		if (v == -1)
 			break;
-		pr = cent;
-		cent = v;
+		pr = u;
+		u = v;
 	}
+	int cent = u;
 	usedC[cent] = true;
 	
 	// here calculate f(cent)
