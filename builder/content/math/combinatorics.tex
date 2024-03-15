@@ -103,4 +103,41 @@ Hooks:
 \end{minipage}
 }
 
+\textbf{\large{Chromatic polynomial}}\\
+For a graph $G$, $\chi(G, \lambda) = \chi(\lambda)$ counts the number of coloring vertices in $\lambda$ colors.
+There is a unique polynomial $\chi(\lambda)$. Deletion-contraction:
+\begin{itemize}
+\item The graph $G/uv$ is obtained by merging $u$ and $v$ into one. 
+\item The graph $G - uv$ is obtained by deleting edge $uv$.
+\item $\chi(G, \lambda) = \chi(G - uv, \lambda) - \chi(G/uv, \lambda)$. 
+\end{itemize}
 
+\begin{tabular}{|c|c|}
+\hline
+$G$ is tree & $\chi(\lambda) = \lambda(\lambda - 1)^{n - 1}$ \\
+\hline
+$G$ is cycle $C_n$ & $\chi(\lambda) = (\lambda - 1)^n + (-1)^n(\lambda - 1)$\\
+\hline
+\end{tabular} 
+ 
+\textbf{Proposition 1} $\chi(\lambda)$ is equal to the number of pairs $(\sigma, O)$, 
+where $\sigma$ is any map $\sigma : V \rightarrow \{1, \dots, \lambda\}$ and $O$ is an orientation of $G$, 
+subject to the two conditions:
+\begin{itemize}
+\item The orientation $O$ is acyclic.
+\item If $u \rightarrow v$ in $O$, then $\sigma (u) > \sigma (v)$.
+\end{itemize}
+
+\textbf{Proposition 2} Define $\overline{\chi}(\lambda)$ to be the number of pairs $(\sigma, O)$, 
+where $\sigma$ is any map $\sigma : V \rightarrow \{1, \dots, \lambda\}$ and $O$ is an orientation of $G$, 
+subject to the two conditions:
+\begin{itemize}
+\item The orientation $O$ is acyclic.
+\item If $u \rightarrow v$ in $O$, then $\sigma (u) \ge \sigma (v)$.
+\end{itemize}
+
+\textbf{Proposition 3} Suppose that $|V| = n$. Then for all non-negative integers $\lambda$ holds:
+$$\overline{\chi}(\lambda) = (-1)^n \chi(-\lambda)$$
+
+
+$\overline{\chi}(1)$ is number of ways to orient edges to make a DAG.
