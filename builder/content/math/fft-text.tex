@@ -1,13 +1,9 @@
-\subsection{Specific FFT}
-
-\textbf{FFT with doubles}
-Move comments from code here.
-
+\textbf{\huge{FFT tricks}}\\
 \textbf{FFT in 2D}
 The complexity is $O(nm(\log n + \log m))$.
-The main problem to resize the matrix. You must add vectors of some size.
+The main problem to resize the matrix. You must add non empty vectors.
 
-\textbf{D-and-C FFT}
+\textbf{Divide-and-Conquer FFT}\\
 Using D-and-C to calculate DP table. (For example $DP[i] = sum(DP[j] \cdot DP[i - j])$) 
 
 By the time we compute the values for the segment $[l,r)$, the following conditions are already met:
@@ -22,3 +18,19 @@ When calculate the values for the segment $[l, r)$ do:
 \item Calculate the contributions from $[l,m)$ to $[m,r)$.
 \item Calculate the values for the segment $[m,r)$ recursively.
 \end{itemize}
+
+\textbf{DFT facts}\\
+DTFT of a convolution $c_k = \sum_{(i + j)\%n=k}a_ib_j$ is DFT.
+\fbox{
+\begin{minipage}{0.31\textwidth}
+\begin{align*}
+& DFT(x)_k = \sum_{n = 0}^{N - 1} x_n \cdot e^{-i2\pi\frac{kn}{N}} \hspace{14mm} DFT(x^R) = \overline{DFT(x)}\\
+& DFT(x_{n - m})_k = DFT(x)_k \cdot e^{\frac{-i2\pi km}{N}} \hspace{3mm} DFT(x^R) = DFT(x)^R\\
+& DFT^{-1}(x) = \frac{1}{N}DFT(x^R) \hspace{17mm} DFT(\overline{x}) = \overline{DFT(x)}^R\\
+& DFT(Re(x)) = \frac{1}{2}(DFT(x) + \overline{DFT(x)}^R)\\
+& DFT(Im(x)) = \frac{1}{2i}(DFT(x) - \overline{DFT(x)}^R)\\
+& DFT(\frac{1}{2}(x + \overline{x}^R)) = Re(DFT(x))\\
+& DFT(\frac{1}{2i}(x - \overline{x}^R)) = Im(DFT(x))
+\end{align*}
+\end{minipage}
+}

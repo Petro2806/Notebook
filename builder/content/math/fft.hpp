@@ -1,7 +1,7 @@
 /**
  * Description: $GEN^{\frac{LEN}{2}} = mod - 1$.
  * Comments for complex.\\
- * $mod = 9223372036737335297, GEN = 3^{\frac{mod - 1}{LEN}}, LEN \le 2^{24}$.
+ * $ULL mod = 9223372036737335297, GEN = 3^{\frac{mod - 1}{LEN}}, LEN \le 2^{24}$.
  */
 const int mod = 998244353;
 
