@@ -4,8 +4,11 @@ struct Line
 	Pt n;
 	db c;
 	Line (const Pt& _n, db _c): n(_n), c(_c) {}
+	// n is the normal vector to the left of PQ
 	Line(const Pt& p, const Pt& q):
 		n(perp(q - p)), c(-dot(n, p)) {}
+	// The "positive side": dot(n, p) + c > 0
+	// The "negative side": dot(n, p) + c < 0
 	db side(const Pt& p) const
 	{
 		return dot(n, p) + c;
@@ -30,7 +33,7 @@ struct Line
 	{
 		return p - n * side(p) / sq(n);
 	}
-	Pt refl(const Pt& p) const
+	Pt reflect(const Pt& p) const
 	{
 		return p - n * 2 * side(p) / sq(n);
 	}

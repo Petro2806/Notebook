@@ -1,3 +1,5 @@
+// Returns the circumcenter of triangle abc.
+// The circumcircle of a triangle is a circle that passes through all three vertices.
 Pt circumCenter(const Pt& a, Pt b, Pt c)
 {
 	b = b - a;
@@ -6,6 +8,7 @@ Pt circumCenter(const Pt& a, Pt b, Pt c)
 	return a + perp(b * sq(c) - c * sq(b))
 		/ cross(b, c) / 2;
 }
+// Returns circle-line intersection points
 vector<Pt> circleLine(const Pt& o, db r,
 	const Line& l)
 {
@@ -18,6 +21,7 @@ vector<Pt> circleLine(const Pt& o, db r,
 	Pt h = perp(l.n) * sqrt(h2) / abs(l.n);
 	return {p - h, p + h};
 }
+// Returns circle-circle intersection points
 vector<Pt> circleCircle(const Pt& o1, db r1,
 	const Pt& o2, db r2)
 {

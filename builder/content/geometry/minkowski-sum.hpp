@@ -4,6 +4,10 @@
 vector<Pt> minkowskiSum(const vector<Pt>& v1,
 	const vector<Pt>& v2)
 {
+	if (v1.empty() || v2.empty())
+		return {};
+	if (SZ(v1) == 1 && SZ(v2) == 1)
+		return {v1[0] + v2[0]};
 	auto comp = [](const Pt& p, const Pt& q)
 	{
 		return sgn(p.x - q.x) < 0
