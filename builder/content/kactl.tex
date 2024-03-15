@@ -1,5 +1,7 @@
 \documentclass[10pt, a4paper, notitlepage]{extreport}
 \usepackage{kactlpkg}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.74]{beramono}
 \kactlcontentdir{content}
 
 \university{LNU}{Ivan Franko National University of Lviv}{lnu}
@@ -13,6 +15,11 @@
 	% Small KACTL header on the first page:
 	% \maketitle{``One Last Time'' Edition}{\today}
 	
+	\lstset{
+    		basicstyle=\ttfamily\small, % Use Bitstream Vera Sans Mono for listings
+    		breaklines=true,
+	}
+
 	\begin{multicols*}{3}
 	\thispagestyle{fancy}
 	% Table of contents, without subsections:

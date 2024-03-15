@@ -14,7 +14,7 @@ default Fenwick update.
 3) add x on segment [l, r]:
 	upd(l, x, -x * (l - 1));
 	upd(r, -x, x * r);
-4) to calculate sum on prefix r:
+4) to calculate sum on prefix r]:
 	sumAdd and sumMult - default Fenwick sum
 	st - initial value of r
 	ans = st * sumMult + sumAdd 
