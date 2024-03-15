@@ -1,4 +1,4 @@
-Trigonometry formulas:\\
+\textbf{Trigonometry formulas}
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
 & \sin(v+w)=\sin v\cos w+\cos v\sin w\\
@@ -10,51 +10,85 @@ Trigonometry formulas:\\
 \end{minipage}}
 
 
-Ball formulas:\\
-\fbox{\noindent\begin{minipage}{0.12\textwidth}\raggedleft
+\textbf{Ball formulas}\\
+\fbox{
+\noindent
+\begin{minipage}{0.12\textwidth}\raggedleft
 $a = \sqrt{h * (2R - h)}$\\ 
 $V = \pi * h^2(R -\frac{h}{3})$
-\end{minipage}}
+\end{minipage}
+}
 \hfill
-\fbox{\begin{minipage}{0.08\textwidth}
+\fbox{
+\begin{minipage}{0.08\textwidth}
 \includegraphics[width=\textwidth]{content/various/ball-segment.png}
-\end{minipage}}
+\end{minipage}
+}
 
-\fbox{\noindent\begin{minipage}{0.17\textwidth}\raggedleft
+\fbox{
+\noindent
+\begin{minipage}{0.17\textwidth}\raggedleft
 $V = \frac{1}{6}\pi h(3a^2+3b^2+h^2)$\\
 $R = \sqrt{\frac{((a - b)^2 + h^2)((a + b)^2 + h^2)}{4h^2}}$
-\end{minipage}}
+\end{minipage}
+}
 \hfill
-\fbox{\begin{minipage}{0.08\textwidth}
+\fbox{
+\begin{minipage}{0.08\textwidth}
 \includegraphics[width=\textwidth]{content/various/ball-layer.png}
+\end{minipage}
+}
+
+
+\textbf{Triangle formulas}\\
+\fbox{\begin{minipage}{0.31\textwidth}
+\begin{align*}
+& S = \sqrt{p(p - a)(p - b)(p - c)} = \frac{abc}{4R}\\
+& m_a^2 = \frac{2b^2 + 2c^2 - a^2}{4} \;-\; median\\
+& w_a^2 = \frac{bc((b + c)^2 - a^2)}{(b + c)^2} \;-\; bisector\\
+& \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R\\
+& a^2 = b^2 + c^2 - 2bc\cos A
+\end{align*}
 \end{minipage}}
 
-\subsection{Pick's theorem}
+\textbf{Monge's theorem}\\
+\fbox{
+\begin{minipage}{0.20\textwidth}
+\includegraphics[width=\textwidth]{content/various/monges-theorem.png}
+\end{minipage}
+}
+
+\textbf{Pick's theorem}
 Suppose that a polygon has integer coordinates for all of its vertices. 
 Let $i$ be the number of integer points inside, and let $b$ be the number of integer points on boundary. 
 Then the area $S = i + \tfrac{b}{2} - 1$.
 
-\subsection{Ptolemy's theorem}
-If the cyclic quadrilateral is $ABCD$, then
-$AC \cdot BD = AB \cdot CD + AD \cdot BC$.
+\textbf{Ptolemy's theorem}
+For a general quadrilateral $ABCD$ holds:
+$AB \cdot CD + AD \cdot BC \ge AC \cdot BD$.
 
-\subsection{Ceva's theorem}
+Equality holds if and only if the quadrilateral is cyclic.
+
+\textbf{Ceva's theorem}
 Given a triangle $\triangle ABC$ with a point $P$ inside the triangle,
 continue lines $AP$, $BP$, $CP$ to hit $BC$, $CA$, $AB$ at $D$, $E$, $F$,
 respectively.
 Ceva's theorem states that
 $\frac{AF}{FB} \cdot \frac{BD}{DC} \cdot \frac{CE}{EA} = 1$. 
 
-\subsection{Simson line}
+\textbf{Simson line}
 Given a triangle $\triangle ABC$ and a point $P$ on its circumcircle,
 the three closest points to $P$ on lines $AB$, $AC$, and $BC$ are collinear.
 The line through these points is the Simson line of $P$.
 
-\subsection{Euler line}
-The line on which the orthocenter, triangle centroid, circumcenter,
-and a number of other important triangle centers lie. 
+\textbf{Euler line}
+For a general triangle, the orthocenter H, the centroid G, 
+and the circumcenter O, in this order, lie on the same line (Euler line) 
+and $\frac{|HG|}{|GO|} = \frac{2}{1}$.
 
-\subsection{Platonic solids}
+
+
+\textbf{Platonic solids}
 \begin{tabular}{ |c|c|c|c| } 
 \hline
 Polyhedron & Vertices & Edges & Faces \\ 

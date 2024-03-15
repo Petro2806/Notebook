@@ -1,0 +1,25 @@
+\section{Graphs}
+
+\textbf{Prufer sequence}\\
+The Prufer sequence of a labeled tree is unique and has length $n - 2$. 
+At step $i$, remove the leaf with the smallest label and set the $i$-th 
+element of the Prufer sequence to be the label of this leaf's neighbour.
+
+\textbf{Spanning trees of a complete graphs}\\
+For $K_n$ number of spanning trees is equal to $n^{n - 2}$.\\
+For $K_{L, R}$ number is equal to $L^{R - 1} \cdot R^{L - 1}$.
+
+\textbf{Cayley's theorem}\\
+Let $T_{n, k}$ be the number of labelled forests on $n$ vertices with $k$ connected components, 
+such that vertices $1, \dots, k$ all belong to different components. 
+$T_{n,k} = k \cdot n^{n - k - 1}$.
+
+\textbf{Spanning trees with fixed degrees}\\
+The number of spanning trees in a complete graph $K_{n}$ with a fixed degrees
+$d_{i}$ is equal to:
+$ \frac{(n - 2)!}{\prod(d_i - 1)} $
+
+\textbf{Spanning trees from forests}\\
+For a forest graph with connected components of sizes $sz_0, \dots, sz_{k - 1}$, 
+the number of ways to add edges to make a spanning tree is equal to:
+$ n^{k - 2} \cdot \prod sz_i$
