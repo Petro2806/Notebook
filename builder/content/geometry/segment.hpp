@@ -1,4 +1,5 @@
-// Checks if `p` is in the disk of diameter [ab]
+// Checks if `p` is in the disk (the region in a plane
+// bounded by a circle) of diameter [ab]
 bool inDisk(const Pt& a, const Pt& b,
 	const Pt& p)
 {
