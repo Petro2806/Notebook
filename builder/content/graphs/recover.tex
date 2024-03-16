@@ -1,4 +1,4 @@
-\subsection{Recover}
+\section{Mathcing tricks}
 \textbf{Min cut}
 To find the min-cut use search from vertex S on not saturated edges. 
 Original edges from used vertices to unused is in min-cut.
@@ -42,5 +42,17 @@ Dominating set for a graph G = (V, E) is a subset D of V such that every
 vertex not in D is adjacent to at least one member of D. Finding a dominating set
 is NP-complete \textbf{even on bipartite graphs}.
 Can be found greedily on a tree.
+
+\textbf{Tutte's matrix}
+
+For any graph:
+\[
+T_{ij} = \begin{cases} 
+      \text{rand()} \cdot \text{sgn}(i - j) & (i, j) \in E \\
+      0 & \text{otherwise}
+   \end{cases}
+\]
+$det(T) = 0 \iff \text{there is no perfect matching}$
+
 
 \bigskip 

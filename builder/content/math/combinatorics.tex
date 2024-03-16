@@ -26,7 +26,7 @@
 & F_{n + k} = F_k F_{n + 1} + F_{k - 1} F_n \\
 & F_n = F_{n - 1} + F_{n - 2} 
 & F_{n + 1} F_{n - 1} - F_n^2 = (-1)^n \\
-& gcd(F_m, F_n) = F_{gcd(n, m)} 
+& \text{gcd}(F_m, F_n) = F_{\text{gcd}(n, m)} 
 & F_{47} \approx 2.9e9\\
 & F_n = \frac{(\tfrac{1 + \sqrt{5}}{2})^n - (\tfrac{1 - \sqrt{5}}{2})^n}{\sqrt{5}}
 & F_{88} \approx 1.1e18
@@ -65,14 +65,14 @@ such that vertices $1, \dots, k$ all belong to different components.
 $T_{n,k} = k \cdot n^{n - k - 1}$.
 
 \textbf{Spanning trees with fixed degrees}\\
-The number of spanning trees in a complete graph $K_{n}$ with a fixed degrees
+The number of spanning trees in a complete graph $K_{n}$ with the fixed degrees
 $d_{i}$ is equal to:
 $ \frac{(n - 2)!}{\prod(d_i - 1)} $
 
 \textbf{Spanning trees from forests}\\
-For a forest graph with connected components of sizes $sz_0, \dots, sz_{k - 1}$, 
+For a forest graph with connected components of sizes $s_0, \dots, s_{k - 1}$, 
 the number of ways to add edges to make a spanning tree is equal to:
-$ n^{k - 2} \cdot \prod sz_i$
+$ n^{k - 2} \cdot \prod s_i$
 
 \textbf{Hook length formula}
 A Young tableau is a filling of the $n$ cells of the Young diagram with a permutation, 
@@ -141,3 +141,21 @@ $$\overline{\chi}(\lambda) = (-1)^n \chi(-\lambda)$$
 
 
 $\overline{\chi}(1)$ is number of ways to orient edges to make a DAG.
+
+
+
+\textbf{Kirchhoff's theorem}
+
+Let $G$ be a finite graph, allowing multiple edges but not loops.
+
+The laplacian matrix $L$ of $G$ is the $n \times n$ matrix whose
+$(i, j)$-entry $L_{i j}$ is given by
+\begin{displaymath}
+L_{i j} = \left\{ \begin{array}{ll}
+-m_{i j}, & \textrm{if $i \ne j$, $m_{i j}$ edges between $v_i$ and $v_j$, } \\
+\deg(v_i), & \textrm{if $i = j$.}
+\end{array} \right.
+\end{displaymath}
+
+Let $L_0$ denote $L$ with the $i$-th row and column removed for any $i$.
+Then for a connected graph, $\det(L_0)$ equals the number of spanning trees of $G$.
