@@ -1,0 +1,56 @@
+\section{Matching tricks}
+\textbf{Minimum cut}
+To find the min-cut, search from vertex $S$ on unsaturated edges. 
+Original edges from used vertices to unused ones are in the min-cut.
+
+\textbf{Minimum vertex cover}
+The vertex cover problem is not NP-complete in bipartite graphs. 
+The minimum number of vertices required to cover all \textbf{edges} is equal to the size of the maximum matching. 
+To reconstruct the minimum vertex cover, create a directed graph:
+
+\begin{itemize}
+\setlength\itemsep{0em}
+\item matched edges from the right part to the left part
+\item unmatched edges from the left part to the right part.
+\end{itemize}
+
+Start traversal from unmatched vertices in the left part.
+The cover includes vertices from the matching:
+\begin{itemize}
+\setlength\itemsep{0em}
+\item unvisited vertices in the left part
+\item visited vertices in the right part.
+\end{itemize}
+
+\textbf{Maximum independent set}
+The independent set problem is not NP-complete in bipartite graphs. 
+It is the complement of the minimum vertex cover.
+
+\textbf{Minimum edge cover}
+A minimum edge cover can be found in \textbf{any} graph. 
+The minimum number of edges required to cover all vertices can only be determined in graphs without isolated vertices.
+By utilizing one edge in the matching, we cover two vertices, while any other vertices are covered using one edge for each.
+
+\textbf{DAG pathes}
+In a DAG, you can find the minimum number of non-intersecting paths that cover all vertices. 
+Duplicate vertices and create a bipartite graph with edges $u_L \rightarrow v_R$. 
+Edges in the matching correspond to edges in the paths.
+
+\textbf{Dominating set}
+A dominating set for a graph is a subset $D$ of $V$ such that any vertex is in $D$, or has a neighbor in $D$.
+The dominating set problem is NP-complete \textbf{even on bipartite graphs}.
+It can be found greedily on a tree.
+
+\textbf{Tutte's matrix}
+
+For any graph:
+\[
+T_{ij} = \begin{cases} 
+      \text{rand()} \cdot \text{sgn}(i - j) & (i, j) \in E \\
+      0 & \text{otherwise}
+   \end{cases}
+\]
+$det(T) = 0 \iff \text{there is no perfect matching}$
+
+
+\bigskip 

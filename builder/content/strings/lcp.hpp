@@ -1,5 +1,5 @@
 /**
- * Description: queryLcp -- returns longest common prefix of substrings on poses i and j.
+ * Description: queryLcp returns the longest common prefix of substrings starting at $i$ and $j$.
  */
  
 struct Lcp

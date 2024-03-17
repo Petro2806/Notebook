@@ -1,9 +1,5 @@
 /**
- * Description: $d0_i$ -- half-length of even length palindrome if i is right center of it.
- * $d1_i$ -- half-length of odd length palindrome with center in i.
- * half-length = (length + 1) / 2.
- * $[i - d0_i, i + d0_i - 1]$ -- palindrome.
- * $[i - d1_i + 1, i + d1_i - 1]$ -- palindrome.
+ * Description: $s[i - d0_i, i + d0_i - 1]$, $s[i - d1_i + 1, i + d1_i - 1]$ are palindromes.
  **/
 
 vector<VI> manacher(const string& s)

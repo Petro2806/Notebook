@@ -1,0 +1,15 @@
+\textbf{Minimum on a Segment}
+
+Maintain two Fenwick trees with $n = 2^k$ — one for the original array and the other for the reversed array. If $n > 1$, you can use:
+$n = 1 \ll (32 - \_\_builtin\_clz(n - 1))$.
+
+When querying for the minimum on the segment, only consider segments $[(i \& (i + 1)), i]$ that are completely inside $[l, r]$.
+
+\textbf{Add on a Segment}
+
+Maintain two Fenwick trees: tMult and tAdd.
+
+To add $x$ on the segment $[l, r]$, tMult.upd($l$, $x$), tMult.upd($r$, $-x$),
+tAdd.upd($l$, $-x \cdot (l - 1)$), tAdd.upd($r$, $x \cdot r$).
+
+$r \cdot$ tMult.query($r$) + tAdd.query($r$) is the sum on $[0, r]$.
