@@ -2,13 +2,13 @@
  * Description: computes the $n$-th term of a given linearly
  * recurrent sequence $a_i = \sum_{j=1}^d c_j a_{i - j}$.
  * The problem reduces to determining $[x^n] P(x)/Q(x)$.
- * $\frac{P(x)}{Q(x)}=\frac{P(x)Q(-x)}{Q(x)Q(-x)}=\frac{U_\text{e}(x^2)}{V(x^2)} + x \frac{U_\text{o}(x^2)}{V(x^2)}$.
+ * \Large{$\frac{P(x)}{Q(x)}=\frac{P(x)Q(-x)}{Q(x)Q(-x)}=\frac{U_\text{e}(x^2)}{V(x^2)} + x \frac{U_\text{o}(x^2)}{V(x^2)}$.
  * \begin{displaymath}
 \left[x^n\right]\frac{P(x)}{Q(x)} = \left\{ \begin{array}{ll}
 \left[x^\frac{n}{2}\right]\frac{U_\text{e}(x)}{V(x)}, & \textrm{if $n$ is even,} \\
 \left[x^\frac{n-1}{2}\right]\frac{U_\text{o}(x)}{V(x)}, & \textrm{else.}
 \end{array} \right.
-\end{displaymath}
+\end{displaymath}}
  * Time: $O(d \log d \log n)$.
  */
 int bostanMori(const VI& c, VI a, LL n) {
