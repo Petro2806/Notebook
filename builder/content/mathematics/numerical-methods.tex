@@ -32,8 +32,6 @@
 \end{align*}
 \end{minipage}}
 
-\vspace{14pt}
-
 \subsection{Simpson's rule}
 \fbox{\begin{minipage}{0.31\textwidth}
 $n$ -- even number, $h = \frac{b - a}{n}$, $x_i = a + i h$
@@ -42,3 +40,28 @@ $n$ -- even number, $h = \frac{b - a}{n}$, $x_i = a + i h$
 \left. + 2 \sum_{i = 1}^{\frac{n}{2} - 1} f\Big(x_{2 i}\Big) + f\Big(x_n\Big) \right]
 \end{multline*}
 \end{minipage}}
+
+\subsection{Vandermonde matrix}
+$V = V(x_0, x_1, \cdots, x_m) =
+\begin{bmatrix}
+1 & x_0 & x_0^2 & \dots & x_0^n\\
+1 & x_1 & x_1^2 & \dots & x_1^n\\
+1 & x_2 & x_2^2 & \dots & x_2^n\\
+\vdots & \vdots & \vdots & \ddots &\vdots \\
+1 & x_m & x_m^2 & \dots & x_m^n
+\end{bmatrix}$
+
+$$V_{i,j} = x_i^j, \hspace{5mm} \det(V)=\prod_{0\le i<j\le n} (x_j-x_i).$$ 
+
+\subsection{Hadamard matrix}
+$H_{1} = \begin{bmatrix}
+     1
+ \end{bmatrix}$, \hspace{10mm}
+$H_{2^k} = \begin{bmatrix}
+     H_{2^{k-1}} &  H_{2^{k-1}}\\
+     H_{2^{k-1}} & -H_{2^{k-1}}
+  \end{bmatrix}$\\
+  
+$\det(H_n) = \pm n^{\frac{n}{2}}$\\
+
+For a matrix $M$ such that $|M_{ij}| \le 1$, holds $|\operatorname{det}(M)| \leq n^{n/2}$.
