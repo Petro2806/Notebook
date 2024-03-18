@@ -1,7 +1,7 @@
-\textbf{Calculation of $a^b \mod m$}\\
-if $b \ge \phi(m)$, then value $a^b \mod m$ equals to the value $a^{\left[b \mod \phi(m)\right] + \phi(m)} \mod m$.
+\subsection{Calculation of $a^b \mod m$}
+if $b \ge \phi(m)$, then value $a^b \equiv a^{\left[b \mod \phi(m)\right] + \phi(m)} \pmod m$.
 
-\textbf{Generators}\\
+\subsection{Generators}
 A generator exists only for $n = 1, 2, 4, p^k, 2p^k$ for odd primes $p$ and positive integers $k$. 
 
 $g$ is a generator modulo $n$ if any number coprime with $n$ can be represented as $\left[ g^i \mod n \right], 0 \le i < \phi(n)$.
@@ -9,18 +9,18 @@ $g$ is a generator modulo $n$ if any number coprime with $n$ can be represented 
 To find a generator:
 \begin{itemize}
 \item find $\phi(n)$ and $p_1, ..., p_m$ --- the prime factors of $\phi(n)$
-\item $g$ is generator only if $g^{\frac{\phi(n)}{p_j}} \mod n \ne 1$ for each $j$
+\item $g$ is generator only if $g^{\frac{\phi(n)}{p_j}} \not\equiv 1 \pmod n$ for each $j$
 \item check $g = 2, 3, 4, ..., p - 1$
 \end{itemize}
 
-\textbf{Wilson}\\
+\subsection{Wilson's theorem}
 $p$ is prime if and only if $(p - 1)! \equiv (p - 1) \pmod p$.
 
-\textbf{Quadratic residue}\\
+\subsection{Quadratic residues}
 $q$ is a quadratic residue modulo $p$ if there exists an integer $x$ such that $x^2 \equiv q \pmod p$.
 If $p$ is odd prime then there exist $\frac{p + 1}{2}$ residues (including 0).
 
-\textbf{Number theory functions}
+\subsection{Number theory functions}
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
 & \text{For } \; n = p_1^{\alpha_1} \cdot \dots \cdot p_k^{\alpha_k}\\
@@ -33,11 +33,13 @@ If $p$ is odd prime then there exist $\frac{p + 1}{2}$ residues (including 0).
 \end{align*}
 \end{minipage}}
 
-\textbf{Mobius}
+\vspace{35pt}
+
+\subsection{Möbius}
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
-& g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g(\frac{n}{d})\\
-& \sum_{n = 1}{x} M(\lfloor\frac{x}{n}\rfloor) = 1 \; \text{where} \; M(n) = \sum_{k=1}^{n}\mu(k)\\
-& \sum_{d|n} \phi(d) = n \hspace{12mm} \sum_{d|n} \mu(d) = [n == 1]
+& g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g\left(\frac{n}{d}\right)\\
+& \sum_{n = 1}{x} M\left(\left\lfloor\frac{x}{n}\right\rfloor\right) = 1 \; \text{, where} \; M(n) = \sum_{k=1}^{n}\mu(k)\\
+& \sum_{d|n} \phi(d) = n \hspace{12mm} \sum_{d|n} \mu(d) = [n = 1]
 \end{align*}
 \end{minipage}}

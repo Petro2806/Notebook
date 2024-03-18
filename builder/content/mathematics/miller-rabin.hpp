@@ -1,4 +1,4 @@
-/*
+/**
  * Description: To speed up change candidates to at least 4 random values rng() \% (n - 3) + 2. \textbf{Use \_\_int128 in mult}.
  * Time: O(|\text{candidates}| \cdot \log n)
  **/

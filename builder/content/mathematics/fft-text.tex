@@ -1,10 +1,10 @@
-\textbf{\huge{FFT tricks}}\\
-\textbf{FFT in 2D}
+\subsection{FFT tricks}
+\subsubsection{Two-dimensional FFT}
 The complexity is $O(nm(\log n + \log m))$.
 The main problem is to resize the matrix. You must add non-empty vectors.
 
-\textbf{Divide-and-conquer FFT}\\
-Suppose we have the following DP relation: $$f(t) = g(t) - \sum_{0 \le u < t} f(u) h(t-u)$$,
+\subsubsection{Divide-and-conquer FFT}
+Suppose we have the following DP relation: $f(t) = g(t) - \sum_{0 \le u < t} f(u) h(t-u)$,
 where $g(t)$ and $h(t)$ are known and we want to compute $f(t)$. We can apply divide-and-conquer FFT.
 
 Let $m = \lfloor\frac{l+r}{2}\rfloor$. We guarantee the following invariant conditions.
@@ -22,7 +22,7 @@ When calculate the values for the segment $[l, r)$ do:
 \item Calculate the values for the segment $[m,r)$ recursively.
 \end{itemize}
 
-\textbf{DFT properties}\\
+\subsection{DFT properties}
 DTFT of a convolution $c_k = \sum_{(i + j)\%n=k}a_ib_j$ is DFT.
 \fbox{
 \begin{minipage}{0.31\textwidth}

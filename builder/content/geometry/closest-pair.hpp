@@ -1,5 +1,5 @@
 /**
- * Description: returns the distance between the closest points
+ * Description: Returns the distance between the closest points
  * Time: O(n \log n)
  */
 db closestPair(vector<Pt> v)
