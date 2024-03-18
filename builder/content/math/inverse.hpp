@@ -1,5 +1,5 @@
 /**
- * Description: Calculate $a^{-1} \% x^k$.
+ * Description: $\frac{1}{A(x)}$ modulo $x^k$.
  */
 VI inverse(const VI& a, int k)
 {

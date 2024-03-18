@@ -1,15 +1,18 @@
 \textbf{\huge{FFT tricks}}\\
 \textbf{FFT in 2D}
 The complexity is $O(nm(\log n + \log m))$.
-The main problem to resize the matrix. You must add non empty vectors.
+The main problem is to resize the matrix. You must add non-empty vectors.
 
-\textbf{Divide-and-Conquer FFT}\\
-Using Divide-and-Conquer to calculate DP table. (For example $DP[i] = sum(DP[j] \cdot DP[i - j])$) 
+\textbf{Divide-and-conquer FFT}\\
+Suppose we have the following DP relation: $$f(t) = g(t) - \sum_{0 \le u < t} f(u) h(t-u)$$,
+where $g(t)$ and $h(t)$ are known and we want to compute $f(t)$. We can apply divide-and-conquer FFT.
+
+Let $m = \lfloor\frac{l+r}{2}\rfloor$. We guarantee the following invariant conditions.
 
 By the time we compute the values for the segment $[l,r)$, the following conditions are already met:
 \begin{itemize}
-\item The values for $[0,l)$ on the DP table is already determined.
-\item The sum of contributions from $[0,l)$ through $[l,r)$ is already applied to the DP table in $[l,r)$.
+\item The values for $[0,l)$ on the DP is already determined.
+\item The sum of contributions from $[0,l)$ through $[l,r)$ is already applied to the DP in $[l,r)$.
 \end{itemize}
 
 When calculate the values for the segment $[l, r)$ do:
