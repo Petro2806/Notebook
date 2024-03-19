@@ -29,7 +29,7 @@ struct PalTree
 	}
 	void add(int idx)
 	{
-		// change t o [ 0 AL)
+		// change to [0, AL)
 		int ch = s[idx] - 'a';
 		
 		int cur = last;

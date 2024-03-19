@@ -1,5 +1,5 @@
 /**
- * Description: solves the system $A x = b$.
+ * Description: Solves the system $A x = b$.
  * If there is no solution, returns $(\{\}, -1)$.
  * If the solution is unique, returns $(x, 1)$.
  * Otherwise, returns $(x, 2)$ with $x$ being any solution.

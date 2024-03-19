@@ -2,7 +2,7 @@
  * Description: Finds an Eulerian path in a directed or undirected graph.
  * $g$ is a graph with $n$ vertices. $g[u]$ is a vector of pairs $(v, \text{edge\_id})$. $m$ is the number of edges in the graph.
  * The vertices are numbered from $0$ to $n - 1$, and the edges - from $0$ to $m - 1$.
- * If there is no Eulerian path, returns {{-1}, {-1}}.
+ * If there is no Eulerian path, returns $\{\{-1\}, \{-1\}\}$.
  * Otherwise, returns the path in the form (vertices, edges) with vertices containing $m + 1$ elements and edges containing $m$ elements.
  * If you need an Eulerian cycle, check vertices[0] = vertices.back().
  */

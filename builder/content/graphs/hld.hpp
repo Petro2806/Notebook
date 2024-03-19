@@ -1,7 +1,7 @@
 /**
- * Description: run dfsSZ(root, -1, 0) and dfsHLD(root, -1, root) to build HLD.
- * Vertex $v$ has index tin[v]. To update on path use process as in get(). 
- * Uses values in vertices.
+ * Description: Run dfsSZ(root, -1, 0) and dfsHLD(root, -1, root) to build the HLD.
+ * Each vertex $v$ has an index tin[$v$]. To update on the path, use the process as defined in get(). 
+ * The values are stored in the vertices.
  * */
 
 VI g[N];     

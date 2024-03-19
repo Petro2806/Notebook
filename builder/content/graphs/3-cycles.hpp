@@ -1,6 +1,6 @@
 /**
- * Description: finds all triangles in a graph. 
- * $cnt$++ respond to the triangle $v$, $u$, $w$. 	
+ * Description: Finds all triangles in a graph. 
+ * Each triangle $(v, u, w)$ increments the cnt.	
  * Time: $O(m \cdot \sqrt{m})$
  **/
 

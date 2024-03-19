@@ -1,5 +1,5 @@
 /**
- * Description: Modulo returns $[\frac{a}{b}]$ and $a\%b$
+ * Description: $[\frac{A(x)}{B(x)}]$ and $A(x)$ modulo $B(x)$.
  */
 void removeLeadingZeros(VI& a)
 {

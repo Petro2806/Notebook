@@ -1,9 +1,9 @@
 /**
- * Description: works for cyclic graphs. $par$ - parent in dfs. $p$ - parent in dsu. $val$ - vertex with min sdom in dsu.
- * $dom$ - immidiate dominator. $sdom$ - semidominator, min vertex with alternate path.
- * $bkt$ - vertices with this sdom. 
- * $dom[root] = -1$. $dom[v] = -1$ if $v$ is unreachable.
- * Time: $O(n)$
+ * Description: Works for cyclic graphs. par – parent in dfs. $p$ – parent in the DSU. val – vertex with the minimum sdom in dsu.
+ * dom – immediate dominator. sdom – semidominator, min vertex with alternate path.
+ * bkt – vertices with this sdom. 
+ * dom[root] = -1. dom[$v$] = -1 if $v$ is unreachable.
+ * Time: O(n)
  **/
 
 

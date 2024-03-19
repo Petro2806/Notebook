@@ -1,7 +1,6 @@
 /**
- * Time: O(SZ(candidates) \cdot \log n)
  * Description: To speed up change candidates to at least 4 random values rng() \% (n - 3) + 2. \textbf{Use \_\_int128 in mult}.
- * 
+ * Time: O(|\text{candidates}| \cdot \log n)
  **/
 
 VI candidates = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 47};

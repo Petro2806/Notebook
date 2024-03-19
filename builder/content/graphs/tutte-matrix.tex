@@ -1,10 +1,11 @@
-\textbf{Tutte's matrix}
+\textbf{Tutte matrix}
 
-For any graph:
+Given an undirected graph $G=(V, E)$, its Tutte matrix is:
 \[
-T_{ij} = \begin{cases} 
-      \text{rand()} \cdot \text{sgn}(i - j) & (i, j) \in E \\
-      0 & \text{otherwise}
+T_{i j} = \begin{cases} 
+      x_{i j} & \text{if $i < j$ and $(i, j) \in E$} \\
+      -x_{j i} & \text{if $i > j$ $(i, j) \in E$} \\
+      0 & \text{otherwise.}
    \end{cases}
 \]
-$det(T) = 0 \iff \text{there is no perfect matching}$
+$\det(T) \ne 0$ if and only if $G$ has a perfect matching.

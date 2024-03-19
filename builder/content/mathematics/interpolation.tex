@@ -18,8 +18,10 @@ Divided differences:
 $[y_i] = y_i$
 
 $[y_i, y_{i + 1}] = \frac{y_{i + 1} - y_i}{x_{i + 1} - x_i}$
-
-$[y_i, y_{i + 1}, \dots, y_{j - 1}, y_j] = \frac{[y_{i + 1}, \dots, y_{j - 1}, y_j] - [y_i, y_{i + 1}, \dots, y_{j - 1}]}{x_j - x_i}$.
+\begin{multline*}
+[y_i, y_{i + 1}, \dots, y_{j - 1}, y_j] = \\
+= \frac{[y_{i + 1}, \dots, y_{j - 1}, y_j] - [y_i, y_{i + 1}, \dots, y_{j - 1}]}{x_j - x_i}.
+\end{multline*}
 
 Newton basis polynomial: $N_i(x) = \prod_{j=0}^{i-1} (x - x_j)$.
 

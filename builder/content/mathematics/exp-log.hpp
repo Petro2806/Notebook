@@ -1,5 +1,5 @@
 /**
- * Description: Calculate $\log(a) \% x^k$ and $\exp(a) \% x^k$.
+ * Description: $\log(A(x))$ and $\exp(A(x))$ modulo $x^k$.
  */
 VI deriv(const VI& a, int k)
 {
