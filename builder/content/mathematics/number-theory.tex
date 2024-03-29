@@ -1,7 +1,7 @@
-\subsection{Calculation of $a^b \mod m$}
+\textbf{Calculation of $a^b \mod m$}\\
 if $b \ge \phi(m)$, then value $a^b \equiv a^{\left[b \mod \phi(m)\right] + \phi(m)} \pmod m$.
 
-\subsection{Generators}
+\textbf{Generators}\\
 A generator exists only for $n = 1, 2, 4, p^k, 2p^k$ for odd primes $p$ and positive integers $k$. 
 
 $g$ is a generator modulo $n$ if any number coprime with $n$ can be represented as $\left[ g^i \mod n \right], 0 \le i < \phi(n)$.
@@ -13,14 +13,14 @@ To find a generator:
 \item check $g = 2, 3, 4, ..., p - 1$
 \end{itemize}
 
-\subsection{Wilson's theorem}
+\textbf{Wilson's theorem}\\
 $p$ is prime if and only if $(p - 1)! \equiv (p - 1) \pmod p$.
 
-\subsection{Quadratic residues}
+\textbf{Quadratic residues}\\
 $q$ is a quadratic residue modulo $p$ if there exists an integer $x$ such that $x^2 \equiv q \pmod p$.
 If $p$ is odd prime then there exist $\frac{p + 1}{2}$ residues (including 0).
 
-\subsection{Number theory functions}
+\textbf{Number theory functions}
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
 & \text{For } \; n = p_1^{\alpha_1} \cdot \dots \cdot p_k^{\alpha_k}\\
@@ -33,7 +33,7 @@ If $p$ is odd prime then there exist $\frac{p + 1}{2}$ residues (including 0).
 \end{align*}
 \end{minipage}}
 
-\subsection{Möbius}
+\textbf{Möbius}
 \fbox{\begin{minipage}{0.31\textwidth}
 \begin{align*}
 & g(n) = \sum_{d|n}f(d) \iff f(n) = \sum_{d|n}\mu(d)g\left(\frac{n}{d}\right)\\

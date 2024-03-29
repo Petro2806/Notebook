@@ -60,8 +60,7 @@ struct Treap
 		t[v].cnt = getCnt(t[v].l) + 
 		getCnt(t[v].r) + 1;
 		
-		t[v].mn = min(t[v].x, 
-		min(getMn(t[v].l), getMn(t[v].r)));
+		t[v].mn = min(t[v].x, min(getMn(t[v].l), getMn(t[v].r)));
 	}
 	void reverse(int v)
 	{
@@ -128,7 +127,10 @@ struct Treap
 			if (res != -1) 
 				t[res].par = v;
 			res = v;
-		}(t[u].l != -1) 
+		}
+		else
+		{
+			if(t[u].l != -1) 
 				t[t[u].l].par = -1;
 			res = merge(v, t[u].l);
 			t[u].l = res;

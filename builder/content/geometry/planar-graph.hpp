@@ -32,8 +32,7 @@ struct Comparator
 	static IndexedPt vertex;
 	db getY(const Line& l) const
 	{
-		return -(l.n.x * vertex.p.x
-			+ l.c) / l.n.y;
+		return -(l.n.x * vertex.p.x + l.c) / l.n.y;
 	}
 	bool operator()(int i, int j) const
 	{
@@ -130,8 +129,7 @@ void findFaces()
 		if (!edgesL[i].empty())
 		{
 			sort(ALL(edgesL[i]), comparator);
-			auto it	=
-				s.lower_bound(edgesL[i][0]);
+			auto it	= s.lower_bound(edgesL[i][0]);
 			lower = edgesL[i][0];
 			for (int e : edgesL[i])
 			{
@@ -148,8 +146,7 @@ void findFaces()
 			sort(ALL(edgesR[i]), comparator);
 			if (upper == -1)
 			{
-				upper =
-					*s.lower_bound(edgesR[i][0]);
+				upper =	*s.lower_bound(edgesR[i][0]);
 			}
 			int prv = -1;
 			for (int e : edgesR[i])
@@ -162,8 +159,7 @@ void findFaces()
 				prv = e;
 			}
 			upperFace[edgesR[i].back()] = upper;
-			dsu.unite(edgesL[i].empty() ? upper :
-				lower, edgesR[i][0]);
+			dsu.unite(edgesL[i].empty() ? upper : lower, edgesR[i][0]);
 		}
 		else if (lower != -1 && upper != -1)
 		{
