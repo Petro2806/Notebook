@@ -28,8 +28,7 @@ struct SparseTable
 			int len = 1 << (j - 1);
 			FOR (i, 0, n - (1 << j) + 1)
 			{
-				t[j][i] = min(t[j - 1][i], 
-				t[j - 1][i + len]);
+				t[j][i] = min(t[j - 1][i], t[j - 1][i + len]);
 			}
 		}
 	}

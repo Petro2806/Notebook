@@ -5,12 +5,10 @@ Pt circumCenter(const Pt& a, Pt b, Pt c)
 	b = b - a;
 	c = c - a;
 	assert(sgn(cross(b, c)) != 0);
-	return a + perp(b * sq(c) - c * sq(b))
-		/ cross(b, c) / 2;
+	return a + perp(b * sq(c) - c * sq(b)) / cross(b, c) / 2;
 }
 // Returns circle-line intersection points
-vector<Pt> circleLine(const Pt& o, db r,
-	const Line& l)
+vector<Pt> circleLine(const Pt& o, db r, const Line& l)
 {
 	db h2 = r * r - l.sqDist(o);
 	if (sgn(h2) == -1)
@@ -22,8 +20,7 @@ vector<Pt> circleLine(const Pt& o, db r,
 	return {p - h, p + h};
 }
 // Returns circle-circle intersection points
-vector<Pt> circleCircle(const Pt& o1, db r1,
-	const Pt& o2, db r2)
+vector<Pt> circleCircle(const Pt& o1, db r1, const Pt& o2, db r2)
 {
 	Pt d = o2 - o1;
 	db d2 = sq(d);
@@ -59,8 +56,7 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 	if (inner)
 		r2 = -r2;
 	Pt d = o2 - o1;
-	db dr = r1 - r2, d2 = sq(d),
-		h2 = d2 - dr * dr;
+	db dr = r1 - r2, d2 = sq(d), h2 = d2 - dr * dr;
 	if (sgn(d2) == 0 || sgn(h2) < 0)
 	{
 		assert(sgn(h2) != 0);
@@ -69,8 +65,7 @@ vector<pair<Pt, Pt>> tangents(const Pt& o1,
 	vector<pair<Pt, Pt>> res;
 	for (db sign : {-1, 1})
 	{
-		Pt v = (d * dr + perp(d) * sqrt(h2)
-			* sign) / d2;
+		Pt v = (d * dr + perp(d) * sqrt(h2)	* sign) / d2;
 		res.PB({o1 + v * r1, o2 + v * r2});
 	}
 	return res;

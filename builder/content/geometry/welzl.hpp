@@ -21,15 +21,13 @@ pair<Pt, db> welzl(vector<Pt> v)
 				else if (k == 1)
 					c = (v[0] + v[1]) / 2;
 				else
-					c = circumCenter(
-						v[0], v[1],	v[2]);
+					c = circumCenter(v[0], v[1],	v[2]);
 				r = abs(v[0] - c);
 				if (k < i)
 				{
 					if (k < 2)
 						idxes[k++] = i;
-					shuffle(v.begin() + k,
-						v.begin() + i + 1, rng);
+					shuffle(v.begin() + k, v.begin() + i + 1, rng);
 					break;
 				}
 			}

@@ -89,8 +89,7 @@ struct Graph
 			for (int v = t; v != s;)
 			{
 				int e = p[v];
-				curFlow = min(curFlow, 
-				edges[e].cap - edges[e].flow);
+				curFlow = min(curFlow, edges[e].cap - edges[e].flow);
 				v = edges[e].from;
 			}
 			for (int v = t; v != s;)

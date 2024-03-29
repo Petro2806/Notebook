@@ -57,8 +57,7 @@ struct ConvexHull: set<Line, less<>>
 		}
 		while (it != end() && needErase(it, l))
 			it = erase(it);
-		while (it != begin() 
-			&& needErase(prev(it), l))
+		while (it != begin() && needErase(prev(it), l))
 			erase(prev(it));
 		if (it != begin())
 		{
@@ -68,8 +67,7 @@ struct ConvexHull: set<Line, less<>>
 			erase(itP);
 			insert(itL);
 		}
-		l.xLast = it == end() ? LINF : 
-				l.intersect(*it);
+		l.xLast = it == end() ? LINF : l.intersect(*it);
 		insert(l);
  	}
 	LL getMaxY(LL p)

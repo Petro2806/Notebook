@@ -87,8 +87,7 @@
 					}
 					else
 					{
-						int r = first[dsu.find(x)],
-							s = first[dsu.find(y)];
+						int r = first[dsu.find(x)],	s = first[dsu.find(y)];
 						if (r == s)
 							continue;
 						int edgeLabel = (n + 1) * x + y;
@@ -110,8 +109,7 @@
 						{
 							for (int v = first[dsu.find(z)];
 								v != join;
-								v = first[dsu.find(
-									label[mate[v]])])
+								v = first[dsu.find(label[mate[v]])])
 							{
 								label[v] = edgeLabel;
 								if (dsu.unite(v, join))

@@ -43,8 +43,7 @@ struct Graph
 			for (int e : g[v])
 			{
 				int to = edges[e].to;
-				if (edges[e].flow < edges[e].cap 
-					&& d[to] == -1)
+				if (edges[e].flow < edges[e].cap && d[to] == -1)
 				{
 					d[to] = d[v] + 1;
 					q.push(to);
@@ -61,8 +60,7 @@ struct Graph
 		{
 			int e = g[v][p[v]], to = edges[e].to;
 			LL c = edges[e].cap, f = edges[e].flow;
-			if (f < c
-				&& (to == t || d[to] == d[v] + 1))
+			if (f < c && (to == t || d[to] == d[v] + 1))
 			{
 				LL push = dfs(to, t, min(flow, c - f));
 				if (push > 0)

@@ -13,7 +13,7 @@ LL hungarian(const vector<vector<LL>>& a)
 		p[m] = i;
 		int j0 = m;
 		vector<LL> minv(m + 1, LINF);
-		vector<int> used(m + 1);
+		VI used(m + 1);
 		while (p[j0] != n)
 		{
 			used[j0] = true;

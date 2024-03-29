@@ -62,6 +62,6 @@ struct AC
 			return a[v].link;
 		if (v == 0 || a[v].p == 0)
 			return 0;
-		return a[v].link=go(getLink(a[v].p), a[v].c);
+		return a[v].link = go(getLink(a[v].p), a[v].c);
 	}
 };
