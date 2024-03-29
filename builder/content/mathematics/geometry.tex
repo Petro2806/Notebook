@@ -1,97 +1,80 @@
-\subsection{Trigonometry formulas}
-\fbox{\begin{minipage}{0.31\textwidth}
+\subsection*{Trigonometry formulas}
 \begin{align*}
-& \sin(v+w)=\sin v\cos w+\cos v\sin w\\
-& \sin(v-w)=\sin v\cos w-\cos v\sin w\\
-& \tan(v+w)=\tfrac{\tan v+\tan w}{1-\tan v\tan w}\\
-& \sin v+\sin w=2\sin\tfrac{v+w}{2}\cos\tfrac{v-w}{2}\\
-& \cos v+\cos w=2\cos\tfrac{v+w}{2}\cos\tfrac{v-w}{2}
+\sin(v+w)&=\sin v\cos w+\cos v\sin w\\
+\sin(v-w)&=\sin v\cos w-\cos v\sin w\\
+\tan(v+w)&=\frac{\tan v+\tan w}{1-\tan v\tan w}\\
+\sin v+\sin w&=2\sin\tfrac{v+w}{2}\cos\tfrac{v-w}{2}\\
+\cos v+\cos w&=2\cos\tfrac{v+w}{2}\cos\tfrac{v-w}{2}
 \end{align*}
-\end{minipage}}
 
-\vspace{10pt}
+\subsection*{Ball formulas}
 
-\subsection{Ball formulas}
-\fbox{
-\noindent
-\begin{minipage}{0.12\textwidth}\raggedleft
-$a = \sqrt{h \cdot (2R - h)}$\\ 
-$V = \pi \cdot h^2(R -\frac{h}{3})$
-\end{minipage}
-}
-\hfill
-\fbox{
-\begin{minipage}{0.08\textwidth}
-\includegraphics[width=\textwidth]{content/mathematics/ball-segment.png}
-\end{minipage}
-}
+\begin{center}
+  \includegraphics[width=0.1\textwidth]{content/mathematics/ball-segment.png}
+\end{center}
 
-\fbox{
-\noindent
-\begin{minipage}{0.17\textwidth}\raggedleft
-$V = \frac{1}{6}\pi h(3a^2+3b^2+h^2)$\\
-$R = \sqrt{\frac{((a - b)^2 + h^2)((a + b)^2 + h^2)}{4h^2}}$
-\end{minipage}
-}
-\hfill
-\fbox{
-\begin{minipage}{0.08\textwidth}
-\includegraphics[width=\textwidth]{content/mathematics/ball-layer.png}
-\end{minipage}
-}
+\[\begin{array}{cc}
+  a = \sqrt{h \cdot (2R - h)}\\
+  V = \pi \cdot h^2(R -\frac{h}{3})
+\end{array}\]
 
+\begin{center}
+  \includegraphics[width=0.1\textwidth, center]{content/mathematics/ball-layer.png}
+\end{center}
 
-\subsection{Triangle formulas}
-\fbox{\begin{minipage}{0.31\textwidth}
+\[\begin{array}{cc}
+  V = \frac{1}{6}\pi h(3a^2+3b^2+h^2)\\
+  R = \sqrt{\frac{((a - b)^2 + h^2)((a + b)^2 + h^2)}{4h^2}}
+\end{array}\]  
+
+\subsection*{Triangle formulas}
 \begin{align*}
-& S = \sqrt{p(p - a)(p - b)(p - c)} = \frac{abc}{4R}\\
-& m_a^2 = \frac{2b^2 + 2c^2 - a^2}{4} \;-\; \text{median}\\
-& w_a^2 = \frac{bc((b + c)^2 - a^2)}{(b + c)^2} \;-\; \text{bisector}\\
-& \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R\\
-& a^2 = b^2 + c^2 - 2bc\cos A
+S &= \sqrt{p(p - a)(p - b)(p - c)} = \frac{abc}{4R}\\
+m_a^2 &= \frac{2b^2 + 2c^2 - a^2}{4} \text{(median)}\\
+w_a^2 &= \frac{bc((b + c)^2 - a^2)}{(b + c)^2} \text{(bisector)}\\
+\frac{a}{\sin A} &= \frac{b}{\sin B} = \frac{c}{\sin C} = 2R\\
+a^2 &= b^2 + c^2 - 2bc\cos A
 \end{align*}
-\end{minipage}}
 
-\subsection{Monge's theorem}
+\subsection*{Monge's theorem}
 There are three circles(balls) of different radii, 
 for each pair of circles find the point of intersection of the external tangents. 
 All three obtained points \textbf{lie on a line}. 
 The point from the pair of the largest and the smallest \textbf{lies between} the other two.
-\fbox{
-\begin{minipage}{0.20\textwidth}
-\includegraphics[width=\textwidth]{content/mathematics/monges-theorem.png}
-\end{minipage}
-}
 
-\subsection{Pick's theorem}
+\begin{center}
+  \includegraphics[width=0.15\textwidth, center]{content/mathematics/monges-theorem.png}
+\end{center}
+
+\subsection*{Pick's theorem}
 Suppose that a polygon has integer coordinates for all of its vertices. 
 Let $i$ be the number of integer points inside, and let $b$ be the number of integer points on boundary. 
 Then the area $S = i + \tfrac{b}{2} - 1$.
 
-\subsection{Ptolemy's theorem}
+\subsection*{Ptolemy's theorem}
 For a general quadrilateral $ABCD$ holds:
 $AB \cdot CD + AD \cdot BC \ge AC \cdot BD$.
 
 Equality holds if and only if the quadrilateral is cyclic.
 
-\subsection{Ceva's theorem}
+\subsection*{Ceva's theorem}
 Given a triangle $\triangle ABC$ with a point $P$ inside the triangle,
 continue lines $AP$, $BP$, $CP$ to hit $BC$, $CA$, $AB$ at $D$, $E$, $F$,
 respectively.
 Ceva's theorem states that
 $\frac{AF}{FB} \cdot \frac{BD}{DC} \cdot \frac{CE}{EA} = 1$. 
 
-\subsection{Simson line}
+\subsection*{Simson line}
 Given a triangle $\triangle ABC$ and a point $P$ on its circumcircle,
 the three closest points to $P$ on lines $AB$, $AC$, and $BC$ are collinear.
 The line through these points is the Simson line of $P$.
 
-\subsection{Euler line}
+\subsection*{Euler line}
 For a general triangle, the orthocenter $H$, the centroid $G$, 
 and the circumcenter $O$, in this order, lie on the same line (Euler line) 
 and $\frac{|HG|}{|GO|} = \frac{2}{1}$.
 
-\subsection{Platonic solids}
+\subsection*{Platonic solids}
 \begin{tabular}{ |c|c|c|c| } 
 \hline
 Polyhedron & Vertices & Edges & Faces \\ 

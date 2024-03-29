@@ -1,9 +1,9 @@
-\subsection{FFT tricks}
-\subsubsection{Two-dimensional FFT}
+\subsection*{FFT tricks}
+\subsubsection*{Two-dimensional FFT}
 The complexity is $O(nm(\log n + \log m))$.
 The main problem is to resize the matrix. You must add non-empty vectors.
 
-\subsubsection{Divide-and-conquer FFT}
+\subsubsection*{Divide-and-conquer FFT}
 Suppose we have the following DP relation: $f(t) = g(t) - \sum_{0 \le u < t} f(u) h(t-u)$,
 where $g(t)$ and $h(t)$ are known and we want to compute $f(t)$. We can apply divide-and-conquer FFT.
 
@@ -22,18 +22,12 @@ When calculate the values for the segment $[l, r)$ do:
 \item Calculate the values for the segment $[m,r)$ recursively.
 \end{itemize}
 
-\subsection{DFT properties}
-DTFT of a convolution $c_k = \sum_{(i + j)\%n=k}a_ib_j$ is DFT.
-\fbox{
-\begin{minipage}{0.31\textwidth}
-\begin{align*}
-& DFT(x)_k = \sum_{n = 0}^{N - 1} x_n \cdot e^{-i2\pi\frac{kn}{N}} \hspace{14mm} DFT(x^R) = \overline{DFT(x)}\\
-& DFT(x_{n - m})_k = DFT(x)_k \cdot e^{\frac{-i2\pi km}{N}} \hspace{3mm} DFT(x^R) = DFT(x)^R\\
-& DFT^{-1}(x) = \frac{1}{N}DFT(x^R) \hspace{17mm} DFT(\overline{x}) = \overline{DFT(x)}^R\\
-& DFT(\text{Re}(x)) = \frac{1}{2}(DFT(x) + \overline{DFT(x)}^R)\\
-& DFT(\text{Im}(x)) = \frac{1}{2i}(DFT(x) - \overline{DFT(x)}^R)\\
-& DFT(\frac{1}{2}(x + \overline{x}^R)) = \text{Re}(DFT(x))\\
-& DFT(\frac{1}{2i}(x - \overline{x}^R)) = \text{Im}(DFT(x))
-\end{align*}
-\end{minipage}
-}
+\subsection*{Properties of the discrete Fourier transform}
+
+$$DFT(x)_k = \sum_{n = 0}^{N - 1} x_n \cdot e^{-i 2 \pi \frac{k}{N}n}$$
+
+Let $x^R_n = x_{N - n \mod N}$.
+
+$DFT(x^R) = \overline{DFT(x)}.$
+
+For real $x$, $DFT(x)^R = \overline{DFT(x)}$.
