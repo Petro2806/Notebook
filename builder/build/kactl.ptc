@@ -1,0 +1,78 @@
+\contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\texttt {template.hpp}\hspace {0.2em}}{1}{chapter.1}%
+\contentsline {section}{\texttt {compilation.txt}\hspace {0.2em}}{1}{lstnumber.1.1.26}%
+\contentsline {section}{\texttt {s.sh}\hspace {0.2em}}{1}{lstnumber.1.2.2}%
+\contentsline {section}{\texttt {hash.sh}\hspace {0.2em}}{1}{lstnumber.1.3.6}%
+\contentsline {chapter}{\numberline {2}Data Structures}{2}{chapter.2}%
+\ttl@stoptoc {chapters@1}
+\ttl@starttoc {chapters@2}
+\contentsline {section}{\texttt {dsu.hpp}\hspace {0.2em}}{2}{chapter.2}%
+\contentsline {section}{\texttt {fenwick.hpp}\hspace {0.2em}}{2}{lstnumber.2.1.31}%
+\contentsline {section}{\texttt {treap.hpp}\hspace {0.2em}}{2}{section*.5}%
+\contentsline {section}{\texttt {ordered-set.hpp}\hspace {0.2em}}{3}{lstnumber.2.3.146}%
+\contentsline {section}{\texttt {sparse-table.hpp}\hspace {0.2em}}{3}{lstnumber.2.4.12}%
+\contentsline {section}{\texttt {convex-hull-trick.hpp}\hspace {0.2em}}{3}{lstnumber.2.5.38}%
+\contentsline {chapter}{\numberline {3}Graphs}{4}{chapter.3}%
+\ttl@stoptoc {chapters@2}
+\ttl@starttoc {chapters@3}
+\contentsline {section}{\texttt {centroid.hpp}\hspace {0.2em}}{4}{section*.6}%
+\contentsline {section}{\texttt {hld.hpp}\hspace {0.2em}}{4}{lstnumber.3.1.51}%
+\contentsline {section}{\texttt {biconnected-components.hpp}\hspace {0.2em}}{4}{lstnumber.3.2.67}%
+\contentsline {section}{\texttt {hierholzer.hpp}\hspace {0.2em}}{5}{section*.7}%
+\contentsline {section}{\texttt {kuhn.hpp}\hspace {0.2em}}{6}{section*.8}%
+\contentsline {section}{\texttt {edmonds-blossom.hpp}\hspace {0.2em}}{6}{lstnumber.3.5.81}%
+\contentsline {section}{\texttt {dinic.hpp}\hspace {0.2em}}{7}{section*.10}%
+\contentsline {section}{\texttt {min-cost-flow.hpp}\hspace {0.2em}}{8}{lstnumber.3.7.97}%
+\contentsline {section}{\texttt {dominator-tree.hpp}\hspace {0.2em}}{9}{section*.20}%
+\contentsline {section}{\texttt {3-cycles.hpp}\hspace {0.2em}}{9}{section*.21}%
+\contentsline {section}{\texttt {4-cycles.hpp}\hspace {0.2em}}{10}{lstnumber.3.10.42}%
+\contentsline {chapter}{\numberline {4}Strings}{10}{chapter.4}%
+\ttl@stoptoc {chapters@3}
+\ttl@starttoc {chapters@4}
+\contentsline {section}{\texttt {aho-corasick.hpp}\hspace {0.2em}}{10}{chapter.4}%
+\contentsline {section}{\texttt {automaton.hpp}\hspace {0.2em}}{10}{lstnumber.4.1.67}%
+\contentsline {section}{\texttt {suffix-array.hpp}\hspace {0.2em}}{10}{lstnumber.4.2.65}%
+\contentsline {section}{\texttt {lcp.hpp}\hspace {0.2em}}{11}{lstnumber.4.3.77}%
+\contentsline {section}{\texttt {z.hpp}\hspace {0.2em}}{11}{lstnumber.4.4.47}%
+\contentsline {section}{\texttt {prefix.hpp}\hspace {0.2em}}{11}{lstnumber.4.5.23}%
+\contentsline {section}{\texttt {manacher.hpp}\hspace {0.2em}}{11}{lstnumber.4.6.16}%
+\contentsline {section}{\texttt {palindromic-tree.hpp}\hspace {0.2em}}{12}{lstnumber.4.7.27}%
+\contentsline {chapter}{\numberline {5}Geometry}{12}{chapter.5}%
+\ttl@stoptoc {chapters@4}
+\ttl@starttoc {chapters@5}
+\contentsline {section}{\texttt {point.hpp}\hspace {0.2em}}{12}{chapter.5}%
+\contentsline {section}{\texttt {line.hpp}\hspace {0.2em}}{13}{lstnumber.5.1.91}%
+\contentsline {section}{\texttt {segment.hpp}\hspace {0.2em}}{13}{lstnumber.5.2.50}%
+\contentsline {section}{\texttt {polygon.hpp}\hspace {0.2em}}{13}{lstnumber.5.3.45}%
+\contentsline {section}{\texttt {convex-hull.hpp}\hspace {0.2em}}{13}{lstnumber.5.4.72}%
+\contentsline {section}{\texttt {tangents-to-convex-polygon.hpp}\hspace {0.2em}}{14}{lstnumber.5.5.30}%
+\contentsline {section}{\texttt {minkowski-sum.hpp}\hspace {0.2em}}{14}{lstnumber.5.6.43}%
+\contentsline {section}{\texttt {halfplane-intersection.hpp}\hspace {0.2em}}{14}{lstnumber.5.7.47}%
+\contentsline {section}{\texttt {circle.hpp}\hspace {0.2em}}{15}{lstnumber.5.8.56}%
+\contentsline {section}{\texttt {welzl.hpp}\hspace {0.2em}}{15}{lstnumber.5.9.77}%
+\contentsline {section}{\texttt {closest-pair.hpp}\hspace {0.2em}}{15}{lstnumber.5.10.38}%
+\contentsline {section}{\texttt {planar-graph.hpp}\hspace {0.2em}}{15}{lstnumber.5.11.25}%
+\contentsline {chapter}{\numberline {6}Mathematics}{16}{chapter.6}%
+\ttl@stoptoc {chapters@5}
+\ttl@starttoc {chapters@6}
+\contentsline {section}{\texttt {gcd.hpp}\hspace {0.2em}}{16}{section*.22}%
+\contentsline {section}{\texttt {fast-chinese.hpp}\hspace {0.2em}}{16}{lstnumber.6.1.16}%
+\contentsline {section}{\texttt {chinese.hpp}\hspace {0.2em}}{17}{lstnumber.6.2.24}%
+\contentsline {section}{\texttt {miller-rabin.hpp}\hspace {0.2em}}{17}{lstnumber.6.3.33}%
+\contentsline {section}{\texttt {pollard.hpp}\hspace {0.2em}}{17}{lstnumber.6.4.33}%
+\contentsline {section}{\texttt {gaussian.hpp}\hspace {0.2em}}{17}{section*.23}%
+\contentsline {section}{\texttt {hungarian.hpp}\hspace {0.2em}}{18}{lstnumber.6.6.50}%
+\contentsline {section}{\texttt {simplex.hpp}\hspace {0.2em}}{18}{lstnumber.6.7.63}%
+\contentsline {section}{\texttt {conv-xor.hpp}\hspace {0.2em}}{19}{section*.24}%
+\contentsline {section}{\texttt {conv-or.hpp}\hspace {0.2em}}{19}{lstnumber.6.9.24}%
+\contentsline {section}{\texttt {fft.hpp}\hspace {0.2em}}{19}{section*.25}%
+\contentsline {section}{\texttt {inverse.hpp}\hspace {0.2em}}{20}{lstnumber.6.11.97}%
+\contentsline {section}{\texttt {exp-log.hpp}\hspace {0.2em}}{20}{lstnumber.6.12.32}%
+\contentsline {section}{\texttt {modulo.hpp}\hspace {0.2em}}{20}{lstnumber.6.13.52}%
+\contentsline {section}{\texttt {multipoint-eval.hpp}\hspace {0.2em}}{20}{lstnumber.6.14.37}%
+\contentsline {section}{\texttt {berlekamp-massey.hpp}\hspace {0.2em}}{21}{section*.34}%
+\contentsline {section}{\texttt {bostan-mori.hpp}\hspace {0.2em}}{21}{lstnumber.6.16.36}%
+\contentsline {section}{\texttt {golden-section-search.hpp}\hspace {0.2em}}{22}{section*.35}%
+\contentsline {section}{\texttt {gaussian-integer.hpp}\hspace {0.2em}}{24}{section*.72}%
+\contentsfinish 
