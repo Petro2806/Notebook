@@ -8,16 +8,16 @@
 template<typename F>
 vector<LL> mongeShortestPath(int n, const F& cost)
 {
-	vector<LL> dp(n, LINF);
+	vector<LL> dist(n, LINF);
 	VI amin(n);
-	dp[0] = 0;
+	dist[0] = 0;
 	
 	auto update = [&](int i, int k)
 	{
-		LL nd = dp[k] + cost(k, i);
-		if (nd < dp[i])
+		LL nd = dist[k] + cost(k, i);
+		if (nd < dist[i])
 		{
-			dp[i] = nd;
+			dist[i] = nd;
 			amin[i] = k;
 		}
 	};
@@ -36,5 +36,5 @@ vector<LL> mongeShortestPath(int n, const F& cost)
 	};
 	
 	solve(0, n - 1);
-	return dp;
+	return dist;
 }
