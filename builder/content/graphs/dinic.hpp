@@ -1,3 +1,7 @@
+/**
+ * Description: Finds the maximum flow in a network.
+ * Time: O(n^2 m).
+ */
 struct Graph
 {
 	struct Edge
