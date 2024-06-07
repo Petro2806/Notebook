@@ -1,6 +1,6 @@
 /**
  * Description: Finds the minimum cost maximum flow in a network.
- * Time: O(n U \cdot m \log n). $U$ is an upper bound on the largest capacity in the network.
+ * Time: O(|F| \cdot m \log n)
  */
 struct Graph
 {
@@ -53,23 +53,23 @@ struct Graph
 			q.push({0, s});
 			while (!q.empty())
 			{
-				auto [du, u] = q.top();
+				auto [dv, v] = q.top();
 				q.pop();
-				if (u == t)
+				if (v == t)
 					break;
-				if (-du != d[u])
+				if (-dv != d[v])
 					continue;
-				for (int i : g[u])
+				for (int i : g[v])
 				{
 					if (edges[i].flow == edges[i].cap)
 						continue;
-					int v = edges[i].to;
-					LL dv = d[u] + edges[i].cost + pi[u] - pi[v];
-					if (dv < d[v])
+					int to = edges[i].to;
+					LL nd = d[v] + edges[i].cost + pi[v] - pi[to];
+					if (nd < d[to])
 					{
-						d[v] = dv;
-						pred[v] = i;
-						q.push({-dv, v});
+						d[to] = nd;
+						pred[to] = i;
+						q.push({-nd, to});
 					}
 				}
 			}
@@ -87,10 +87,10 @@ struct Graph
 				int i = pred[v];
 				edges[i].flow += curFlow;
 				edges[i ^ 1].flow -= curFlow;
-				cost += edges[i].cost * curFlow;
 				v = edges[i].from;
 			}
 			flow += curFlow;
+			cost += (d[t] + pi[t] - pi[s]) * curFlow;
 			FOR(u, 0, n)
 				if (d[u] <= d[t])
 					pi[u] += d[u] - d[t];
