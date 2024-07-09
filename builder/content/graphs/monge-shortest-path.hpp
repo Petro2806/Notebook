@@ -35,6 +35,7 @@ vector<LL> mongeShortestPath(int n, const F& cost)
 		solve(m, r);
 	};
 	
+	update(n - 1, 0);
 	solve(0, n - 1);
 	return dist;
 }
