@@ -1,5 +1,5 @@
 /**
- * Description: Finds the maximum matching in a graph
+ * Description: Finds the maximum matching in a graph.
  * Time: O(n^2 m)
  */
  struct Graph
