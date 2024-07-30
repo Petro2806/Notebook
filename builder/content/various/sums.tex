@@ -1,0 +1,22 @@
+\section*{Find $n$ bits using $O(\frac{n}{logn})$ sums}
+To find $n$ bits $b_0, \dots, b_{n - 1}$ using $\approx 2.67 \cdot \frac{n}{log_2(n)}$ sums of values in asked subsequences.
+
+Define $sz_k$ as maximum number of bits we can find using $2^k$ queries.
+We can make $sz_{k + 1} = 2 \cdot sz_k + 2^k - 1$ using such queries:
+
+\begin{itemize}
+\item Query sum of elements $[sz_k, 2 \cdot sz_k)$,
+\item Iterate $S_i$ throuth $2^k - 1$ queries, ask $S_i \cup (S_i + sz_k)$ and $S_i \cup [sz_k, 2 \cdot sz_k) \setminus (S_i + sz_k) \cup b_{2 \cdot sz_k + i}$.    
+\end{itemize}
+
+If $S_i = \{x_1, \dots, x_m\}$ then $(S_i + d) = \{x_1 + d, \dots, x_m + d \}$.
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+k 		& 0 & 1 & 2 & 3  & 4  & 5   & 10     		 & 15 					  & 20 \\
+\hline
+$2^k$ 	& 1 & 2 & 4 & 8  & 16 & 32  & $\approx 10^3$ & $\approx 3 \cdot 10^4$ & $\approx 10^6$ \\
+\hline
+$sz_k$ 	& 1 & 3 & 9 & 25 & 65 & 161 & $\approx 10^4$ & $\approx 5 \cdot 10^5$ & $\approx 21 \cdot 10^6$\\
+\hline
+\end{tabular}
