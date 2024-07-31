@@ -21,11 +21,8 @@ struct Node
 struct AC
 {
 	vector<Node> a;
-	void init(int n)
-	{
-		a.reserve(n);
-		a.PB(Node(-1, -1));
-	}
+	AC(): a(1, {-1, -1}) {}
+	
 	int addStr(const string& s)
 	{
 		int v = 0;

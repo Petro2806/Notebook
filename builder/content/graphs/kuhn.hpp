@@ -10,7 +10,7 @@ struct Graph
 	vector<VI> g;
 	VI mateForR, mateForL, usedL;
 	
-	void init(int L, int R)
+	Graph(int L = 0, int R = 0)
 	{
 		szL = L, szR = R;
 		g.resize(szL);

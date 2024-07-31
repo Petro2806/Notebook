@@ -24,8 +24,8 @@ struct Graph
 	
 	int n, m;
 	
-	// don't reuse
-	void init(int _n, int _m)
+	
+	Graph(int _n = 0, int _m = 0)
 	{
 		n = _n;
 		m = _m;

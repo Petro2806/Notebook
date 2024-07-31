@@ -3,12 +3,8 @@ struct Fenwick
 	int n;
 	vector<LL> t;
 	
-	Fenwick(int _n = 0)
-	{
-		n = _n;
-		t.clear();
-		t.assign(n, 0);
-	}
+	Fenwick(int _n = 0): n(_n), t(n, 0) {}
+	
 	void upd(int i, LL x)
 	{
 		for (; i < n; i |= i + 1)
