@@ -23,10 +23,13 @@
 
 \section*{Polynomials and FFT}
 	\kactlimport[-l hpp]{fft.hpp}
+	\kactlimport[-l hpp]{mult-arbitrary-mod.hpp}
 	\kactlimport[-l hpp]{inverse.hpp}
 	\kactlimport[-l hpp]{exp-log.hpp}
-	\kactlimport[-l hpp]{modulo.hpp}
+	\kactlimport[-l hpp]{divide.hpp}
 	\kactlimport[-l hpp]{multipoint-eval.hpp}
+	\kactlimport[-l hpp]{taylor-shift.hpp}
+	\kactlimport[-l hpp]{shift-eval-values.hpp}
 	\import{newton.tex}
 	\import{fft-text.tex}
 	\import{interpolation.tex}
@@ -34,6 +37,10 @@
 \section*{Linear recurrence}
 	\kactlimport[-l hpp]{berlekamp-massey.hpp}
 	\kactlimport[-l hpp]{bostan-mori.hpp}
+
+\section*{P-recursive sequences}
+	\kactlimport[-l hpp]{find-coefs-of-p-recursive.hpp}
+	\kactlimport[-l hpp]{find-nth-of-p-recursive.hpp}
 
 \section*{Mathematical analysis and numerical methods}
 	\kactlimport[-l hpp]{golden-section-search.hpp}
