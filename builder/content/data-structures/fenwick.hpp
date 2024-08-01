@@ -1,9 +1,9 @@
 struct Fenwick
 {
 	int n;
-	vector<LL> t;
+	VL t;
 	
-	Fenwick(int _n = 0): n(_n), t(n, 0) {}
+	Fenwick(int _n = 0): n(_n), t(n) {}
 	
 	void upd(int i, LL x)
 	{

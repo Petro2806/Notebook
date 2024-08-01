@@ -25,10 +25,9 @@ void countSort(VI& p, const VI& c)
 
 VI suffixArray(VI s)
 {
-	int n = SZ(s);
 	// strictly smaller than any other element
 	s.PB(-1);
-	n++;
+	int n = SZ(s);
 	VI p(n), c(n);
 	iota(ALL(p), 0);
 	sort(ALL(p), [&](int i, int j)
@@ -63,7 +62,5 @@ VI suffixArray(VI s)
 		k++;
 	}
 	p.erase(p.begin());
-	s.pop_back();
-	n--;
 	return p;
 }

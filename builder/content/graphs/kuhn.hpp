@@ -3,22 +3,17 @@
  * Time: 0.6s for $L, R \le 10^5, |E| \le 2 \cdot 10^5$
  */
 
+mt19937 rng;
+
 struct Graph
 {
 	int szL, szR;
 	// edges from the left to the right, 0-indexed
 	vector<VI> g;
-	VI mateForR, mateForL, usedL;
+	VI mateForL, usedL, mateForR;
 	
-	Graph(int L = 0, int R = 0)
-	{
-		szL = L, szR = R;
-		g.resize(szL);
-		mateForL.resize(szL);
-		usedL.resize(szL);
-		
-		mateForR.resize(szR);
-	}
+	Graph(int L = 0, int R = 0): szL(L), szR(R), g(L), mateForL(L),
+		usedL(L), mateForR(R) {}
 	
 	void addEdge(int from, int to)
 	{
@@ -84,4 +79,3 @@ struct Graph
 		return res;
 	}
 };
-

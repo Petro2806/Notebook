@@ -14,7 +14,7 @@ struct Graph
 	int n;
 	vector<Edge> edges;
 	vector<VI> g;
-	vector<LL> pi, d;
+	VL pi, d;
 	VI pred;
 	
 	Graph(int _n = 0): n(_n), g(n), pi(n), d(n), pred(n) {}
