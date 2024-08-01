@@ -3,7 +3,7 @@ struct DSU
 	int n;
 	VI p, sz;
 	
-	void init(int _n)
+	DSU(int _n = 0) 
 	{
 		n = _n;
 		p.resize(n);

@@ -1,4 +1,4 @@
-// hash = 85ed39
+// hash = 9fd99b
  
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,7 +14,9 @@ using namespace std;
 
 typedef long long LL;
 typedef vector<int> VI;
+typedef vector<LL> VL;
 typedef pair<int, int> PII;
+typedef pair<LL, LL> PLL;
 typedef double db;
 
 int main()

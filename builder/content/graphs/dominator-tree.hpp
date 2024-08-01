@@ -15,20 +15,8 @@ struct Graph
 	int T;
 	VI ord;
 	
-	void init(int _n)
-	{
-		n = _n;
-		g.resize(n);
-		gr.resize(n);
-		bkt.resize(n);
-		par.resize(n);
-		used.resize(n);
-		p.resize(n);
-		val.resize(n);
-		sdom.resize(n);
-		dom.resize(n);
-		tin.resize(n);
-	}
+	Graph(int _n = 0): n(_n), g(n), gr(n), bkt(n), par(n),
+		used(n), p(n), val(n), sdom(n), dom(n), tin(n) {}
 	
 	void addEdge(int u, int v)
 	{

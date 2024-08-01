@@ -6,13 +6,13 @@ LL hungarian(const vector<vector<LL>>& a)
 {
 	int n = SZ(a), m = SZ(a[0]);
 	assert(n <= m);
-	vector<LL> u(n + 1), v(m + 1);
+	VL u(n + 1), v(m + 1);
 	VI p(m + 1, n), way(m + 1);
 	FOR(i, 0, n)
 	{
 		p[m] = i;
 		int j0 = m;
-		vector<LL> minv(m + 1, LINF);
+		VL minv(m + 1, LINF);
 		VI used(m + 1);
 		while (p[j0] != n)
 		{
