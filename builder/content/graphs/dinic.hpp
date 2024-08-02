@@ -1,3 +1,7 @@
+/**
+ * Description: Finds the maximum flow in a network.
+ * Time: O(n^2 m).
+ */
 struct Graph
 {
 	struct Edge
@@ -11,15 +15,7 @@ struct Graph
 	vector<VI> g;
 	VI d, p;
 	
-	void init(int _n)
-	{
-		n = _n;
-		edges.clear();
-		g.clear();
-		g.resize(n);
-		d.resize(n);
-		p.resize(n);
-	}
+	Graph(int _n): n(_n), g(n), d(n), p(n) {}
 	void addEdge(int from, int to, LL cap)
 	{
 		assert(0 <= from && from < n);

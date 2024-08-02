@@ -2,7 +2,7 @@
  * Description: Returns the indices of tangent points from $p$.
  * $p$ must be strictly outside the polygon.
  **/
-PII tangetsToConvexPolygon(const vector<Pt>& v,	const Pt& p)
+PII tangentsToConvexPolygon(const vector<Pt>& v, const Pt& p)
 {
 	int n = SZ(v), i = 0;
 	if (n == 2)
