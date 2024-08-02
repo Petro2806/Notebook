@@ -18,15 +18,7 @@ struct PalTree
 	vector<Node> a;
 	int last;
 	
-	void init(string t)
-	{
-		a.clear();
-		a.reserve(2 * SZ(t));
-		a.PB(Node(-1, -1));
-		a.PB(Node(0, 0));
-		last = 1;
-		s = t;
-	}
+	PalTree(string t = ""): s(t), a({{-1, -1}, {0, 0}}), last(1) {}
 	void add(int idx)
 	{
 		// change to [0, AL)

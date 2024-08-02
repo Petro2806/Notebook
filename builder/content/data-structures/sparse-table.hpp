@@ -1,41 +1,24 @@
 /**
- * Description: Sparse table for minimum on the range [l, r).
+ * Description: Sparse table for minimum on the range [l, r), l < r.
+ * You can push back an element in O(log) and query anytime.
  */
 
 struct SparseTable
 {
 	VI t[LOG];
-	VI lg;
-	int n;
 	
-	void init(int _n)
+	void push_back(int v)
 	{
-		n = _n;
-		lg.resize(n + 1);
-		FOR(i, 2, n + 1)
-			lg[i] = lg[i / 2] + 1;
-			
-		FOR(j, 0, LOG)
-			t[j].assign(n, INF);
-	}
-	
-	void build(const VI& v)
-	{	
-		FOR (i, 0, SZ(v)) t[0][i] = v[i];
-		
-		FOR (j, 1, LOG)
-		{
-			int len = 1 << (j - 1);
-			FOR (i, 0, n - (1 << j) + 1)
-			{
-				t[j][i] = min(t[j - 1][i], t[j - 1][i + len]);
-			}
-		}
+		int i = SZ(t[0]);
+		t[0].PB(v);
+		FOR (j, 0, LOG - 1) 
+			t[j + 1].PB(min(t[j][i], t[j][max(0, i - (1 << j))]));
 	}
 	// [l, r)
 	int query(int l, int r)
 	{
-		int i = lg[r - l];
-		return min(t[i][l], t[i][r - (1 << i)]);
+		assert(l < r && r <= SZ(t[0]));
+		int i = 31 - __builtin_clz(r - l);
+		return min(t[i][r - 1], t[i][l + (1 << i) - 1]);
 	}
 };
