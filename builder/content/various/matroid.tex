@@ -11,45 +11,26 @@ with the following properties:
 \item If $A, B \in I$, and $|A| > |B|$, then there exists $x \in A \setminus B$ such that $B \cup \{ x \} \in I$.
 \end{enumerate}
 
-\subsection*{Rado-Edmonds algorithm}
-We have matroid $M = (X, I)$, where each element $x \in X$ has some weight and 
-we have to find a maximum size basis with minimum total weight.
-
-To solve this problem use the following algorithm:
-\begin{enumerate}
-\item Sort all elements from $X$ by their weight;
-\item Consider all elements $x \in X$ in sorted order and include them in $S$ if $S \cup \{ x \} \in I$.
-\end{enumerate}
-
-\subsection*{Matroid intersection}
+\section*{Matroid intersection}
 Matroids intersection of several matroids $M_1 = (X, I_1), \, M_2 = (X, I_2), \, \dots , \, M_k = (X, I_k)$ defined on the same ground set $X$ represents “good” subsets as an intersection
 $I_1 \cap I_2 \cap \dots \cap I_k$. 
 The task is to find a set of objects $S \subseteq X$ with maximum size such that $S \in (I_1 \cap I_2 \cap \dots \cap I_k)$. 
 
 Intersection of \textbf{three} or more matroids in \textbf{NP-complete} task.
-However, the intersection of two matroids can be done in polynomial time.
+However, the intersection of two matroids can be done in polynomial time $\approx O(|X|^2 + |X| \cdot F(|X|))$, where $F(|X|)$ is the time to build the graph below.
 
-We can increase the size of $S$ by one. To do this, let’s build the following directed bipartite graph. 
-The left part of this graph will contain all objects from $S$, while the right part will contain all other objects from $X \ A$.
+Starting from $S = \emptyset$ we can increase it's size by one with following algorithm until maximum size. To do this, let’s build the following directed bipartite graph. 
+The left part of this graph will contain all objects from $S$, while the right part will contain all \textbf{other} objects from $X$.
 
 Consider objects from the right part of the graph such that adding them into $S$ keeps independence in $I_1$. 
-Let’s paint these objects in green. Similarly, paint in a red color objects that keeps independence in $I_2$.
+Let’s paint these objects in green. Similarly, paint in a red color objects that keeps independence in $I_2$. 
 
 Let’s add an edge from the left vertex $u$ to the right vertex $v$ when $S \setminus \{ u \} \cup \{ v \} \in I_1$.
 Symmetrically let’s add an edge from the right vertex $v$ to the left vertex $u$ when $S \setminus \{ u \} \cup \{ v \} \in I_2$.
 
 \begin{center}
-  \includegraphics[width=0.15\textwidth, center]{content/various/matroid-intersection.png}
+  \includegraphics[width=0.10\textwidth, center]{content/various/matroid-intersection.jpg}
 \end{center}
 
-Let’s find the shortest path from some green vertex to some red vertex. 
+Let’s find the path from some green vertex to some red vertex. 
 Objects on the path are added or removed from the set $S$, respectively, objects from the right part are added and the left part is removed.
-
-The weighted version of this task is to find a corresponding set $S$ with maximum size but also with minimum total weight of objects.
-In this case, we have to find the shortest weighted path, that can be done using the Ford-Bellman algorithm.
-
-\subsection*{Matroid union}
-
-Some problems of matroid union can be transformed into matroid intersection.
-For example, in the problem of finding $k$ pairwise disjoint spanning trees, we can copy our graph $k$ times. 
-Then we have two matroids: the "forest" matroid and the "colorful" matroid.
