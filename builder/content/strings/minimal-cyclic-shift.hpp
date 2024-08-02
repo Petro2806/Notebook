@@ -1,6 +1,6 @@
 /**
  * Description: $s_{shift}, s_{shift + 1}, \dots$ is lexicographically smallest cyclic shift. 
- * If more than one answer finds the minimal value of $shift$.
+ * If more than one answer it finds the minimum value of $shift$.
  * Time: $O(n)$ time and memory complexity.
  */
 
