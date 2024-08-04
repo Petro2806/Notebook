@@ -29,11 +29,6 @@ struct Node
 struct Treap
 {
 	vector<Node> t;
-	void init(int n)
-	{
-		t.clear();
-		t.reserve(n);
-	}
 	
 	int getCnt(int v)
 	{
@@ -130,6 +125,7 @@ struct Treap
 		}
 		else
 		{
+			push(u);
 			if(t[u].l != -1) 
 				t[t[u].l].par = -1;
 			res = merge(v, t[u].l);
