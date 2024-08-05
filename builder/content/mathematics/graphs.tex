@@ -1,0 +1,99 @@
+\subsection*{Prüfer sequence}
+At step $i$, remove the leaf with the smallest label and set the $i$-th
+element of the Prüfer sequence to be the label of this leaf's neighbour.
+The Prüfer sequence of a labeled tree is unique and has length $n - 2$.
+
+The number of spanning trees of $K_n$ is $n^{n - 2}$.\\
+The number of spanning trees of $K_{L, R}$ number is $L^{R - 1} \cdot R^{L - 1}$.
+
+Let $T_{n, k}$ be the number of labelled forests on $n$ vertices with $k$ connected components,
+such that vertices $1, \dots, k$ all belong to different components.
+$T_{n,k} = k \cdot n^{n - k - 1}$.
+
+The number of spanning trees in a complete graph $K_{n}$ with the fixed degrees
+$d_{i}$ is equal to:
+$ \frac{(n - 2)!}{\prod(d_i - 1)} $
+
+For a forest graph with connected components of sizes $s_0, \dots, s_{k - 1}$, 
+the number of ways to add edges to make a spanning tree is equal to:
+$ n^{k - 2} \cdot \prod s_i$
+
+\subsection*{Chromatic polynomial}
+For a graph $G$, $\chi(G, \lambda) = \chi(\lambda)$ counts the number of its vertex $\lambda$-colorings.
+There is a unique polynomial $\chi(\lambda)$. Deletion-contraction:
+\begin{itemize}
+\item The graph $G/uv$ is obtained by merging $u$ and $v$.
+\item The graph $G - uv$ is obtained by deleting the edge $uv$.
+\item $\chi(G, \lambda) = \chi(G - uv, \lambda) - \chi(G/uv, \lambda)$. 
+\end{itemize}
+
+\begin{tabular}{|c|c|}
+\hline
+$G$ is tree & $\chi(\lambda) = \lambda(\lambda - 1)^{n - 1}$ \\
+\hline
+$G$ is cycle $C_n$ & $\chi(\lambda) = (\lambda - 1)^n + (-1)^n(\lambda - 1)$\\
+\hline
+\end{tabular} 
+ 
+\begin{proposition}
+    $\chi(\lambda)$ is equal to the number of pairs $(\sigma, O)$, 
+    where $\sigma$ is any map $\sigma : V \rightarrow \{1, \dots, \lambda\}$ and $O$ is an orientation of $G$, 
+    subject to the two conditions:
+    \begin{itemize}
+        \item The orientation $O$ is acyclic.
+        \item If $u \rightarrow v$ in $O$, then $\sigma (u) > \sigma (v)$.
+    \end{itemize}
+\end{proposition}
+
+Define $\overline{\chi}(\lambda)$ to be the number of pairs $(\sigma, O)$, 
+where $\sigma$ is any map $\sigma : V \rightarrow \{1, \dots, \lambda\}$ and $O$ is an orientation of $G$, 
+subject to the two conditions:
+\begin{itemize}
+\item The orientation $O$ is acyclic.
+\item If $u \rightarrow v$ in $O$, then $\sigma (u) \ge \sigma (v)$.
+\end{itemize}
+
+\begin{theorem}
+    Suppose that $|V| = n$. Then for all non-negative integers $\lambda$ holds:
+    $$\overline{\chi}(\lambda) = (-1)^n \chi(-\lambda)$$
+\end{theorem}
+
+\begin{corollary}
+    $(-1)^n \chi(G, -1)$ is equal to the number of acyclic orientations of $G$.
+\end{corollary}
+
+\subsection*{Kirchhoff's theorem}
+
+Let $G$ be a finite graph, allowing multiple edges but not loops.
+
+The laplacian matrix $L$ of $G$ is the $n \times n$ matrix whose
+$(i, j)$-entry $L_{i j}$ is given by
+\begin{displaymath}
+L_{i j} = \left\{ \begin{array}{ll}
+-m_{i j}, & \textrm{if $i \ne j$, $m_{i j}$ edges between $v_i$ and $v_j$, } \\
+\deg(v_i), & \textrm{if $i = j$.}
+\end{array} \right.
+\end{displaymath}
+
+Let $L_0$ denote $L$ with the $i$-th row and column removed for any $i$.
+Then for a connected graph, $\det(L_0)$ equals the number of spanning trees of $G$.
+
+\subsection*{Karp's minimum mean-weight cycle algorithm}
+
+Let $G = (V, E)$ be a directed graph with weight function $w: E \to \mathbb{R}$,
+and let $n = |V|$.
+We define the \textbf{\textit{mean weight}} of a cycle
+$c= \langle e_1, e_2, \dots, e_k \rangle$ of edges in $E$ to be
+$$\mu(c) = \frac{1}{k} \sum_{i=1}^k w(e_i).$$
+
+Let $\mu^\ast = \min_c \mu(c)$, where $c$ ranges over all directed cycles in $G$.
+We call a cycle $c$ for which $\mu(c)=\mu^\ast$ a \textbf{\textit{minimum mean-weight cycle}}.
+
+Assume without loss of generality that every vertex $v \in V$ is reachable from a source vertex $s \in V$.
+Let $\delta_k (s, v)$ be the weight of a shortest path from $s$ to $v$ consisting of \textit{exactly} $k$ edges.
+If there is no path from $s$ to $v$ with exactly $k$ edges, then $\delta_k (s, v) = \infty$.
+
+$$\mu^\ast = \min_{v \in V} \max_{0 \le k \le n - 1}
+\frac{\delta_n (s, v) - \delta_k (s, v)}{n - k}.$$
+
+This can be computed in time $O(V E)$.
