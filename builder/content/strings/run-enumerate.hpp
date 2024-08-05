@@ -1,6 +1,6 @@
 /**
- * Description: Enumerate all tuples $(t, l, r)$ with $len$ being the minimum period of $s[l, r)$ and $r - l \ge 2 \cdot t$. 
- * Also, tuples $(t, l - 1, r)$ and $(t, l, r + 1)$ do not satisfy the previous condition.
+ * Description: Enumerate all tuples $(t, l, r)$ with $t$ being the minimum period of $s[l, r)$ and $r - l \ge 2 \cdot t$. 
+ * $l$ and $r$ are maximal. In other words $(t, l - 1, r)$ and $(t, l, r + 1)$ do not satisfy the previous condition.
  * 
  * The number of runs is $\le |s|$. Other properties are stated at the end of the function.
  * Time: $O(n \log n)$, where $n = |s|$.
@@ -10,11 +10,7 @@ struct Run
 	int t, l, r;
 	bool operator<(const Run& p) const
 	{
-		if(t != p.t) 
-			return t < p.t;
-		if(l != p.l) 
-			return l < p.l;
-		return r < p.r;
+		return make_tuple(t, l, r) < make_tuple(p.t, p.l, p.r);
 	}
 	bool operator==(const Run& p) const
 	{
