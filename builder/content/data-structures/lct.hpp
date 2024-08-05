@@ -11,8 +11,8 @@
  * of \texttt{v} and \texttt{vsub} will be the number of nodes under \texttt{v}.
  * Change upd to calc sum in subtree of other functions.
  * Use \texttt{makeRoot} for arbitrary path queries.
- * Time: O(\log N)
- * Usage: FOR (i, 0, N) LCT[i] = new snode(i); link(LCT[u], LCT[v]);
+ * Time: O(\log n)
+ * Usage: FOR (i, 0, n) LCT[i] = new snode(i); link(LCT[u], LCT[v]);
  */
 typedef struct Snode* sn;
 struct Snode 
@@ -158,7 +158,7 @@ struct Snode
 		setLink(v, u, 0);
 		v->upd();
 	}
-	// cut v from it's parent in
+	// cut v from it's parent in LCT
 	// make sure about root or better use next function
 	friend void cut(sn v)
 	{
