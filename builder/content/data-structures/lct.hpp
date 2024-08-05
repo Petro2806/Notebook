@@ -12,7 +12,7 @@
  * Change upd to calc sum in subtree of other functions.
  * Use \texttt{makeRoot} for arbitrary path queries.
  * Time: O(\log N)
- * Usage: FOR(i,1,N+1)LCT[i]=new snode(i); link(LCT[1],LCT[2],1);
+ * Usage: FOR (i, 0, N) LCT[i] = new snode(i); link(LCT[u], LCT[v]);
  */
 typedef struct Snode* sn;
 struct Snode 
@@ -158,16 +158,17 @@ struct Snode
 		setLink(v, u, 0);
 		v->upd();
 	}
-	// cut y from it's parent
+	// cut v from it's parent in
+	// make sure about root or better use next function
 	friend void cut(sn v)
 	{
 		v->access();
-		assert(v->c[0]);
+		assert(v->c[0]); // assert if not a root
 		v->c[0]->p = 0;
 		v->c[0] = 0;
 		v->upd();
 	}
-	// x, y should be adjacent in tree
+	// u, v should be adjacent in tree
 	friend void cut(sn u, sn v)
 	{
 		u->makeRoot();
