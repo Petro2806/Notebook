@@ -1,33 +1,29 @@
 /**
- * Description: Enumerate all tuples $(len, l, r)$ with minimum period of $s[l, r)$ is $len$, and $r - l \ge 2 \cdot len$. 
- * Also $l$ and $r$ are maximal, that tuples $(len, l - 1, r)$ and $(len, l, r + 1)$ do not satisfy privious condition.
+ * Description: Enumerate all tuples $(t, l, r)$ with $t$ being the minimum period of $s[l, r)$ and $r - l \ge 2 \cdot t$. 
+ * $l$ and $r$ are maximal. In other words $(t, l - 1, r)$ and $(t, l, r + 1)$ do not satisfy the previous condition.
  * 
- * Number of the runs is $\le |s|$. Other properties at the end of the function.
- * Time: $O(nlogn)$, where $n = |s|$.
+ * The number of runs is $\le |s|$. Other properties are stated at the end of the function.
+ * Time: $O(n \log n)$, where $n = |s|$.
  */
-struct run
+struct Run
 {
-	int len, l, r;
-	bool operator<(const run& p) const
+	int t, l, r;
+	bool operator<(const Run& p) const
 	{
-		if(len != p.len) 
-			return len < p.len;
-		if(l != p.l) 
-			return l < p.l;
-		return r < p.r;
+		return make_tuple(t, l, r) < make_tuple(p.t, p.l, p.r);
 	}
-	bool operator==(const run& p) const
+	bool operator==(const Run& p) const
 	{
 		return !(*this < p) && !(p < *this);
 	}
 };
-vector<run> runEnumerate(VI s) 
+vector<Run> runEnumerate(VI s) 
 {
 	int n = SZ(s);
 	LCP lcp(s); reverse(ALL(s));
 	LCP rev(s); reverse(ALL(s));
 	
-	vector<run> runs;
+	vector<Run> runs;
 	FOR(inv, 0, 2)
 	{
 		VI st = {n};
@@ -47,7 +43,7 @@ vector<run> runEnumerate(VI s)
 		
 		RFOR(i, n, 0)
 		{
-			while (SZ(st) > 1 && pop(i))
+			while(SZ(st) > 1 && pop(i))
 				st.pop_back();
 			int j = st.back();
 			int dist = j - i;
@@ -55,11 +51,11 @@ vector<run> runEnumerate(VI s)
 			
 			int x = rev.queryLcp(n - i, n - j);
 			int y = lcp.queryLcp(i, j);
-			if (x < dist && x + y >= dist) 
-				runs.push_back({dist, i - x, j + y});
+			if(x < dist && x + y >= dist) 
+				runs.PB({dist, i - x, j + y});
 		}
 	}
-	sort(runs.begin(), runs.end());
+	sort(ALL(runs));
 	runs.resize(unique(ALL(runs)) - runs.begin());
 	
 	//LL sumLen = 0, sumCnt = 0, sum = 0;
