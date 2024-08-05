@@ -26,13 +26,10 @@ int minimalCyclicShift(VI s)
 		{
 			if(s[shift] > s[i])
 				shift = i;
-			f[i - shift] = 0;
 		}
 		else
-		{
 			j++;
-			f[i - shift] = j;
-		}
+		f[i - shift] = j;
 	}
 	return shift;
 }
