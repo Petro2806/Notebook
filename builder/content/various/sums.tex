@@ -5,18 +5,21 @@ Define $sz_k$ as maximum number of bits we can find using $2^k$ queries.
 We can make $sz_{k + 1} = 2 \cdot sz_k + 2^k - 1$ using such queries:
 
 \begin{itemize}
-\item Query sum of elements $[sz_k, 2 \cdot sz_k)$,
-\item Iterate $S_i$ throuth $2^k - 1$ queries, ask $S_i \cup (S_i + sz_k)$ and $S_i \cup [sz_k, 2 \cdot sz_k) \setminus (S_i + sz_k) \cup b_{2 \cdot sz_k + i}$.    
+\item Ask sum of elements $[sz_k, 2 \cdot sz_k)$.
+\item Iterate through the first $2^k - 1$ queries $S_i$, ask $S_i \cup (S_i + sz_k)$ and $S_i \cup [sz_k, 2 \cdot sz_k) \setminus (S_i + sz_k) \cup b_{2 \cdot sz_k + i}$.    
+\item Ask sum of elements $[0, sz_{k + 1})$.
 \end{itemize}
 
 If $S_i = \{x_1, \dots, x_m\}$ then $(S_i + d) = \{x_1 + d, \dots, x_m + d \}$.
 
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+From such queries we can find $b_{2 \cdot sz_k}, \dots, b_{sz_{k + 1} - 1}$ and the answers for $S_i$ for the two smaller problems.
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-k 		& 0 & 1 & 2 & 3  & 4  & 5   & 10     		 & 15 					  & 20 \\
+k 		& 0 & 1 & 2 & 3  & 4  & 5   & 10     		 		& 13 					 \\
 \hline
-$2^k$ 	& 1 & 2 & 4 & 8  & 16 & 32  & $\approx 10^3$ & $\approx 3 \cdot 10^4$ & $\approx 10^6$ \\
+$2^k$ 	& 1 & 2 & 4 & 8  & 16 & 32 & $\approx 10^3$ 		& $\approx 8 \cdot 10^3$ \\
 \hline
-$sz_k$ 	& 1 & 3 & 9 & 25 & 65 & 161 & $\approx 10^4$ & $\approx 5 \cdot 10^5$ & $\approx 21 \cdot 10^6$\\
+$sz_k$ 	& 1 & 2 & 5 & 13 & 33 & 81 & $\approx 5 \cdot 10^3$ & $\approx 5 \cdot 10^4$ \\
 \hline
 \end{tabular}
