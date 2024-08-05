@@ -52,7 +52,7 @@ vector<Run> runEnumerate(VI s)
 			int x = rev.queryLcp(n - i, n - j);
 			int y = lcp.queryLcp(i, j);
 			if(x < dist && x + y >= dist) 
-				runs.push_back({dist, i - x, j + y});
+				runs.PB({dist, i - x, j + y});
 		}
 	}
 	sort(ALL(runs));
