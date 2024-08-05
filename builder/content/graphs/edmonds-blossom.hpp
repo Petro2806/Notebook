@@ -2,21 +2,14 @@
  * Description: Finds the maximum matching in a graph.
  * Time: O(n^2 m)
  */
- struct Graph
+struct Graph
 {
 	int n;
 	vector<VI> g;
 	VI label, first, mate;
 	
-	void init(int _n)
-	{
-		n = _n;
-		g.clear();
-		g.resize(n + 1);
-		label.resize(n + 1);
-		first.resize(n + 1);
-		mate.resize(n + 1, 0);
-	}
+	Graph(int _n = 0): n(_n), g(n + 1), label(n + 1), first(n + 1), mate(n + 1) {}
+	
 	void addEdge(int u, int v)
 	{
 		assert(0 <= u && u < n);

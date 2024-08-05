@@ -6,6 +6,7 @@
 
 struct Graph
 {
+	int n, m;
 	vector<PII> edges;
 	vector<VI> g;
 
@@ -22,29 +23,8 @@ struct Graph
 	// col[i] - component of the i-th edge
 	VI col;
 	
-	int n, m;
-	
-	// don't reuse
-	void init(int _n, int _m)
-	{
-		n = _n;
-		m = _m;
-		
-		edges.assign(m, {0, 0});
-		g.assign(n, {});
-		
-		used.assign(n, false);
-		par.assign(n, -1);
-
-		tin.assign(n, 0);
-		low.assign(n, 0);
-		inComp.assign(n, 0);
-
-		t = c = 0;		
-
-		components.clear();
-		col.assign(m, -1);
-	}	
+	Graph(int _n = 0, int _m = 0): n(_n), m(_m), edges(m), g(n), used(n), par(n, -1), 
+		tin(n), low(n), inComp(n), col(m, -1) {}
 	
 	void addEdge(int a, int b, int i)
 	{

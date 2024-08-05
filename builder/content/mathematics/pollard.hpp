@@ -35,9 +35,9 @@ LL rho(LL n)
 }
 VI primes = {2, 3, 5, 7, 11, 13, 17, 19, 23};
 
-vector<LL> factorize(LL n)
+VL factorize(LL n)
 {
-	vector<LL> ans;
+	VL ans;
 	
 	for (auto p : primes)
 	{
