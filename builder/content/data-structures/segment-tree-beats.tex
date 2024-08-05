@@ -1,0 +1,13 @@
+\section*{min= and sum with Segment Tree}
+
+Store in each node: \texttt{max}, \texttt{cntMax}, \texttt{max2}, \texttt{sum}
+
+In update check l, r conditions and: 
+\begin{itemize}
+\item if (val >= max) return;
+\item else if (val >= max2) update this node;
+\item else go to left and right
+\end{itemize}
+
+You can do max= and += on segment at the same time.
+Time: $O(\log n)$. Each extra descent decreases number of diferent elements in segment. 
