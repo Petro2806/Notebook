@@ -106,11 +106,11 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 		}
 		for (int r = 1; r < s; r *= 2)
 		{
-			auto shifted = shiftEvalMatrs(matrices, r * m + 1, SZ(matrices) - 1);
-			matrices.insert(matrices.end(), ALL(shifted));
-			shifted = shiftEvalMatrs(matrices, mult(r, invS), SZ(matrices));
+			auto sh = shiftEvalMatrs(matrices, r * m + 1, SZ(matrices) - 1);
+			matrices.insert(matrices.end(), ALL(sh));
+			sh = shiftEvalMatrs(matrices, mult(r, invS), SZ(matrices));
 			FOR(l, 0, SZ(matrices))
-				matrices[l] = mult(shifted[l], matrices[l]);
+				matrices[l] = mult(sh[l], matrices[l]);
 		}
 		int l = 0;
 		for (; l + s <= k; l += s)
@@ -137,5 +137,6 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 	}
 	PolyMatr denom = {{p[0]}};
 	a = polyMatrProd(polyMatr, n - d + 1, a);
-	return mult(binpow(polyMatrProd(denom, n - d + 1, {1})[0], mod - 2), a.back());
+	const VI& x = polyMatrProd(denom, n - d + 1, {1});
+	return mult(binpow(x[0], mod - 2), a.back());
 }
