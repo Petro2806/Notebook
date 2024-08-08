@@ -10,7 +10,7 @@ VI shiftEvalValues(VI a, int c, int m)
 	VI q(n);
 	FOR(i, 0, n)
 	{
-		q[i] = mult(a[i], mult(invFact[i], invFact[n - i - 1]));
+		q[i] = mult(a[i], mult(ifact[i], ifact[n - i - 1]));
 		if ((n - i) % 2 == 0)
 			q[i] = sub(0, q[i]);
 	}
@@ -28,7 +28,8 @@ VI shiftEvalValues(VI a, int c, int m)
 	}
 	FOR(i, 0, m)
 	{
-		res[i] = add(c, i) < n ? a[add(c, i)] : mult(res[i], prod);
+		int j = add(c, i);
+		res[i] = j < n ? a[j] : mult(res[i], prod);
 		int r = add(c, i + 1);
 		if (r != 0)
 			prod = mult(prod, r);

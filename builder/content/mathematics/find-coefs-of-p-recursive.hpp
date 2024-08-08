@@ -5,13 +5,13 @@
  * The first $k$ terms $a_0, a_1, \dots, a_{k - 1}$ are given.
  * Time: O(k^3)
  */
- vector<VI> findCoefsOfPRecursive(const VI& a, int d)
+vector<VI> findCoefsOfPRecursive(const VI& a, int d)
 {
 	int m = (SZ(a) - d) / (d + 1) - 1;
 	if (m < 0)
 		return {};
 	int n = (m + 1) * (d + 1);
-	vector matr(SZ(a) - d, VI(n));
+	vector<VI> matr(SZ(a) - d, VI(n));
 	FOR(i, 0, SZ(a) - d)
 	{
 		FOR(j, 0, d + 1)

@@ -14,9 +14,9 @@ void init()
 		pw[i] = com(cos(phi * i), sin(phi * i));	
 }*/
 
-void fft(VI& a, bool inv)
+void fft(VI& a, bool inverse)
 {
-	const int IGEN = binpow(GEN, nttMod - 2);
+	const int IGEN = binpow(GEN, mod - 2);
 	int lg = __builtin_ctz(SZ(a));
 	FOR(i, 0, SZ(a))
 	{
@@ -29,7 +29,7 @@ void fft(VI& a, bool inv)
 	for(int len = 2; len <= SZ(a); len *= 2)
 	{
 		// int diff = inv ? LEN - LEN / len : LEN / len;
-		int ml = binpow(inv ? IGEN : GEN, LEN / len);
+		int ml = binpow(inverse ? IGEN : GEN, LEN / len);
 		for(int i = 0; i < SZ(a); i += len)
 		{
 			// int pos = 0;
@@ -45,7 +45,7 @@ void fft(VI& a, bool inv)
 			}
 		}
 	}
-	if(inv)
+	if (inverse)
 	{
 		int m = binpow(SZ(a), mod - 2);
 		FOR(i, 0, SZ(a))
@@ -56,9 +56,10 @@ void fft(VI& a, bool inv)
 
 VI mult(VI a, VI b)
 {
-	if (a.empty() || b.empty())
+	int n = SZ(a), m = SZ(b);
+	if (n == 0 || m == 0)
 		return {};
-	int sz = 1, szRes = SZ(a) + SZ(b) - 1;
+	int sz = 1, szRes = n + m - 1;
 	while(sz < szRes)
 		sz *= 2;
 	a.resize(sz);
@@ -67,10 +68,11 @@ VI mult(VI a, VI b)
 	fft(a, false);
 	fft(b, false);
 	
-	FOR(i, 0, SZ(a))
+	FOR(i, 0, sz)
 		a[i] = mult(a[i], b[i]);
 	
 	fft(a, true);
 	a.resize(szRes);
 	return a;
 }
+

@@ -1,8 +1,10 @@
 /**
  * Description: Solves the system $A x = b$.
  * Returns $(v, w)$ such that every solution $x$ can be represented as
- * $v + c_1 w_1 + c_2 w_2 + \dots + c_k w_k$.
+ * $v + c_1 w_1 + c_2 w_2 + \dots + c_k w_k$, where $v$ is arbitrary solution,
+ * $c_i$ are scalars and $w$ is basis.
  * If there is no solution, returns an empty pair.
+ * If the solution is unique, then $w$ is empty.
  * Time: O(n m \min (n, m))
  */
 pair<VI, vector<VI>> solveLinearSystem(vector<VI> a, VI b)

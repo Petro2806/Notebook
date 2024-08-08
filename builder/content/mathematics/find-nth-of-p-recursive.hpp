@@ -6,6 +6,17 @@
  * Let $m$ be the maximum degree of $P_j$.
  * Time: O(d^2 \sqrt{n m} \log {n m} + d^3 \sqrt{n m})
  */
+VI add(const VI& a, const VI& b)
+{
+	int n = SZ(a), m = SZ(b);
+	VI c(max(n, m));
+	FOR(i, 0, n)
+		updAdd(c[i], a[i]);
+	FOR(i, 0, m)
+		updAdd(c[i], b[i]);
+	return c;
+}
+
 int evalPoly(const VI& p, int x)
 {
 	int res = 0;
@@ -16,19 +27,21 @@ int evalPoly(const VI& p, int x)
 
 VI mult(const vector<VI>& a, const VI& b)
 {
-	VI c(SZ(a));
-	FOR(i, 0, SZ(a))
-		FOR(j, 0, SZ(b))
+	int n = SZ(a);
+	VI c(n);
+	FOR(i, 0, n)
+		FOR(j, 0, n)
 			updAdd(c[i], mult(a[i][j], b[j]));
 	return c;
 }
 
 vector<VI> mult(const vector<VI>& a, const vector<VI>& b)
 {
-	vector c(SZ(a), VI(SZ(b[0])));
-	FOR(i, 0, SZ(a))
-		FOR(k, 0, SZ(b))
-			FOR(j, 0, SZ(b))
+	int n = SZ(a);
+	vector<VI> c(n, VI(n));
+	FOR(i, 0, n)
+		FOR(k, 0, n)
+			FOR(j, 0, n)
 				updAdd(c[i][j], mult(a[i][k], b[k][j]));
 	return c;
 }
@@ -37,10 +50,11 @@ typedef vector<vector<VI>> PolyMatr;
 
 PolyMatr mult(const PolyMatr& a, const PolyMatr& b)
 {
-	PolyMatr c(SZ(a), vector<VI>(SZ(b[0])));
-	FOR(i, 0, SZ(a))
-		FOR(k, 0, SZ(a[0]))
-			FOR(j, 0, SZ(b[0]))
+	int n = SZ(a);
+	PolyMatr c(n, vector<VI>(n));
+	FOR(i, 0, n)
+		FOR(k, 0, n)
+			FOR(j, 0, n)
 				c[i][j] = add(c[i][j], mult(a[i][k], b[k][j]));
 	return c;
 }
@@ -51,7 +65,6 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 	assert(SZ(a) == d);
 	if (n < d)
 		return a[n];
-	
 	auto polyMatrProd = [](const PolyMatr& polyMatr, int k, VI u)
 	{
 		int h = SZ(polyMatr);
@@ -60,7 +73,7 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 			[&](const vector<vector<VI>>& matrices, int c, int m)
 		{
 			int cnt = SZ(matrices);
-			vector res(m, vector(h, VI(h)));
+			vector<vector<VI>> res(m, vector<VI>(h, VI(h)));
 			FOR(i, 0, h)
 			{
 				FOR(j, 0, h)
@@ -84,7 +97,7 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 		while ((LL)m * s * s < k)
 			s *= 2;
 		int invS = binpow(s, mod - 2);
-		vector matrices(m + 1, vector(h, VI(h)));
+		vector<vector<VI>> matrices(m + 1, vector<VI>(h, VI(h)));
 		FOR(l, 0, m + 1)
 		{
 			FOR(i, 0, h)
@@ -102,7 +115,7 @@ int findNthOfPRecursive(const vector<VI>& p, VI a, int n)
 		int l = 0;
 		for (; l + s <= k; l += s)
 			u = mult(matrices[l / s], u);
-		vector matr(h, VI(h));
+		vector<VI> matr(h, VI(h));
 		for (; l < k; l++)
 		{
 			FOR(i, 0, h)

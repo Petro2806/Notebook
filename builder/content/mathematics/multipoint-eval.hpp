@@ -1,5 +1,5 @@
 /**
- * Description: Evaluates the polynomial P(x) of degree $m$ at the points $x_0, \dots, x_{n - 1}$.
+ * Description: Evaluates the polynomial $P(x)$ of degree $m$ at points $x_0, \dots, x_{n - 1}$.
  * Time: O(n \log^2 n + m \log m)
  */
 VI multipointEval(const VI& p, const VI& x)
@@ -27,9 +27,10 @@ VI multipointEval(const VI& p, const VI& x)
 	build(0, 0, n);
 	VI ans(n);
 	
-	function<void(int, int, int, VI)> solve = [&](int v, int tl, int tr, VI q)
+	function<void(int, int, int, VI)> solve
+		= [&](int v, int tl, int tr, VI q)
 	{
-		q = modulo(q, t[v]).S;
+		q = divide(q, t[v]).S;
 		if (q.empty())
 			return;
 		if(tl + 1 == tr)
