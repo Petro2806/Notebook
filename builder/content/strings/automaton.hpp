@@ -11,12 +11,9 @@ struct Node
 	int link;
 	int len;
 	int cnt;
-	Node()
+	Node(): link(-1), len(0), cnt(1)
 	{
 		fill(g, g + AL, -1);
-		link = -1;
-		len = -1;
-		cnt = 1;
 	}
 };
 
@@ -24,12 +21,7 @@ struct Automaton
 {
 	vector<Node> a;
 	int head;
-	void init(int n)
-	{
-		a.reserve(2 * n);
-		a.PB(Node());
-		head = 0;
-	}
+	Automaton(): a(1), head(0) {}
 	void add(char c)
 	{
 		// change to [0 AL)
