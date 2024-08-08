@@ -14,18 +14,11 @@ struct Graph
 	int n;
 	vector<Edge> edges;
 	vector<VI> g;
-	vector<LL> pi, d;
+	VL pi, d;
 	VI pred;
-	void init(int _n)
-	{
-		n = _n;
-		edges.clear();
-		g.clear();
-		g.resize(n);
-		pi.assign(n, 0);
-		d.resize(n);
-		pred.resize(n);
-	}
+	
+	Graph(int _n = 0): n(_n), g(n), pi(n), d(n), pred(n) {}
+	
 	void addEdge(int from, int to, int cap, LL cost)
 	{
 		assert(0 <= from && from < n);

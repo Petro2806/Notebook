@@ -1,0 +1,28 @@
+\section*{Find $n$ bits using $O(\frac{n}{\log n})$ sums}
+To find $n$ bits $x_0, \dots, x_{n - 1}$ using $\approx 2.67 \cdot \frac{n}{\log_2(n)}$ sums of values in asked subsequences.
+
+Define $Y + d$ as $\{y + d,$ for $y \in Y\}$.
+
+Define $f_k$ as maximum number of bits we can find using $2^k$ queries.
+We can make $f_{k + 1} = 2 \cdot f_k + 2^k - 1$ using such queries:
+
+\begin{itemize}
+\item Ask sum of elements $[f_k, 2 \cdot f_k)$.
+\item Iterate through the first $2^k - 1$ queries $Q_i$, ask $Q_i \cup (Q_i + f_k)$ and $Q_i \cup [f_k, 2 \cdot f_k) \setminus (Q_i + f_k) \cup x_{2 \cdot f_k + i}$.    
+\item Ask sum of elements $[0, f_{k + 1})$.
+\end{itemize}
+
+
+If we have sums of queries $[f_k, 2 \cdot f_k)$, $Q \cup (Q + f_k)$ and $Q \cup [f_k, 2 \cdot f_k) \setminus (Q + f_k) \cup x$ as $a$, $b$ and $c$ respectively. 
+
+$x = (c + b - a) \% 2, S(Q) = \frac{b + c - a - x}{2}, S(Q + f_k) = \frac{b + a - c + x}{2}$.
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+k 		& 0 & 1 & 2 & 3  & 4  & 5   & 10     		 		& 13 					 \\
+\hline
+$2^k$ 	& 1 & 2 & 4 & 8  & 16 & 32 & $\approx 10^3$ 		& $\approx 8 \cdot 10^3$ \\
+\hline
+$f_k$ 	& 1 & 2 & 5 & 13 & 33 & 81 & $\approx 5 \cdot 10^3$ & $\approx 5 \cdot 10^4$ \\
+\hline
+\end{tabular}

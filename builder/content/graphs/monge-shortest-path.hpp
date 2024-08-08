@@ -6,9 +6,9 @@
  */
 
 template<typename F>
-vector<LL> mongeShortestPath(int n, const F& cost)
+VL mongeShortestPath(int n, const F& cost)
 {
-	vector<LL> dist(n, LINF);
+	VL dist(n, LINF);
 	VI amin(n);
 	dist[0] = 0;
 	

@@ -1,48 +1,49 @@
 /**
  * Description: queryLcp returns the longest common prefix of substrings starting at $i$ and $j$.
  */
- 
-struct Lcp
+struct LCP
 {
-	VI lcp;
-	SuffixArray a;
+	int n;
+	VI s, sa, rnk, lcp;
 	SparseTable st;
 
-	void init(const SuffixArray& _a)
+	LCP(VI _s): n(SZ(_s)), s(_s)
 	{
-		a = _a;
-		lcp = lcpArray();
-		st.init(SZ(lcp));
-		st.build(lcp);
+		sa = suffixArray(s);
+		rnk.resize(n);
+		FOR (i, 0, n)
+			rnk[sa[i]] = i;
+		lcpArray();
+		FOR (i, 0, n - 1)
+			st.PB(lcp[i]);
 	}
 
-	VI lcpArray()
+	void lcpArray()
 	{
-		lcp.resize(a.n - 1);
+		lcp.resize(n - 1);
 		int h = 0;
-		FOR (i, 0, a.n)
+		FOR (i, 0, n)
 		{
 			if (h > 0)
 				h--;
-			if (a.rnk[i] == 0)
+			if (rnk[i] == 0)
 				continue;
-			int j = a.sa[a.rnk[i] - 1];
-			for (; j + h < a.n && i + h < a.n; h++)
+			int j = sa[rnk[i] - 1];
+			for (; j + h < n && i + h < n; h++)
 			{
-				if (a.s[j + h] != a.s[i + h])
+				if (s[j + h] != s[i + h])
 					break;
 			}
-			lcp[a.rnk[i] - 1] = h;
+			lcp[rnk[i] - 1] = h;
 		}
-		return lcp;
 	}
 	int queryLcp(int i, int j)
 	{
-		if (i == a.n || j == a.n)
+		if (i == n || j == n)
 			return 0;
 		assert(i != j); // return n - i ????
-		i = a.rnk[i];
-		j = a.rnk[j];
+		i = rnk[i];
+		j = rnk[j];
 		if (i > j)
 			swap(i, j);
 		// query [i, j)
