@@ -1,6 +1,6 @@
 /**
  * Description: Finds the maximum flow in a network.
- * Time: O(n^2 m).
+ * Time: O(n^2 m). If all capacities are less than $c$, then the complexity of the Dinic is bounded by $O(min(n^{\frac{2}{3}}, \sqrt{c m}) \cdot c m)$.
  */
 struct Graph
 {
