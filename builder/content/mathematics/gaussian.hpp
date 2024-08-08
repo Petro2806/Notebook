@@ -1,11 +1,13 @@
 /**
  * Description: Solves the system $A x = b$.
- * If there is no solution, returns $(\{\}, -1)$.
- * If the solution is unique, returns $(x, 1)$.
- * Otherwise, returns $(x, 2)$ with $x$ being any solution.
+ * Returns $(v, w)$ such that every solution $x$ can be represented as
+ * $v + c_1 w_1 + c_2 w_2 + \dots + c_k w_k$, where $v$ is arbitrary solution,
+ * $c_i$ are scalars and $w$ is basis.
+ * If there is no solution, returns an empty pair.
+ * If the solution is unique, then $w$ is empty.
  * Time: O(n m \min (n, m))
  */
-pair<VI, int> solveLinear(vector<VI> a, VI b)
+pair<VI, vector<VI>> solveLinearSystem(vector<VI> a, VI b)
 {
 	int n = SZ(a), m = SZ(a[0]);
 	assert(SZ(b) == n);
@@ -43,15 +45,31 @@ pair<VI, int> solveLinear(vector<VI> a, VI b)
 	}
 	FOR(i, p, n)
 		if (a[i].back() != 0)
-			return {{}, -1};
-	VI x(m);
+			return {};
+	VI v(m);
 	RFOR(i, p, 0)
 	{
 		int j = pivots[i];
-		x[j] = a[i].back();
+		v[j] = a[i].back();
 		FOR(k, j + 1, m)
-			updSub(x[j], mult(a[i][k], x[k]));
-		x[j] = mult(x[j], binpow(a[i][j], mod - 2));
+			updSub(v[j], mult(a[i][k], v[k]));
+		v[j] = mult(v[j], binpow(a[i][j], mod - 2));
 	}
-	return {x, SZ(pivots) == m ? 1 : 2};
+	vector<VI> w;
+	FOR(q, 0, m)
+	{
+		if (find(ALL(pivots), q) != pivots.end())
+			continue;
+		VI d(m);
+		d[q] = 1;
+		RFOR(i, p, 0)
+		{
+			int j = pivots[i];
+			FOR(k, j + 1, m)
+				updSub(d[j], mult(a[i][k], d[k]));
+			d[j] = mult(d[j], binpow(a[i][j], mod - 2));
+		}
+		w.PB(d);
+	}
+	return {v, w};
 }

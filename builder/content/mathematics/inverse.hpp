@@ -1,35 +1,36 @@
 /**
- * Description: $\frac{1}{A(x)}$ modulo $x^k$.
+ * Description: $\frac{1}{A(x)}$ modulo $x^n$.
+ * Time: O(n \log n)
  */
-VI inverse(const VI& a, int k)
+VI inverse(const VI& a, int n)
 {
-	assert(SZ(a) == k && a[0] != 0);
-	if(k == 1)
-		return {binpow(a[0], mod - 2)};  
+	assert(SZ(a) == n && a[0] != 0);
+	if(n == 1)
+		return {binpow(a[0], mod - 2)};
 	
 	VI ra = a;
 	FOR(i, 0, SZ(ra))
 		if(i & 1)
-			ra[i] = sub(0, ra[i]);    
+			ra[i] = sub(0, ra[i]);
 	
-	int nk = (k + 1) / 2;
+	int nn = (n + 1) / 2;
 	VI t = mult(a, ra);
-	t.resize(k);
+	t.resize(n);
 	
-	FOR(i, 0, nk)
+	FOR(i, 0, nn)
 		t[i] = t[2 * i];
   
-	t.resize(nk);
-	t = inverse(t, nk);
-	t.resize(k);
+	t.resize(nn);
+	t = inverse(t, nn);
+	t.resize(n);
   
-	RFOR(i, nk, 1)
+	RFOR(i, nn, 1)
 	{
 		t[2 * i] = t[i];
 		t[i] = 0;
 	}
 	
 	VI res = mult(ra, t);
-	res.resize(k);
+	res.resize(n);
 	return res;
 }
