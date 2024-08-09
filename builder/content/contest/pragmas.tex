@@ -1,7 +1,7 @@
 \section*{Pragmas}
 	\begin{itemize}
 		\item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize loops and optimizes floating points better. 
-		It is not unexpected to see your floating-point error analysis go to waste. 
+		It is not unexpected to see your floating-point error analysis go to waste.
 		\item \lstinline{#pragma GCC target ("avx2")} can double performance of vectorized code, but causes crashes on old machines.
 		\item \lstinline{#pragma GCC optimize("unroll-loops")} enables aggressive loop unrolling, which reduces the number of branches and optimizes parallel computation.
 	\end{itemize}
