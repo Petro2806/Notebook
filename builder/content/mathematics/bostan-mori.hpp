@@ -2,7 +2,9 @@
  * Description: Computes the $n$-th term of a given linearly
  * recurrent sequence $a_i = \sum_{j=1}^d c_j a_{i - j}$.
  * The first $d$ terms $a_0, a_1, \dots, a_{d - 1}$ are given.
+ * 
  * The problem reduces to determining $[x^n] P(x)/Q(x)$.
+ * 
  * $\dfrac{P(x)}{Q(x)}=\dfrac{P(x)Q(-x)}{Q(x)Q(-x)}=\dfrac{U_\text{e}(x^2)}{V(x^2)} + x \cdot \dfrac{U_\text{o}(x^2)}{V(x^2)}$.
  * Time: $O(d \log d \log n)$.
  */

@@ -1,11 +1,11 @@
 \section*{min= and sum with Segment Tree}
 
-Store in each node: \texttt{max}, \texttt{cntMax}, \texttt{max2}, \texttt{sum}
+Store in each node: $max$, $cntMax$, $max2$, $sum$
 
-In update check l, r conditions and: 
+In update check $l$, $r$ conditions and: 
 \begin{itemize}
-\item if (val >= max) return;
-\item else if (val >= max2) update this node;
+\item if ($val \ge max$) return;
+\item else if ($val > max2$) update this node;
 \item else go to left and right
 \end{itemize}
 

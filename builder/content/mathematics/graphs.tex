@@ -1,4 +1,4 @@
-\subsection*{Prüfer sequence}
+\section*{Prüfer sequence}
 At step $i$, remove the leaf with the smallest label and set the $i$-th
 element of the Prüfer sequence to be the label of this leaf's neighbour.
 The Prüfer sequence of a labeled tree is unique and has length $n - 2$.
@@ -18,7 +18,7 @@ For a forest graph with connected components of sizes $s_0, \dots, s_{k - 1}$,
 the number of ways to add edges to make a spanning tree is equal to:
 $ n^{k - 2} \cdot \prod s_i$
 
-\subsection*{Chromatic polynomial}
+\section*{Chromatic polynomial}
 For a graph $G$, $\chi(G, \lambda) = \chi(\lambda)$ counts the number of its vertex $\lambda$-colorings.
 There is a unique polynomial $\chi(\lambda)$. Deletion-contraction:
 \begin{itemize}
@@ -62,7 +62,7 @@ subject to the two conditions:
     $(-1)^n \chi(G, -1)$ is equal to the number of acyclic orientations of $G$.
 \end{corollary}
 
-\subsection*{Kirchhoff's theorem}
+\section*{Kirchhoff's theorem}
 
 Let $G$ be a finite graph, allowing multiple edges but not loops.
 
@@ -78,7 +78,7 @@ L_{i j} = \left\{ \begin{array}{ll}
 Let $L_0$ denote $L$ with the $i$-th row and column removed for any $i$.
 Then for a connected graph, $\det(L_0)$ equals the number of spanning trees of $G$.
 
-\subsection*{Karp's minimum mean-weight cycle algorithm}
+\section*{Karp's minimum mean-weight cycle algorithm}
 
 Let $G = (V, E)$ be a directed graph with weight function $w: E \to \mathbb{R}$,
 and let $n = |V|$.

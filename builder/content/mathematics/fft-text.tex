@@ -1,9 +1,9 @@
-\subsection*{FFT tricks}
-\subsubsection*{Two-dimensional FFT}
+\section*{FFT tricks}
+\section*{Two-dimensional FFT}
 The complexity is $O(nm(\log n + \log m))$.
 The main problem is to resize the matrix. You must add non-empty vectors.
 
-\subsubsection*{Divide-and-conquer FFT}
+\section*{Divide-and-conquer FFT}
 Suppose we have the following DP relation: $f(t) = g(t) - \sum_{0 \le u < t} f(u) h(t-u)$,
 where $g(t)$ and $h(t)$ are known and we want to compute $f(t)$. We can apply divide-and-conquer FFT.
 
@@ -22,7 +22,7 @@ When calculate the values for the segment $[l, r)$ do:
 \item Calculate the values for the segment $[m,r)$ recursively.
 \end{itemize}
 
-\subsection*{Properties of the discrete Fourier transform}
+\section*{Properties of the discrete Fourier transform}
 
 $$DFT(x)_k = \sum_{n = 0}^{N - 1} x_n \cdot e^{-i 2 \pi \frac{k}{N}n}$$
 
