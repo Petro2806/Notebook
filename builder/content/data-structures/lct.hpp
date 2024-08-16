@@ -1,6 +1,6 @@
 /**
  * Description: Link-Cut Tree. 
- * Calculate any path queries. Change upd to maintain what you need. 
+ * Calculate any path queries. Change \texttt{upd} to maintain what you need. 
  * Don't use \texttt{upd} in \texttt{push}:). Calculate non commutative functions in both ways and swap them in push.
  * \texttt{cnt} -- number of nodes in current splay tree.
  * Don't touch \texttt{rev}, \texttt{sub}, \texttt{vsub}. 

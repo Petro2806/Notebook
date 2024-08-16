@@ -1,6 +1,6 @@
 /**
  * Description: $\text{add}(a, b)$ adds a straight line $y = a x + b$.
- * $\text{getMaxY}(p)$ finds the maximum $y$ at $x = p$.
+ * \texttt{getMaxY(p)} finds the maximum $y$ at $x = p$.
  **/
  
  struct Line

@@ -1,7 +1,7 @@
 /** 
  * Description: Uses the Miller-Rabin test. 
- * rho finds a divisor of $n$. 
- * use \_\_int128 in mult. 
+ * \texttt{rho} finds a divisor of $n$. 
+ * Use \texttt{\_\_int128} in \texttt{mult}.
  * Time: $O(n^{1/4} \cdot \log n)$.
  **/
  

@@ -3,6 +3,7 @@
  * The Nim product $\otimes$: $a \otimes b := \text{mex} \{(a' \otimes b) \oplus (a \otimes b') \oplus (a' \otimes b') | a' < a, b' < b\}$.
  * Let $A$ be the set consisting of integers between $0$ (inclusive) and $2^{2^n}$ (exclusive) (where $n$ is an integer).
  * Then the algebraic structure whose addition is $\oplus$ and multiplication is $\otimes$ forms a field. Such a field is called \textbf{Nimber}.
+ * Time: About 64 references to the precalculation table.
  */
 typedef unsigned long long ULL;
 

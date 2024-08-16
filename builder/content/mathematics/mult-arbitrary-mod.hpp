@@ -1,12 +1,12 @@
 /**
- * Description: Multiplies polynomials modulo arbitrary mod (or without modulo).
- * Add the modulo parameter to the modular arithmetics functions (int add(int a, int b, int m = mod)).
- * LEN must be $2^{24}$.
- * Change signature of the fft function into void fft(VI\& a, bool inverse, int nttMod, int GEN).
- * GEN will not be a constant anymore.
- * You must add nttMod inside the fft function 10 times in 8 lines of code.
- * Change signature of the original mult function into VI mult(VI a, VI b, int nttMod, int GEN).
- * You must add nttMod inside the original mult function 4 times in 4 lines of code.
+ * Description: Multiplies polynomials modulo arbitrary \texttt{mod} (or without modulo).
+ * Add the modulo parameter to the modular arithmetics functions (\texttt{int add(int a, int b, int m = mod)}).
+ * \texttt{LEN} must be $2^{24}$.
+ * Change signature of the fft function into \texttt{void fft(VI\& a, bool inverse, int nttMod, int GEN)}.
+ * \texttt{GEN} will not be a constant anymore.
+ * You must add \texttt{nttMod} inside the \texttt{fft} function 10 times in 8 lines of code.
+ * Change signature of the original \texttt{mult} function into \texttt{VI mult(VI a, VI b, int nttMod, int GEN)}.
+ * You must add \texttt{nttMod} inside the original \texttt{mult} function 4 times in 4 lines of code.
  */
 VI mult(const VI& a, const VI& b)
 {
