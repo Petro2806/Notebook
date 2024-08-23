@@ -1,11 +1,11 @@
 /**
  * Description: Finds faces in a planar graph.
- * Use addVertex() and addEdge() for initializing the graph
- * and addQueryPoint() for initializing the queries.
- * After initialization, call findFaces() before using other functions.
- * getIncidentFaces($i$) returns the pair of faces $(u, v)$ (possibly $u = v$)
+ * Use \texttt{addVertex()} and \texttt{addEdge()} for initializing the graph
+ * and \texttt{addQueryPoint()} for initializing the queries.
+ * After initialization, call \texttt{findFaces()} before using other functions.
+ * \texttt{getIncidentFaces(i)} returns the pair of faces $(u, v)$ (possibly $u = v$)
  * such that the $i$-th edge lies on the boundary of these faces.
- * getFaceOfQueryPoint($i$) returns the face where the $i$-th query point lies.
+ * \texttt{getFaceOfQueryPoint(i)} returns the face where the $i$-th query point lies.
  */
 namespace PlanarGraph
 {

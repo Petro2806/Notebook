@@ -1,5 +1,5 @@
 /**
-* Description: $c[S] = \sum_{T \subseteq S} a[S] \cdot b[S \setminus T]$.
+* Description: $c[S] = \sum_{T \subseteq S} a[T] \cdot b[S \setminus T]$.
 * Time: $O(n^2 \cdot 2^n)$, ~1.5s for $n = 20$.
 */
 

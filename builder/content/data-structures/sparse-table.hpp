@@ -1,6 +1,6 @@
 /**
- * Description: Sparse table for minimum on the range [l, r), l < r.
- * You can push back an element in O(log) and query anytime.
+ * Description: Sparse table for minimum on the range $[l, r), l < r$.
+ * You can push back an element in $O(\text{LOG})$ and query anytime.
  */
 
 struct SparseTable

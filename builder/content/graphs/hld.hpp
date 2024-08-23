@@ -1,6 +1,6 @@
 /**
- * Description: Run dfsSZ(root, -1, 0) and dfsHLD(root, -1, root) to build the HLD.
- * Each vertex $v$ has an index tin[$v$]. To update on the path, use the process as defined in get(). 
+ * Description: Run \texttt{dfsSZ(root, -1, 0)} and \texttt{dfsHLD(root, -1, root)} to build the HLD.
+ * Each vertex $v$ has an index tin[$v$]. To update on the path, use the process as defined in \texttt{get()}.
  * The values are stored in the vertices.
  * */
 
