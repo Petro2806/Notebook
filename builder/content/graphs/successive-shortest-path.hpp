@@ -1,6 +1,6 @@
 /**
  * Description: Finds the minimum cost maximum flow in a network.
- * If the network contains negative-cost edges, you should initialize $\pi (v) = \text{dist}(s, v)$ (e.g., using Bellman-Ford-Moore algorithm).
+ * If the network contains negative-cost edges, uncomment \texttt{initPotentials}.
  * Time: $O(|F| \cdot m \log n)$ without negative-cost edges, and $O(|F| \cdot m \log n + n m)$ with negative-cost edges.
  */
 struct Graph
@@ -30,11 +30,26 @@ struct Graph
 		g[to].PB(SZ(edges));
 		edges.PB({to, from, 0, 0, -cost});
 	}
+	/*void initPotentials(int s)
+	{
+		vector<vector<pair<int, LL>>> gr(n);
+		FOR(v, 0, n)
+		{
+			for (int e : g[v])
+			{
+				const Edge& edge = edges[e];
+				if (edge.flow < edge.cap)
+					gr[v].PB({edge.to, edge.cost});
+			}
+		}
+		pi = spfa(gr, n, s);
+	}*/
 	pair<int, LL> flow(int s, int t)
 	{
 		assert(0 <= s && s < n);
 		assert(0 <= t && t < n);
 		assert(s != t);
+		//initPotentials(s);
 		int flow = 0;
 		LL cost = 0;
 		for (int it = 0; ; it++)
