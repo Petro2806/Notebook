@@ -4,7 +4,6 @@
  * Time: $O(m \cdot \sqrt{m})$
  **/
 
-
 int triangles(int n, vector<PII> edges)
 {
 	vector<VI> g(n);
