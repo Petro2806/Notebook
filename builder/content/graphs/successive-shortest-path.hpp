@@ -1,6 +1,7 @@
 /**
  * Description: Finds the minimum cost maximum flow in a network.
- * Time: O(|F| \cdot m \log n)
+ * If the network contains negative-cost edges, you should initialize $\pi (v) = \text{dist}(s, v)$ (e.g., using Bellman-Ford-Moore algorithm).
+ * Time: $O(|F| \cdot m \log n)$ without negative-cost edges, and $O(|F| \cdot m \log n + n m)$ with negative-cost edges.
  */
 struct Graph
 {
@@ -24,7 +25,6 @@ struct Graph
 		assert(0 <= from && from < n);
 		assert(0 <= to && to < n);
 		assert(0 <= cap);
-		assert(0 <= cost);
 		g[from].PB(SZ(edges));
 		edges.PB({from, to, cap, 0, cost});
 		g[to].PB(SZ(edges));
@@ -37,7 +37,7 @@ struct Graph
 		assert(s != t);
 		int flow = 0;
 		LL cost = 0;
-		while (true)
+		for (int it = 0; ; it++)
 		{
 			fill(ALL(d), LINF);
 			fill(ALL(pred), -1);
@@ -48,7 +48,7 @@ struct Graph
 			{
 				auto [dv, v] = q.top();
 				q.pop();
-				if (v == t)
+				if (it > 0 && v == t)
 					break;
 				if (-dv != d[v])
 					continue;
@@ -85,7 +85,7 @@ struct Graph
 			flow += curFlow;
 			cost += (d[t] + pi[t] - pi[s]) * curFlow;
 			FOR(u, 0, n)
-				if (d[u] <= d[t])
+				if (it == 0 || d[u] <= d[t])
 					pi[u] += d[u] - d[t];
 		}
 		return {flow, cost};
