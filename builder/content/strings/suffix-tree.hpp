@@ -2,19 +2,23 @@
  * Description: Ukkonen's algorithm for building a suffix tree.
  * Cast your string to vector.
  * Don't forget about delimiters.
- * \texttt{a[v].g[c]} is a transition in format $(u, (l, r))$,
+ * \texttt{a[v].g[c]} is a transition in format $(u, l, r)$,
  * that goes from $v$ to $u$ and the string spelled out by this transition is the substring $s_{l..r}$.
  * For transitions that go to leaves, $r = \text{INF}$.
  * For the root node which has number $0$, \texttt{link == -1}. For leaves, \texttt{link == -2}.
  * For all other nodes, \texttt{link} is maintained explicitly.
- * Time: O(n)
+ * Time: O(n \log |\Sigma|), where $\Sigma$ is an alphabet
  */
 
 struct SuffixTree
 {
+	struct Transition
+	{
+		int u, l, r;
+	};
 	struct Node
 	{
-		map<int, pair<int, PII>> g;
+		map<int, Transition> g;
 		int link;
 		Node(): link(-2) {}
 	};
@@ -26,14 +30,13 @@ struct SuffixTree
 			return {true, -1};
 		if (l <= r)
 		{
-			auto [nv, nlr] = a[v].g[s[l]];
-			auto [nl, nr] = nlr;
+			auto [nv, nl, nr] = a[v].g[s[l]];
 			if (c == s[nl + r - l + 1])
 				return {true, v};
 			int newNode = SZ(a);
 			a.PB(Node());
-			a[v].g[s[l]] = {newNode, {nl, nl + r - l}};
-			a[newNode].g[s[nl + r - l + 1]] = {nv, {nl + r - l + 1, nr}};
+			a[v].g[s[l]] = {newNode, nl, nl + r - l};
+			a[newNode].g[s[nl + r - l + 1]] = {nv, nl + r - l + 1, nr};
 			return {false, newNode};
 		}
 		return {a[v].g.count(c), v};
@@ -47,17 +50,13 @@ struct SuffixTree
 		}
 		if (r < l)
 			return {v, l};
-		auto [nv, nlr] = a[v].g[s[l]];
-		auto [nl, nr] = nlr;
-		while (nr - nl <= r - l)
+		Transition cur = a[v].g[s[l]];
+		while (cur.r - cur.l <= r - l)
 		{
-			l += nr - nl + 1;
-			v = nv;
+			l += cur.r - cur.l + 1;
+			v = cur.u;
 			if (l <= r)
-			{
-				tie(nv, nlr) = a[v].g[s[l]];
-				tie(nl, nr) = nlr;
-			}
+				cur = a[v].g[s[l]];
 		}
 		return {v, l};
 	}
@@ -69,7 +68,7 @@ struct SuffixTree
 		{
 			int newNode = SZ(a);
 			a.PB(Node());
-			a[u].g[s[r]] = {newNode, {r, INF}};
+			a[u].g[s[r]] = {newNode, r, INF};
 			if (oldu != 0)
 				a[oldu].link = u;
 			oldu = u;
@@ -80,7 +79,7 @@ struct SuffixTree
 			a[oldu].link = v;
 		return {v, l};
 	}
-	void build(const VI& _s)
+	SuffixTree(const VI& _s)
 	{
 		s = _s;
 		// Add the symbol that was not present in `s`
