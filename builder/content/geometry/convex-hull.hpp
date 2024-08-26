@@ -12,11 +12,11 @@ vector<Pt> convexHull(vector<Pt> v)
 	vector<Pt> lower, upper;
 	for (const Pt& p : v)
 	{
-		while (SZ(lower) > 1
-			&& sgn(orient(lower[SZ(lower) - 2], lower.back(), p)) <= 0)
+		while (SZ(lower) > 1 && 
+			sgn(orient(lower[SZ(lower) - 2], lower.back(), p)) <= 0)
 			lower.pop_back();
-		while (SZ(upper) > 1
-			&& sgn(orient(upper[SZ(upper) - 2], upper.back(), p)) >= 0)
+		while (SZ(upper) > 1 && 
+			sgn(orient(upper[SZ(upper) - 2], upper.back(), p)) >= 0)
 			upper.pop_back();
 		lower.PB(p);
 		upper.PB(p);

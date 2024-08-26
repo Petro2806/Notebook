@@ -8,7 +8,8 @@ struct Graph
 	vector<VI> g;
 	VI label, first, mate;
 	
-	Graph(int _n = 0): n(_n), g(n + 1), label(n + 1), first(n + 1), mate(n + 1) {}
+	Graph(int _n = 0): n(_n), g(n + 1), label(n + 1), 
+		first(n + 1), mate(n + 1) {}
 	
 	void addEdge(int u, int v)
 	{

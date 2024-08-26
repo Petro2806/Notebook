@@ -6,7 +6,6 @@
  * Time: O(n)
  **/
 
-
 struct Graph
 {
 	int n;
@@ -20,6 +19,8 @@ struct Graph
 	
 	void addEdge(int u, int v)
 	{
+		assert(0 <= u && u < n);
+		assert(0 <= v && v < n);
 		g[u].PB(v);
 		gr[v].PB(u);
 	}
@@ -42,7 +43,6 @@ struct Graph
 		// return vertex with min sdom
 		return val[v]; 
 	}
-	
 	
 	void dfs(int v, int pr)
 	{

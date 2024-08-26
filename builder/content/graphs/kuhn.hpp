@@ -12,8 +12,8 @@ struct Graph
 	vector<VI> g;
 	VI mateForL, usedL, mateForR;
 	
-	Graph(int L = 0, int R = 0): szL(L), szR(R), g(L), mateForL(L),
-		usedL(L), mateForR(R) {}
+	Graph(int L = 0, int R = 0): szL(L), szR(R), g(L), 
+		mateForL(L), usedL(L), mateForR(R) {}
 	
 	void addEdge(int from, int to)
 	{
