@@ -1,8 +1,9 @@
 /**
- * Description: Cast your string to an array.
+ * Description: Cast your string to vector.
  * Don't forget about delimiters.
  * No need to add anything at the end.
  * $\text{sa}$ represents permutations of positions if you sort all suffixes.
+ * Time: O(n \log n)
  */
 
 void countSort(VI& p, const VI& c)
