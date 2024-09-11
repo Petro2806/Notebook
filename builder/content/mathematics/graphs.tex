@@ -97,3 +97,11 @@ $$\mu^\ast = \min_{v \in V} \max_{0 \le k \le n - 1}
 \frac{\delta_n (s, v) - \delta_k (s, v)}{n - k}.$$
 
 This can be computed in time $O(V E)$.
+
+\section*{Erdős–Gallai theorem}
+
+A sequence of non-negative integers $d_{1} \ge \cdots \ge d_{n}$ can be
+represented as the degree sequence of a finite simple graph on $n$ vertices
+if and only if $d_{1}+\cdots +d_{n}$ is even and
+$\sum _{i=1}^{k}d_{i} \le k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k)$
+holds for every $k$ in $1 \le k \le n$. 
