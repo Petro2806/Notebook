@@ -2,7 +2,7 @@
  * Description: Finds a maximum matching that has the minimum weight in a weighted bipartite graph.
  * Time: O(n^2 m)
  */
-LL hungarian(const vector<vector<LL>>& a)
+LL hungarian(const vector<VL>& a)
 {
 	int n = SZ(a), m = SZ(a[0]);
 	assert(n <= m);
@@ -23,7 +23,7 @@ LL hungarian(const vector<vector<LL>>& a)
 			{
 				if (!used[j])
 				{
-					int cur = a[i0][j] - u[i0] - v[j];
+					LL cur = a[i0][j] - u[i0] - v[j];
 					if (cur < minv[j])
 					{
 						minv[j] = cur;
