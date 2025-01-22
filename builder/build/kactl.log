@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.4)  26 AUG 2024 12:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.1)  22 JAN 2025 11:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -798,7 +798,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/graphs/successive-shortest-path.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex) (./content/graphs/max-flow-min-capacities.tex
-<content/graphs/max-flow-min-capacities.png, id=1276, 207.77625pt x 173.14688pt>
+<content/graphs/max-flow-min-capacities.png, id=1279, 207.77625pt x 173.14688pt>
 File: content/graphs/max-flow-min-capacities.png Graphic file (type png)
 <use content/graphs/max-flow-min-capacities.png>
 Package pdftex.def Info: content/graphs/max-flow-min-capacities.png  used on input line 19.
@@ -816,10 +816,10 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graphs/3-cycles.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
+ (./build/kactltmp.tex)
 runsystem(python3 content/tex/preprocessor.py --print-header "3-cycles.hpp|3-cycles.hpp" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [9])
+ (./build/header2.tmp) [9]
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/graphs/4-cycles.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -888,14 +888,14 @@ runsystem(python3 content/tex/preprocessor.py -i "content/strings/palindromic-tr
 
  (./build/kactltmp.tex)) (./content/geometry/chapter.tex
 Chapter 5.
-runsystem(python3 content/tex/preprocessor.py --print-header "palindromic-tree.hpp|palindromic-tree.hpp" -o build/header2.tmp)...executed.
-
-(./build/header2.tmp) [12]
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/point.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex)
+(./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "point.hpp|point.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [12])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/line.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -931,12 +931,17 @@ runsystem(python3 content/tex/preprocessor.py -i "content/geometry/minkowski-sum
  (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
-runsystem(python3 content/tex/preprocessor.py -i "content/geometry/halfplane-intersection.hpp" -o build/kactltmp.tex -l hpp)...executed.
+runsystem(python3 content/tex/preprocessor.py -i "content/geometry/ear-clipping.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "halfplane-intersection.hpp|halfplane-intersection.hpp" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "ear-clipping.hpp|ear-clipping.hpp" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [14])
+runsystem(rm -f build/kactltmp.tex)...executed.
+
+runsystem(python3 content/tex/preprocessor.py -i "content/geometry/halfplane-intersection.hpp" -o build/kactltmp.tex -l hpp)...executed.
+
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/circle.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -957,33 +962,33 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/closest-pair.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex)
+runsystem(python3 content/tex/preprocessor.py --print-header "closest-pair.hpp|closest-pair.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [15]
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/geometry/planar-graph.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "planar-graph.hpp|planar-graph.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [15])) (./content/mathematics/chapter.tex
+ (./build/kactltmp.tex)) (./content/mathematics/chapter.tex
 Chapter 6.
+runsystem(rm -f build/kactltmp.tex)...executed.
+
+runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/modular-arithmetics.hpp" -o build/kactltmp.tex -l hpp)...executed.
+
+(./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "modular-arithmetics.hpp|modular-arithmetics.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [16])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/gcd.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
-(./build/kactltmp.tex)
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/fast-chinese.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex)
-runsystem(rm -f build/kactltmp.tex)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/chinese.hpp" -o build/kactltmp.tex -l hpp)...executed.
-
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "chinese.hpp|chinese.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [16])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/miller-rabin.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -998,7 +1003,10 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/floor-sum.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex)
+ (./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "pollard.hpp|floor-sum.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [17])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/min-mod-linear.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1013,10 +1021,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/gaussian.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "gaussian.hpp|gaussian.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [17])
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/hungarian.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1027,7 +1032,7 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/simplex.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "|simplex.hpp" -o build/header2.tmp)...executed.
+runsystem(python3 content/tex/preprocessor.py --print-header "simplex.hpp|simplex.hpp" -o build/header2.tmp)...executed.
 
  (./build/header2.tmp) [18])
 runsystem(rm -f build/kactltmp.tex)...executed.
@@ -1044,15 +1049,15 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/subset-convolution.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex)
+ (./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "subset-convolution.hpp|subset-convolution.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [19])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/fft.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "fft.hpp|fft.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [19])
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/mult-arbitrary-mod.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1068,6 +1073,9 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/log.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex)
+runsystem(python3 content/tex/preprocessor.py --print-header "log.hpp|log.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [20]
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/exp.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1082,28 +1090,20 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/multipoint-eval.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "multipoint-eval.hpp|multipoint-eval.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [20])
-runsystem(rm -f build/kactltmp.tex)...executed.
-
-runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/taylor-shift.hpp" -o build/kactltmp.tex -l hpp)...executed.
-
  (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/shift-eval-values.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex) (./content/mathematics/newton.tex) (./content/mathematics/fft-text.tex) (./content/mathematics/interpolation.tex)
+ (./build/kactltmp.tex) (./content/mathematics/newton.tex) (./content/mathematics/fft-text.tex) (./content/mathematics/interpolation.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "|shift-eval-values.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [21])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/berlekamp-massey.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "berlekamp-massey.hpp|berlekamp-massey.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [21])
+ (./build/kactltmp.tex)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/bostan-mori.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1119,47 +1119,48 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 runsystem(python3 content/tex/preprocessor.py -i "content/mathematics/find-nth-of-p-recursive.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "find-nth-of-p-recursive.hpp|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [22]) (./content/mathematics/mathematical-analysis.tex) (./content/mathematics/number-theory.tex
 runsystem(python3 content/tex/preprocessor.py --print-header "|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [22]) (./content/mathematics/mathematical-analysis.tex) (./content/mathematics/number-theory.tex) (./content/mathematics/combinatorics.tex
-runsystem(python3 content/tex/preprocessor.py --print-header "|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [23]
-<content/mathematics/hook-length-tableau.jpg, id=4115, 196.735pt x 195.73125pt>
+ (./build/header2.tmp) [23]) (./content/mathematics/combinatorics.tex
+<content/mathematics/hook-length-tableau.jpg, id=4164, 196.735pt x 195.73125pt>
 File: content/mathematics/hook-length-tableau.jpg Graphic file (type jpg)
 <use content/mathematics/hook-length-tableau.jpg>
 Package pdftex.def Info: content/mathematics/hook-length-tableau.jpg  used on input line 54.
 (pdftex.def)             Requested size: 81.66438pt x 81.24486pt.
-) (./content/mathematics/graphs.tex) (./content/mathematics/planar.tex) (./content/mathematics/dilworth.tex
+) (./content/mathematics/graphs.tex
 runsystem(python3 content/tex/preprocessor.py --print-header "|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
 
- (./build/header2.tmp) [24 <./content/mathematics/hook-length-tableau.jpg>]) (./content/mathematics/geometry.tex
-<content/mathematics/ball-segment.png, id=4137, 235.88126pt x 130.4875pt>
+ (./build/header2.tmp) [24 <./content/mathematics/hook-length-tableau.jpg>]) (./content/mathematics/planar.tex) (./content/mathematics/dilworth.tex) (./content/mathematics/geometry.tex
+<content/mathematics/ball-segment.png, id=4185, 235.88126pt x 130.4875pt>
 File: content/mathematics/ball-segment.png Graphic file (type png)
 <use content/mathematics/ball-segment.png>
 Package pdftex.def Info: content/mathematics/ball-segment.png  used on input line 13.
 (pdftex.def)             Requested size: 81.66438pt x 45.17552pt.
-<content/mathematics/ball-layer.png, id=4139, 202.7575pt x 196.735pt>
+<content/mathematics/ball-layer.png, id=4187, 202.7575pt x 196.735pt>
 File: content/mathematics/ball-layer.png Graphic file (type png)
 <use content/mathematics/ball-layer.png>
 Package pdftex.def Info: content/mathematics/ball-layer.png  used on input line 22.
 (pdftex.def)             Requested size: 81.66438pt x 79.23894pt.
-<content/mathematics/monges-theorem.png, id=4140, 511.6716pt x 511.6716pt>
+<content/mathematics/monges-theorem.png, id=4188, 511.6716pt x 511.6716pt>
 File: content/mathematics/monges-theorem.png Graphic file (type png)
 <use content/mathematics/monges-theorem.png>
 Package pdftex.def Info: content/mathematics/monges-theorem.png  used on input line 46.
 (pdftex.def)             Requested size: 122.48413pt x 122.48358pt.
 )) (./content/various/chapter.tex
 Chapter 7.
-(./content/various/sums.tex) (./content/various/matroid.tex
-<content/various/matroid-intersection.jpg, id=4141, 448.67625pt x 569.12625pt>
+(./content/various/sums.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [25 <./content/mathematics/ball-segment.png> <./content/mathematics/ball-layer.png> <./content/mathematics/monges-theorem.png>]) (./content/various/matroid.tex
+<content/various/matroid-intersection.jpg, id=4216, 448.67625pt x 569.12625pt>
 File: content/various/matroid-intersection.jpg Graphic file (type jpg)
 <use content/various/matroid-intersection.jpg>
 Package pdftex.def Info: content/various/matroid-intersection.jpg  used on input line 32.
 (pdftex.def)             Requested size: 81.66438pt x 103.58461pt.
-runsystem(python3 content/tex/preprocessor.py --print-header "|find-nth-of-p-recursive.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [25 <./content/mathematics/ball-segment.png> <./content/mathematics/ball-layer.png> <./content/mathematics/monges-theorem.png>])
+)
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/three-sat.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1169,15 +1170,15 @@ runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/gaussian-integer.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
- (./build/kactltmp.tex)
+ (./build/kactltmp.tex
+runsystem(python3 content/tex/preprocessor.py --print-header "gaussian-integer.hpp|gaussian-integer.hpp" -o build/header2.tmp)...executed.
+
+ (./build/header2.tmp) [26 <./content/various/matroid-intersection.jpg>])
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/golden-section-search.hpp" -o build/kactltmp.tex -l hpp)...executed.
 
  (./build/kactltmp.tex)
-runsystem(python3 content/tex/preprocessor.py --print-header "golden-section-search.hpp|golden-section-search.hpp" -o build/header2.tmp)...executed.
-
- (./build/header2.tmp) [26 <./content/various/matroid-intersection.jpg>]
 runsystem(rm -f build/kactltmp.tex)...executed.
 
 runsystem(python3 content/tex/preprocessor.py -i "content/various/nim-product.hpp" -o build/kactltmp.tex -l hpp)...executed.
@@ -1200,18 +1201,18 @@ Package rerunfilecheck Info: File `kactl.out' has not changed.
 (rerunfilecheck)             Checksum: E375A2D5649D3819B2FE9810E0183F7C;609.
  ) 
 Here is how much of TeX's memory you used:
- 21840 strings out of 479721
- 340057 string characters out of 5887698
- 1883544 words of memory out of 5000000
- 35024 multiletter control sequences out of 15000+600000
- 494569 words of font info for 89 fonts, out of 8000000 for 9000
+ 21900 strings out of 479721
+ 341008 string characters out of 5887697
+ 1901544 words of memory out of 5000000
+ 35031 multiletter control sequences out of 15000+600000
+ 493515 words of font info for 84 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 75i,13n,103p,562b,2235s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0700.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0600.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0700.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.720pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.729pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.720pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.2083pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.868pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on build//kactl.pdf (28 pages, 1003816 bytes).
+ 75i,13n,103p,562b,2273s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcti0700.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0600.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0700.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.720pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.729pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.720pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.2083pk> </home/mshcherba/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.868pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on build//kactl.pdf (28 pages, 991210 bytes).
 PDF statistics:
- 5946 PDF objects out of 6186 (max. 8388607)
- 5236 compressed objects within 53 object streams
- 4171 named destinations out of 4296 (max. 500000)
+ 6003 PDF objects out of 6186 (max. 8388607)
+ 5293 compressed objects within 53 object streams
+ 4224 named destinations out of 4296 (max. 500000)
  92 words of extra memory for PDF output out of 10000 (max. 10000000)
 
