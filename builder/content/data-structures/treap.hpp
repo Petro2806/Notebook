@@ -79,13 +79,13 @@ struct Treap
 		push(v);
 		int left = getCnt(t[v].l);
 		PII res;
-		// elements a[v].x == val will be in right part
-		// if (val <= a[v].x)
+		// elements t[v].x == val will be in right part
+		// if (val <= t[v].x)
 		if (cnt <= left)
 		{
 			if (t[v].l != -1) 
 				t[t[v].l].par = -1;
-			// res = split(a[v].l, val);
+			// res = split(t[v].l, val);
 			res = split(t[v].l, cnt);
 			t[v].l = res.S;
 			if (res.S != -1) 
@@ -96,7 +96,7 @@ struct Treap
 		{
 			if (t[v].r != -1) 
 				t[t[v].r].par = -1;
-			// res = split(a[v].r, val);
+			// res = split(t[v].r, val);
 			res = split(t[v].r, cnt - left - 1);
 			t[v].r = res.F;
 			if (res.F != -1) 
