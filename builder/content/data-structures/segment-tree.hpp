@@ -15,9 +15,10 @@ struct SegmentTree
 	
 	void build(int v, int tl, int tr, const vector<T>& a)
 	{
-		if (tl + 1 == tr && tl < SZ(a))
+		if (tl + 1 == tr)
 		{
-			t[v] = a[tl];
+			if (tl < SZ(a))
+				t[v] = a[tl];
 			return;
 		}
 		int tm = (tl + tr) / 2;
@@ -26,7 +27,11 @@ struct SegmentTree
 		t[v] = combine(t[2 * v + 1], t[2 * v + 2]);
 	}
 	
-	// push
+	void build(const vector<T>& a)
+	{
+		build(0, 0, n, a);
+	}
+	
 	void push(int v, int tl, int tr)
 	{
 		if (tl + 1 == tr)
@@ -34,7 +39,7 @@ struct SegmentTree
 		
 	}
 	
-	// !important
+	// important
 	T combine(const T& n1, const T& n2)
 	{
 		return n1 + n2;
@@ -54,7 +59,7 @@ struct SegmentTree
 		int tm = (tl + tr) / 2;
 		upd(2 * v + 1, tl, tm, l, r, x);
 		upd(2 * v + 2, tm, tr, l, r, x);
-		t[v] = combine(t[v * 2 + 1], t[v * 2 + 2]);
+		t[v] = combine(t[2 * v + 1], t[2 * v + 2]);
 	}
 	
 	void upd(int l, int r, T x)
@@ -66,14 +71,12 @@ struct SegmentTree
 	{
 		push(v, tl, tr);
 		if (l <= tl && tr <= r)
-		{
 			return t[v];
-		}
 		if (r <= tl || tr <= l)
 			return ZERO;
 		int tm = (tl + tr) / 2;
 		return combine(query(2 * v + 1, tl, tm, l, r), 
-					   query(2 * v + 2, tm, tr, l, r));
+			query(2 * v + 2, tm, tr, l, r));
 	}
 	
 	T query(int l, int r)
